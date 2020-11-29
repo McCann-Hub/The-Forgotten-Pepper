@@ -1,28 +1,32 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app" class="h-screen">
+    <NotFound/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import NotFound from './views/NotFound.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    NotFound
   }
 }
 </script>
 
 <style>
+/* Inter font from Google Fonts */
+@import url('https://fonts.googleapis.com/css?family=Inter:400,500,600,700,900&display=swap');
+
+/* tailwind imports */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Inter, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
