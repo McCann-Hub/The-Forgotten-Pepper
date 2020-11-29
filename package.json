@@ -6,7 +6,8 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "deploy": "npm run build; push-dir --dir=dist --branch=main --cleanup"
+    "predeploy": "npm run build",
+    "deploy": "push-dir --dir=dist --branch=main --cleanup"
   },
   "dependencies": {
     "autoprefixer": "^9.8.6",
