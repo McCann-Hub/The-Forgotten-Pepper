@@ -1,23 +1,18 @@
 <template>
   <div id="app" class="h-screen">
-    <NotFound/>
+    <slot />
   </div>
 </template>
 
 <script>
-import NotFound from './views/NotFound.vue'
-
 export default {
-  name: 'App',
-  components: {
-    NotFound
-  }
-}
+  name: "App",
+};
 </script>
 
-<style>
+<style lang="stylus">
 /* Inter font from Google Fonts */
-@import url('https://fonts.googleapis.com/css?family=Inter:400,500,600,700,900&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Inter:400,500,600,700,900&display=swap");
 
 /* tailwind imports */
 @tailwind base;
