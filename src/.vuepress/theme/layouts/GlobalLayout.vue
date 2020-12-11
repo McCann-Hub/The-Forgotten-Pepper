@@ -1,7 +1,8 @@
 <template>
   <div class="h-screen flex flex-col">
-    <header>
-      <h1>Header</h1>
+    <header class="flex flex-col">
+      <h1>{{ $site.title }}</h1>
+      <social-bar />
     </header>
     <main class="flex-grow">
       <component :is="layout" />
@@ -13,8 +14,13 @@
 </template>
 
 <script>
+import SocialBar from '@theme/components/SocialBar.vue'
+
 export default {
-  name: "GlobalLayout"
+  name: "GlobalLayout",
+  components: {
+    SocialBar
+  },
   computed: {
     layout() {
       if (this.$page.path) {
