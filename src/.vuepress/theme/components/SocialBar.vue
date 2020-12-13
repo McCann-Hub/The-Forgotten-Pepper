@@ -18,15 +18,16 @@
       <a
         v-else
         :href="item.link"
-        target="_blank" 
+        class="flex content-center"
+        target="_blank"
         rel="noopener noreferrer"
       >
         <!--
           target="_blank" to open the link in a new tab
           rel="noopener noreferrer" to prevent a type of phishing known as tabnabbing
          -->
-        <i v-if="item.icon" :class="item.icon"></i>
-        <span v-else>{{ item.text }}</span>
+        <i v-if="item.icon" :class="['h-4', 'w-4', item.icon]"></i>
+        <span v-else class="text-xs">{{ item.text }}</span>
       </a>
     </div>
   </div>

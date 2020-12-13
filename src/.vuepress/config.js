@@ -1,3 +1,7 @@
+const path = require('path');
+
+console.log(path.resolve(__dirname, 'assets', 'icon'));
+
 module.exports = {
   dest: "./dist",
   title: "The Forgotten Pepper",
@@ -5,7 +9,7 @@ module.exports = {
   themeConfig: {
     social: [
       {
-        icon: '',
+        icon: 'facebook-square-color',
         link: '',
         text: 'Facebook'
       },
@@ -20,6 +24,13 @@ module.exports = {
         text: 'Pintrest'
       },
     ]
+  },
+  configureWebpack: {
+    resolve: {
+      alias: {
+        '@icons': path.resolve(__dirname, 'assets', 'icons')
+      }
+    }
   },
   postcss: {
     plugins: [
