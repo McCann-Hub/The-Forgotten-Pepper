@@ -8,13 +8,8 @@
     ]"
   >
     <div v-for="item in $themeConfig.social" :key="item.text" class="px-1">
-      <component
-        v-if="item.component"
-        :is="item.component"
-        :link="item.link"
-        :icon="item.icon"
-        :text="item.text"
-      />
+      <!-- https://vuejs.org/v2/guide/components-props.html#Passing-the-Properties-of-an-Object -->
+      <component v-if="item.component" :is="item.component" v-bind="item" />
       <a
         v-else
         :href="item.link"

@@ -10,17 +10,18 @@ module.exports = {
     social: [
       {
         icon: 'facebook-square-color',
-        link: '',
+        link: '#',
         text: 'Facebook'
       },
       {
-        icon: '',
-        link: '',
+        component: 'SocialIcon',
+        icon: 'instagram-square-color',
+        link: '#',
         text: 'Instagram'
       },
       {
         icon: '',
-        link: '',
+        link: '#',
         text: 'Pintrest'
       },
     ]
