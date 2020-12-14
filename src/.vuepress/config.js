@@ -10,17 +10,17 @@ module.exports = {
     social: [
       {
         icon: 'facebook-square-color',
-        link: '#',
+        link: 'https://www.facebook.com/4gottenpepper',
         text: 'Facebook'
       },
       {
         component: 'SocialIcon',
         icon: 'instagram-square-color',
-        link: '#',
+        link: 'https://www.instagram.com/4gottenpepper/',
         text: 'Instagram'
       },
       {
-        icon: '',
+        icon: 'pinterest-round-color',
         link: '#',
         text: 'Pintrest'
       },
@@ -29,6 +29,7 @@ module.exports = {
   configureWebpack: {
     resolve: {
       alias: {
+        '@assets': path.resolve(__dirname, 'assets'),
         '@icons': path.resolve(__dirname, 'assets', 'icons')
       }
     }

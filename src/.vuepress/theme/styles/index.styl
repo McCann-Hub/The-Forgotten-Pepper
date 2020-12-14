@@ -2,3 +2,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --header-height: 3rem;
+  --main-height: calc(100vh - 4.5rem);
+  --footer-height: 1.5rem;
+}
+
+body {       
+  padding-top: var(--header-height);
+  padding-bottom: var(--footer-height);
+}

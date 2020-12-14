@@ -1,25 +1,23 @@
 <template>
-  <div class="h-screen flex flex-col">
-    <header class="flex flex-col">
-      <h1>{{ $site.title }}</h1>
+  <div>
+    <header class="fixed top-0 w-full">
+      <h1 class="text-xl font-bold">{{ $site.title }}</h1>
       <social-bar />
     </header>
-    <main class="flex-grow">
+    <main>
       <component :is="layout" />
     </main>
-    <footer>
-      <h1>Footer</h1>
-    </footer>
+    <footer class="fixed bottom-0 w-full"></footer>
   </div>
 </template>
 
 <script>
-import SocialBar from '@theme/components/SocialBar.vue'
+import SocialBar from "@theme/components/SocialBar.vue";
 
 export default {
   name: "GlobalLayout",
   components: {
-    SocialBar
+    SocialBar,
   },
   computed: {
     layout() {
@@ -35,3 +33,27 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+header {
+  background-color: rgba(255, 255, 255, 0.75);
+  min-height: var(--header-height);
+}
+main {
+  margin: 0 auto;
+  max-height: var(--main-height);
+  min-height: var(--main-height);
+  overflow-y: scroll;
+  width: 80%;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+main::-webkit-scrollbar {
+  display: none;
+}
+footer {
+  background-color: black;
+  color: white;
+  min-height: var(--footer-height);
+}
+</style>
