@@ -7,6 +7,7 @@ module.exports = {
   title: "The Forgotten Pepper",
   description: "A Vuepress powered blog",
   themeConfig: {
+    logo: 'forgotten-pepper',
     social: [
       {
         icon: 'facebook-square-color',

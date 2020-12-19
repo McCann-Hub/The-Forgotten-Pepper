@@ -1,8 +1,13 @@
 <template>
   <div>
     <header class="fixed top-0 w-full">
-      <h1 class="text-xl font-bold">{{ $site.title }}</h1>
-      <social-bar />
+      <div class="flex">
+        <span :class="['logo', $themeConfig.logo]"></span>
+        <div class="flex flex-col w-full">
+          <h1 class="text-xl font-bold">{{ $site.title }}</h1>
+          <social-bar/>
+        </div>
+      </div>
     </header>
     <main>
       <component :is="layout" />
@@ -17,7 +22,7 @@ import SocialBar from "@theme/components/SocialBar.vue";
 export default {
   name: "GlobalLayout",
   components: {
-    SocialBar,
+    SocialBar
   },
   computed: {
     layout() {
@@ -36,8 +41,13 @@ export default {
 
 <style scoped>
 header {
-  background-color: rgba(255, 255, 255, 0.75);
+  background-color: rgba(255, 255, 255, 0.5);
   min-height: var(--header-height);
+}
+.logo {
+  display: inline-block;
+  height: var(--header-height);
+  width: var(--header-height);
 }
 main {
   margin: 0 auto;
