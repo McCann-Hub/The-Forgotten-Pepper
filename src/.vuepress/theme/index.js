@@ -1,5 +1,7 @@
 module.exports = (themeConfig, ctx) => {
-    return {
-       // ...
-    }
- }
+   return {
+      plugins: [
+         ['seo', (themeConfig.plugins || {}).seo]
+      ],
+   };
+};

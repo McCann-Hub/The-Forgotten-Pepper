@@ -5,6 +5,8 @@ module.exports = {
   title: 'The Forgotten Pepper',
   description: 'A Vuepress powered blog',
   themeConfig: {
+    domain: 'https://theforgottenpepper.com/',
+    author: '',
     logo: 'forgotten-pepper',
     nav: [
       {
