@@ -1,52 +1,64 @@
 const path = require('path');
 
-console.log(path.resolve(__dirname, 'assets', 'icon'));
-
 module.exports = {
-  dest: "./dist",
-  title: "The Forgotten Pepper",
-  description: "A Vuepress powered blog",
+  dest: './dist',
+  title: 'The Forgotten Pepper',
+  description: 'A Vuepress powered blog',
   themeConfig: {
     logo: 'forgotten-pepper',
     nav: [
       {
-        text: "About"
+        text: 'Recepies',
+        items: [
+          {
+            text: 'Breakfast',
+          },
+          {
+            text: 'Lunch',
+          },
+          {
+            text: 'Dinner',
+          },
+          {
+            text: 'Dessert',
+          },
+        ],
       },
       {
-        text: "Recepies"
-      }
+        text: 'About',
+      },
     ],
     social: [
       {
         icon: 'facebook-square-color',
         link: 'https://www.facebook.com/4gottenpepper',
-        text: 'Facebook'
+        text: 'Facebook',
       },
       {
         component: 'SocialIcon',
         icon: 'instagram-square-color',
         link: 'https://www.instagram.com/4gottenpepper/',
-        text: 'Instagram'
+        text: 'Instagram',
       },
       {
         icon: 'pinterest-round-color',
         link: '#',
-        text: 'Pintrest'
+        text: 'Pintrest',
       },
-    ]
+    ],
   },
   configureWebpack: {
     resolve: {
       alias: {
         '@assets': path.resolve(__dirname, 'assets'),
-        '@icons': path.resolve(__dirname, 'assets', 'icons')
-      }
-    }
+        '@icons': path.resolve(__dirname, 'assets', 'icons'),
+      },
+    },
   },
   postcss: {
     plugins: [
-      require("tailwindcss")("./tailwind.config.js"),
-      require("autoprefixer"),
+      require('tailwindcss')('./tailwind.config.js'),
+      require('autoprefixer'),
     ],
   },
 };

@@ -5,7 +5,7 @@
       <div class="flex">
         <a class="text-xl font-bold" href="/">{{ $site.title }}</a>
       </div>
-      <div class="flex">
+      <div class="flex items-center">
         <nav-bar class="flex-grow" />
         <social-bar />
       </div>
