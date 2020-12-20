@@ -1,13 +1,7 @@
 <template>
   <div>
     <header class="fixed top-0 w-full">
-      <div class="flex">
-        <span :class="['logo', $themeConfig.logo]"></span>
-        <div class="flex flex-col w-full">
-          <h1 class="text-xl font-bold">{{ $site.title }}</h1>
-          <social-bar/>
-        </div>
-      </div>
+      <global-header />
     </header>
     <main>
       <component :is="layout" />
@@ -17,12 +11,12 @@
 </template>
 
 <script>
-import SocialBar from "@theme/components/SocialBar.vue";
+import GlobalHeader from "@theme/components/GlobalHeader.vue";
 
 export default {
   name: "GlobalLayout",
   components: {
-    SocialBar
+    GlobalHeader
   },
   computed: {
     layout() {
@@ -43,11 +37,6 @@ export default {
 header {
   background-color: rgba(255, 255, 255, 0.5);
   min-height: var(--header-height);
-}
-.logo {
-  display: inline-block;
-  height: var(--header-height);
-  width: var(--header-height);
 }
 main {
   margin: 0 auto;

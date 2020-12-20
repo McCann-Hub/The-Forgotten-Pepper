@@ -8,6 +8,14 @@ module.exports = {
   description: "A Vuepress powered blog",
   themeConfig: {
     logo: 'forgotten-pepper',
+    nav: [
+      {
+        text: "About"
+      },
+      {
+        text: "Recepies"
+      }
+    ],
     social: [
       {
         icon: 'facebook-square-color',
