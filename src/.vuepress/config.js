@@ -5,7 +5,7 @@ module.exports = {
   title: 'The Forgotten Pepper',
   description: 'A Vuepress powered blog',
   themeConfig: {
-    domain: 'https://theforgottenpepper.com/',
+    domain: 'https://theforgottenpepper.com',
     author: '',
     logo: 'forgotten-pepper',
     nav: [
@@ -48,6 +48,48 @@ module.exports = {
         text: 'Pintrest',
       },
     ],
+    plugins: {
+      blog: {
+        directories: [
+          {
+            // Unique ID of current classification
+            id: 'post',
+            // Target directory
+            dirname: 'posts',
+            // Path of the `entry page` (or `list page`)
+            path: '/post/',
+            itemPermalink: '/post/:year/:month/:day/:slug',
+            /*layout: 'MyIndexPost',
+            itemLayout: 'MyPost',*/
+            pagination: {
+              lengthPerPage: 3,
+            },
+          },
+        ],
+        frontmatters: [
+          {
+            // Unique ID of current classification
+            id: 'ingredient',
+            // Decide that the frontmatter keys will be grouped under this classification
+            keys: ['ingredient', 'ingredients'],
+            // Path of the `entry page` (or `list page`)
+            path: '/ingredient/',
+            // Layout of the `entry page`
+            /*layout: 'Tags',
+            // Layout of the `scope page`
+            scopeLayout: 'Tag'*/
+          },
+        ],
+        sitemap: {
+          hostname: 'https://theforgottenpepper.com'
+        },
+      },
+      seo: {
+        tags: $page => $page.frontmatter.ingredients || [$page.frontmatter.ingredient],
+        type: $page => ['articles', 'posts', 'blog'].some(folder => $page.path.startsWith('/' + folder)) ? 'article' : 'website',
+        url: ($page, $site) => ($site.themeConfig.domain || '') + $page.path,
+      }
+    }
   },
   configureWebpack: {
     resolve: {
