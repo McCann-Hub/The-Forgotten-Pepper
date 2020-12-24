@@ -8,6 +8,11 @@ module.exports = {
     domain: 'https://theforgottenpepper.com',
     author: '',
     logo: 'forgotten-pepper',
+    frontmatterSearch: {
+      id: 'ingredient',
+      label: 'Recipies with...',
+      multiple: true
+    },
     nav: [
       {
         text: 'Recepies',

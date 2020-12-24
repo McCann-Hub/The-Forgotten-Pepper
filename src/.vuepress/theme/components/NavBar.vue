@@ -5,7 +5,7 @@
       :key="item.text"
       :class="item.items ? 'dropdown' : ''"
     >
-      <button v-if="item.items" class="inline-flex items-center font-semibold">
+      <button v-if="item.items" class="inline-flex items-center font-semibold focus:outline-none">
         {{ item.text }}
         <svg
           class="fill-current h-4 w-4"
@@ -34,7 +34,7 @@
         </li>
       </ul>
       <a v-else :href="item.link || '#'">
-        <button class="font-semibold">{{ item.text }}</button>
+        <button class="font-semibold focus:outline-none">{{ item.text }}</button>
       </a>
     </div>
   </div>

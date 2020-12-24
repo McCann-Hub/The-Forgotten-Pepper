@@ -6,6 +6,7 @@
         <a class="text-xl font-bold" href="/">{{ $site.title }}</a>
       </div>
       <div class="flex items-center">
+        <frontmatter-search />
         <nav-bar class="flex-grow" />
         <social-bar />
       </div>
@@ -21,7 +22,7 @@ export default {
   name: "GlobalHeader",
   components: {
     NavBar,
-    SocialBar,
+    SocialBar
   },
 };
 </script>
