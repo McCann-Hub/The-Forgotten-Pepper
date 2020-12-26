@@ -10,12 +10,12 @@ module.exports = {
     logo: 'forgotten-pepper',
     frontmatterSearch: {
       id: 'ingredient',
-      label: 'Recipies with...',
+      label: 'Recipes with...',
       multiple: true
     },
     nav: [
       {
-        text: 'Recepies',
+        text: 'Recipes',
         items: [
           {
             text: 'Breakfast',

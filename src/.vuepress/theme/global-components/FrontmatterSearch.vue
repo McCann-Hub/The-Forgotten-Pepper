@@ -108,6 +108,23 @@
 </template>
 
 <script>
+function groupBy(xs, key) {
+  return xs.reduce(function (rv, x) {
+    (rv[x[key]] = rv[x[key]] || []).push(x);
+    return rv;
+  }, {});
+}
+
+function filterObject(obj, predicate) {
+  return Object.keys(obj)
+    .filter((k) => predicate(obj[k], k))
+    .reduce((res, k) => ((res[k] = obj[k]), res), {});
+}
+
+function pluck(obj, mapper) {
+  return Object.keys(obj).map((k) => mapper(obj[k], k));
+}
+
 export default {
   name: "FrontmatterSearch",
   data: () => ({
@@ -136,6 +153,26 @@ export default {
           .join(", ");
       }
       return this.cleanKey(this.selectedOption);
+    },
+    pages() {
+      if (this.allowMultiple) {
+        return this.selectedOptions
+          .map((value) => (this.selectOptions[value] || {}).pages)
+          .flat();
+      }
+      return (this.selectOptions[this.selectedOption] || {}).pages;
+    },
+    matches() {
+      if (this.allowMultiple) {
+        return pluck(
+          filterObject(
+            groupBy(this.pages, "key"),
+            (g) => g.length == this.selectedOptions.length
+          ),
+          (g) => g[0]
+        );
+      }
+      return this.pages;
     },
   },
   methods: {
@@ -172,7 +209,7 @@ export default {
   transition-property: opacity;
   transition-duration: 0.5s;
 }
-.fade-enter, 
+.fade-enter,
 .fade-leave-to {
   opacity: 0;
 }
