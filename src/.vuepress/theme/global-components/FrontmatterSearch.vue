@@ -1,5 +1,5 @@
 <template>
-  <div class="w-1/6">
+  <div>
     <!-- 
         https://www.w3.org/TR/wai-aria-practices/#Listbox
         https://www.w3.org/TR/wai-aria-practices/examples/listbox/listbox-collapsible.html
@@ -51,11 +51,13 @@
       -->
       <transition name="fade">
         <div
+          tabindex="-1"
+          ref="selectOptions"
           v-show="open"
+          @focusout="open = false"
           class="absolute mt-1 w-full rounded-md bg-white shadow-lg"
         >
           <ul
-            tabindex="-1"
             class="rounded-md text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm"
           >
             <!--
@@ -132,6 +134,15 @@ export default {
     selectedOption: "",
     selectedOptions: [],
   }),
+  watch: {
+    open(newVal) {
+      if (newVal) {
+        this.$nextTick(() => {
+          this.$refs.selectOptions.focus();
+        });
+      }
+    },
+  },
   computed: {
     selectOptions() {
       return this[`$${(this.$themeConfig.frontmatterSearch || {}).id || "tag"}`]

@@ -6,7 +6,7 @@
         <a class="text-xl font-bold" href="/">{{ $site.title }}</a>
       </div>
       <div class="flex items-center">
-        <frontmatter-search />
+        <frontmatter-search class="w-1/6" />
         <nav-bar class="flex-grow" />
         <social-bar />
       </div>
