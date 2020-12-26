@@ -63,12 +63,7 @@ module.exports = {
             dirname: 'posts',
             // Path of the `entry page` (or `list page`)
             path: '/post/',
-            itemPermalink: '/post/:year/:month/:day/:slug',
-            /*layout: 'MyIndexPost',
-            itemLayout: 'MyPost',*/
-            pagination: {
-              lengthPerPage: 3,
-            },
+            itemPermalink: '/post/:year/:month/:day/:slug'
           },
         ],
         frontmatters: [
@@ -80,11 +75,14 @@ module.exports = {
             // Path of the `entry page` (or `list page`)
             path: '/ingredient/',
             // Layout of the `entry page`
-            /*layout: 'Tags',
+            layout: 'Ingredients',
             // Layout of the `scope page`
-            scopeLayout: 'Tag'*/
+            scopeLayout: 'Ingredient'
           },
         ],
+        globalPagination: {
+          lengthPerPage: 3,
+        },
         sitemap: {
           hostname: 'https://theforgottenpepper.com'
         },
