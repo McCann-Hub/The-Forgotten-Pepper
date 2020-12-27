@@ -15,12 +15,14 @@
 </template>
 
 <script>
+import FrontmatterSearch from "@theme/components/FrontmatterSearch.vue";
 import NavBar from "@theme/components/NavBar.vue";
 import SocialBar from "@theme/components/SocialBar.vue";
 
 export default {
   name: "GlobalHeader",
   components: {
+    FrontmatterSearch,
     NavBar,
     SocialBar
   },

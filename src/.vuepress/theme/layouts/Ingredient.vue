@@ -1,24 +1,14 @@
 <template>
     <div class="flex justify-center">
-        <div class="flex flex-col bg-white">
-            <div>
-                image
-            </div>
-            <div>
-                title
-            </div>
-            <div>
-                preview
-            </div>
-            <div>
-                footer
-            </div>
-        </div>
+        <page-card />
     </div>
 </template>
 
 <script>
 export default {
-    name: 'Ingredient'
+    name: 'Ingredient',
+    mounted() {
+        console.log(this.$pagination.pages);
+    }
 }
 </script>

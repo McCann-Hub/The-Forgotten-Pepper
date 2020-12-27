@@ -19,7 +19,7 @@
       </button>
       <ul
         v-if="item.items"
-        :class="`dropdown-menu absolute hidden pt-1 ${
+        :class="`dropdown-menu absolute hidden pt-1 z-10 ${
           item.ulClass || 'bg-gray-200'
         }`"
       >

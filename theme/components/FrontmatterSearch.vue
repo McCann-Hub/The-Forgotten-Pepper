@@ -55,7 +55,7 @@
           ref="selectOptions"
           v-show="open"
           @focusout="open = false"
-          class="absolute mt-1 w-full rounded-md bg-white shadow-lg"
+          class="absolute mt-1 w-full rounded-md bg-white shadow-lg z-10"
         >
           <ul
             class="rounded-md text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm"
@@ -107,7 +107,9 @@
     </div>
     <transition name="fade">
       <div v-show="overlay" id="overlay">
-        <div class="bg-white bg-opacity-50 flex justify-end content-center pr-4">
+        <div
+          class="bg-white bg-opacity-50 flex justify-end content-center pr-4"
+        >
           <a @click="overlay = false">
             <!-- Heroicon name: x -->
             <svg
