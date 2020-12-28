@@ -3,7 +3,7 @@
     <header class="fixed top-0 w-full">
       <global-header />
     </header>
-    <main>
+    <main class="flex">
       <component :is="layout" />
     </main>
     <footer class="fixed bottom-0 w-full"></footer>
@@ -16,7 +16,7 @@ import GlobalHeader from "@theme/components/GlobalHeader.vue";
 export default {
   name: "GlobalLayout",
   components: {
-    GlobalHeader
+    GlobalHeader,
   },
   computed: {
     layout() {

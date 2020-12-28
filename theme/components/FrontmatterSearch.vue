@@ -106,30 +106,12 @@
       </transition>
     </div>
     <transition name="fade">
-      <div v-show="overlay" id="overlay">
-        <div
-          class="bg-white bg-opacity-50 flex justify-end content-center pr-4"
-        >
-          <a @click="overlay = false">
-            <!-- Heroicon name: x -->
-            <svg
-              class="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M6 18L18 6M6 6l12 12"
-              ></path>
-            </svg>
-          </a>
-        </div>
-        <component :is="overlayComponent" />
-      </div>
+      <component
+        :is="overlayout"
+        v-if="overlay"
+        @close="overlay = false"
+        :pages="matches"
+      />
     </transition>
   </div>
 </template>
@@ -175,13 +157,15 @@ export default {
   },
   computed: {
     frontmatterId() {
-      return (this.$themeConfig.frontmatterSearch || {}).id || "tag";
+      return ((this.$themeConfig || {}).frontmatterSearch || {}).id || "tag";
     },
     selectOptions() {
-      return this[`$${this.frontmatterId}`]._metaMap;
+      return (this[`$${this.frontmatterId}`] || {})._metaMap;
     },
     allowMultiple() {
-      return (this.$themeConfig.frontmatterSearch || {}).multiple || false;
+      return (
+        ((this.$themeConfig || {}).frontmatterSearch || {}).multiple || false
+      );
     },
     selected() {
       if (this.allowMultiple) {
@@ -217,15 +201,15 @@ export default {
       }
       return this.pages;
     },
-    overlayComponent() {
-      return (
+    overlayout() {
+      return `${
         (
           (
             (((this.$themeConfig || {}).plugins || {}).blog || {})
               .frontmatters || []
           ).find((f) => f.id == this.frontmatterId) || {}
         ).scopeLayout || "Tag"
-      );
+      }Overlayout`;
     },
   },
   methods: {
@@ -265,18 +249,5 @@ export default {
 .fade-enter,
 .fade-leave-to {
   opacity: 0;
-}
-
-#overlay {
-  position: fixed; /* Sit on top of the page content */
-  width: 100%; /* Full width (cover the whole page) */
-  max-height: var(--main-height);
-  min-height: var(--main-height);
-  top: var(--header-height);
-  left: 0;
-  right: 0;
-  bottom: var(--footer-height);
-  background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
-  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
 }
 </style>

@@ -11,7 +11,7 @@ module.exports = {
     frontmatterSearch: {
       id: 'ingredient',
       label: 'Recipes with...',
-      multiple: true
+      multiple: true,
     },
     nav: [
       {
@@ -63,7 +63,7 @@ module.exports = {
             dirname: 'posts',
             // Path of the `entry page` (or `list page`)
             path: '/post/',
-            itemPermalink: '/post/:year/:month/:day/:slug'
+            itemPermalink: '/post/:year/:month/:day/:slug',
           },
         ],
         frontmatters: [
@@ -77,22 +77,28 @@ module.exports = {
             // Layout of the `entry page`
             layout: 'Ingredients',
             // Layout of the `scope page`
-            scopeLayout: 'Ingredient'
+            scopeLayout: 'Ingredient',
           },
         ],
         globalPagination: {
           lengthPerPage: 3,
         },
         sitemap: {
-          hostname: 'https://theforgottenpepper.com'
+          hostname: 'https://theforgottenpepper.com',
         },
       },
       seo: {
-        tags: $page => $page.frontmatter.ingredients || [$page.frontmatter.ingredient],
-        type: $page => ['articles', 'posts', 'blog'].some(folder => $page.path.startsWith('/' + folder)) ? 'article' : 'website',
+        tags: ($page) =>
+          $page.frontmatter.ingredients || [$page.frontmatter.ingredient],
+        type: ($page) =>
+          ['articles', 'posts', 'blog'].some((folder) =>
+            $page.path.startsWith('/' + folder)
+          )
+            ? 'article'
+            : 'website',
         url: ($page, $site) => ($site.themeConfig.domain || '') + $page.path,
-      }
-    }
+      },
+    },
   },
   configureWebpack: {
     resolve: {

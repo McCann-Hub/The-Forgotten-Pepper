@@ -46,6 +46,10 @@ export default {
       type: String,
       default: "vertical",
     },
+    page: {
+      type: Object,
+      default: () => {},
+    },
   },
   computed: {
     vertical() {
@@ -54,6 +58,9 @@ export default {
     horizontal() {
       return this.orientation.toUpperCase() == "HORIZONTAL";
     },
+  },
+  mounted() {
+    console.log(this.page);
   },
 };
 </script>
