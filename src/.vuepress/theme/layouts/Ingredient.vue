@@ -33,4 +33,7 @@ export default {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+#ingredient::-webkit-scrollbar {
+  display: none;
+}
 </style>

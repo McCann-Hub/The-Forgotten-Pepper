@@ -55,11 +55,9 @@
           ref="selectOptions"
           v-show="open"
           @focusout="open = false"
-          class="absolute mt-1 w-full rounded-md bg-white shadow-lg z-10"
+          class="absolute w-full rounded-md bg-gray-50 focus:outline-none shadow-lg z-10"
         >
-          <ul
-            class="rounded-md text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm"
-          >
+          <ul class="rounded-md text-sm overflow-auto focus:outline-none">
             <!--
             Select option, manage highlight styles based on mouseenter/mouseleave and keyboard navigation.
 
