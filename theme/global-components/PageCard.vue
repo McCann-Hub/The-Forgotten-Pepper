@@ -72,24 +72,8 @@ export default {
   max-height: calc(var(--lh) * var(--max-lines));
   overflow: hidden;
   text-overflow: ellipsis;
-  padding-right: 1rem;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: var(--max-lines);
 }
-/*.truncate-overflow::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  right: 1rem;
-  width: 1rem;
-  height: 1rem;
-  background: #fff;
-}
-.truncate-overflow::after {
-  content: "...";
-  position: absolute;
-  bottom: 0;
-  right: 1rem;
-}*/
 </style>
