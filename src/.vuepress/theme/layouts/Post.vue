@@ -22,3 +22,9 @@ export default {
   display: none;
 }
 </style>
+
+<style lang="stylus">
+#post h1 {
+  @extends .text-3xl;
+}
+</style>

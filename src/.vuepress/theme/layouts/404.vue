@@ -1,5 +1,5 @@
 <template>
-  <div class="notFound flex justify-center">
+  <div class="notFound min-h-full min-w-full flex justify-center">
     <div class="flex flex-col justify-center">
       <h1 class="text-center text-5xl font-bold">Oops</h1>
       <img src="@theme/assets/notFound.png" />
@@ -22,6 +22,5 @@ export default {
 <style scoped>
 .notFound {
   background-color: rgba(200, 200, 200, 0.5);
-  min-height: var(--main-height);
 }
 </style>
