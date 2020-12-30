@@ -25,6 +25,12 @@ export default {
 
 <style lang="stylus">
 #post h1 {
-  @extends .text-3xl;
+  @apply text-3xl;
+}
+#post h1 a {
+  @apply text-white text-opacity-75;
+}
+#post h1 a:hover {
+  @apply text-black text-opacity-100;
 }
 </style>
