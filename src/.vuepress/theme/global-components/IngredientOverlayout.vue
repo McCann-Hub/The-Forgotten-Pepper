@@ -6,7 +6,9 @@
     <a @click="$emit('close')" class="absolute right-1 top-0 cursor-pointer">
       <svg
         :class="`fill-current w-7 h-7 ${
-          $themeConfig.dark ? 'text-gray-400 hover:text-gray-900' : 'text-gray-500 hover:text-gray-50'
+          $themeConfig.dark
+            ? 'text-gray-400 hover:text-gray-900'
+            : 'text-gray-500 hover:text-gray-50'
         }`"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 18 18"
