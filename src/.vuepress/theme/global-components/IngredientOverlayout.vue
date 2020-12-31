@@ -1,8 +1,13 @@
 <template>
-  <div id="overlay">
+  <div
+    id="overlay"
+    :class="`${$themeConfig.dark ? 'bg-gray-50' : 'bg-gray-900'} bg-opacity-75`"
+  >
     <a @click="$emit('close')" class="absolute right-1 top-0 cursor-pointer">
       <svg
-        class="fill-current text-gray-500 hover:text-gray-50 w-7 h-7"
+        :class="`fill-current w-7 h-7 ${
+          $themeConfig.dark ? 'text-gray-400 hover:text-gray-900' : 'text-gray-500 hover:text-gray-50'
+        }`"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 18 18"
       >
@@ -40,7 +45,6 @@ export default {
   left: 0;
   right: 0;
   bottom: var(--footer-height);
-  background-color: rgba(0, 0, 0, 0.75); /* Black background with opacity */
   z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
 }
 </style>

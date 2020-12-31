@@ -8,6 +8,7 @@ module.exports = {
     domain: 'https://theforgottenpepper.com',
     author: '',
     logo: 'forgotten-pepper',
+    dark: true,
     frontmatterSearch: {
       id: 'ingredient',
       label: 'Recipes with...',

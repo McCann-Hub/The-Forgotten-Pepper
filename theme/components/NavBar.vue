@@ -5,7 +5,10 @@
       :key="item.text"
       :class="item.items ? 'dropdown' : ''"
     >
-      <button v-if="item.items" class="inline-flex items-center font-semibold focus:outline-none">
+      <button
+        v-if="item.items"
+        class="inline-flex items-center font-semibold focus:outline-none"
+      >
         {{ item.text }}
         <svg
           class="fill-current h-4 w-4"
@@ -19,22 +22,24 @@
       </button>
       <ul
         v-if="item.items"
-        :class="`dropdown-menu absolute hidden pt-1 z-10 ${
-          item.ulClass || 'bg-gray-200'
+        :class="`dropdown-menu rounded absolute hidden z-10 ${
+          $themeConfig.dark ? 'bg-gray-800' : 'bg-gray-200'
         }`"
       >
         <li v-for="mitem in item.items" :key="mitem.text">
           <a
             :href="mitem.link || '#'"
             :class="`block rounded py-2 px-4 ${
-              item.liClass || mitem.class || 'bg-gray-200 hover:bg-gray-400'
+              $themeConfig.dark ? 'hover:bg-gray-500' : 'hover:bg-gray-400'
             }`"
             >{{ mitem.text }}</a
           >
         </li>
       </ul>
       <a v-else :href="item.link || '#'">
-        <button class="font-semibold focus:outline-none">{{ item.text }}</button>
+        <button class="font-semibold focus:outline-none">
+          {{ item.text }}
+        </button>
       </a>
     </div>
   </div>

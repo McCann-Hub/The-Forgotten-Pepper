@@ -7,22 +7,20 @@
     <div class="relative">
       <button
         @click="open = !open"
-        class="relative w-full bg-white border border-gray-300 rounded-md shadow-sm pl-3 pr-10 text-left focus:outline-none"
+        class="relative w-full bg-white rounded-md shadow-sm pl-3 pr-10 text-left focus:outline-none"
       >
         <span class="flex items-center">
-          <label
+          <span
             v-if="selectedDisplay.length < 1"
-            class="block text-sm font-medium text-gray-700"
+            class="block text-sm font-medium text-black truncate"
           >
             {{ `${($themeConfig.frontmatterSearch || {}).label || "Search"}` }}
-          </label>
-          <span class="ml-3 block text-sm truncate">
+          </span>
+          <span class="ml-3 block text-sm text-black truncate">
             {{ selectedDisplay }}
           </span>
         </span>
-        <span
-          class="ml-3 absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none"
-        >
+        <span class="ml-3 absolute inset-y-0 right-0 pr-2 pointer-events-none">
           <!-- Heroicon name: selector -->
           <svg
             class="h-5 w-5 text-gray-400"
@@ -55,7 +53,9 @@
           ref="selectOptions"
           v-show="open"
           @focusout="open = false"
-          class="absolute w-full rounded-md bg-gray-50 focus:outline-none shadow-lg z-10"
+          :class="`absolute w-full rounded-md focus:outline-none shadow-lg z-10 ${
+            $themeConfig.dark ? 'bg-gray-900' : 'bg-gray-50'
+          }`"
         >
           <ul class="rounded-md text-sm overflow-auto focus:outline-none">
             <!--
@@ -66,7 +66,9 @@
             <li
               v-for="option in selectOptions"
               :key="option.key"
-              class="rounded-md text-gray-900 select-none relative pl-3 pr-9 bg-gray-200 hover:bg-gray-400"
+              :class="`rounded-md select-none relative pl-3 pr-9 ${
+                $themeConfig.dark ? 'hover:bg-gray-500' : 'hover:bg-gray-400'
+              }`"
             >
               <div @click="onOptionClick(option.key)" class="flex items-center">
                 <!-- Selected: "font-semibold", Not Selected: "font-normal" -->
@@ -82,7 +84,7 @@
             -->
               <span
                 v-if="isSelected(option.key)"
-                class="absolute inset-y-0 right-0 flex items-center pr-4"
+                class="absolute inset-y-0 right-0 pr-4"
               >
                 <!-- Heroicon name: check -->
                 <svg
@@ -149,7 +151,15 @@ export default {
       } else {
         if (this.matches.length > 0) {
           this.overlay = true;
+        } else {
+          this.overlay = false;
         }
+      }
+    },
+    overlay(newVal) {
+      if (!newVal) {
+        this.selectedOption = "";
+        this.selectedOptions.splice(0, this.selectedOptions.length);
       }
     },
   },

@@ -9,7 +9,20 @@
   --footer-height: 1.5rem;
 }
 
-body {       
+body {
+  @apply: antialiased;       
   padding-top: var(--header-height);
   padding-bottom: var(--footer-height);
+}
+
+@media (min-width: 640px) {
+  body {
+    @apply: subpixel-antialiased;
+  }  
+}
+
+@media (min-width: 768px) {
+  body {
+    @apply: antialiased; 
+  } 
 }

@@ -1,5 +1,7 @@
 <template>
-  <div class="notFound min-h-full min-w-full flex justify-center">
+  <div
+    class="min-h-full min-w-full flex justify-center bg-gray-100 bg-opacity-50"
+  >
     <div class="flex flex-col justify-center">
       <h1 class="text-center text-5xl font-bold">Oops</h1>
       <img src="@theme/assets/notFound.png" />
@@ -18,9 +20,3 @@ export default {
   name: "NotFound",
 };
 </script>
-
-<style scoped>
-.notFound {
-  background-color: rgba(200, 200, 200, 0.5);
-}
-</style>

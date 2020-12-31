@@ -35,7 +35,6 @@ export default {
 
 <style scoped>
 header {
-  background-color: rgba(255, 255, 255, 0.5);
   min-height: var(--header-height);
 }
 main {
