@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <div class="min-w-full flex justify-center">
     Hello world
   </div>
 </template>
 
 <script>
 export default {
-  name: "Layout",
+  name: "Home",
 };
 </script>

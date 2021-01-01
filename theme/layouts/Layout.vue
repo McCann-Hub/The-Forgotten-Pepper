@@ -1,7 +1,5 @@
 <template>
-  <div>
-    Foo Bar
-  </div>
+  <Content class="min-w-full" />
 </template>
 
 <script>
