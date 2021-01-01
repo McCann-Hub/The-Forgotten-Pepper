@@ -7,7 +7,11 @@
       { 'justify-start': left, 'justify-end': right },
     ]"
   >
-    <div v-for="item in $themeConfig.social" :key="item.text" class="px-1">
+    <div
+      v-for="item in ($themeConfig || {}).social || []"
+      :key="item.text"
+      class="px-1"
+    >
       <!-- https://vuejs.org/v2/guide/components-props.html#Passing-the-Properties-of-an-Object -->
       <component v-if="item.component" :is="item.component" v-bind="item" />
       <a

@@ -6,7 +6,7 @@
         : 'bg-gray-50 text-gray-900'
     } bg-opacity-75`"
   >
-    <span :class="['logo', $themeConfig.logo]"></span>
+    <span :class="['logo', ($themeConfig || {}).logo]"></span>
     <div class="flex flex-col w-full">
       <div class="flex">
         <a class="text-xl font-bold" href="/">{{ $site.title }}</a>

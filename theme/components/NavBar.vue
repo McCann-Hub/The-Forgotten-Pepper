@@ -1,7 +1,7 @@
 <template>
   <div class="flex justify-around">
     <div
-      v-for="item in $themeConfig.nav"
+      v-for="item in ($themeConfig || {}).nav || []"
       :key="item.text"
       :class="item.items ? 'dropdown' : ''"
     >

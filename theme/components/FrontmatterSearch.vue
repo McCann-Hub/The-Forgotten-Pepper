@@ -14,7 +14,11 @@
             v-if="selectedDisplay.length < 1"
             class="block text-sm font-medium text-black truncate"
           >
-            {{ `${($themeConfig.frontmatterSearch || {}).label || "Search"}` }}
+            {{
+              `${
+                (($themeConfig || {}).frontmatterSearch || {}).label || "Search"
+              }`
+            }}
           </span>
           <span class="ml-3 block text-sm text-black truncate">
             {{ selectedDisplay }}
@@ -213,8 +217,7 @@ export default {
       return `${
         (
           (
-            (((this.$themeConfig || {}).plugins || {}).blog || {})
-              .frontmatters || []
+            ((this.$themeConfig || {}).frontmatters || []
           ).find((f) => f.id == this.frontmatterId) || {}
         ).scopeLayout || "Tag"
       }Overlayout`;

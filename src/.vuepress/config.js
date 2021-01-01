@@ -9,11 +9,6 @@ module.exports = {
     author: '',
     logo: 'forgotten-pepper',
     dark: true,
-    frontmatterSearch: {
-      id: 'ingredient',
-      label: 'Recipes with...',
-      multiple: true,
-    },
     nav: [
       {
         text: 'Recipes',
@@ -54,51 +49,52 @@ module.exports = {
         text: 'Pintrest',
       },
     ],
-    plugins: {
-      blog: {
-        directories: [
-          {
-            // Unique ID of current classification
-            id: 'post',
-            // Target directory
-            dirname: 'posts',
-            // Path of the `entry page` (or `list page`)
-            path: '/post/',
-            itemPermalink: '/post/:year/:month/:day/:slug',
-          },
-        ],
-        frontmatters: [
-          {
-            // Unique ID of current classification
-            id: 'ingredient',
-            // Decide that the frontmatter keys will be grouped under this classification
-            keys: ['ingredient', 'ingredients'],
-            // Path of the `entry page` (or `list page`)
-            path: '/ingredient/',
-            // Layout of the `entry page`
-            layout: 'Ingredients',
-            // Layout of the `scope page`
-            scopeLayout: 'Ingredient',
-          },
-        ],
-        globalPagination: {
-          lengthPerPage: 3,
-        },
-        sitemap: {
-          hostname: 'https://theforgottenpepper.com',
-        },
+    directories: [
+      {
+        // Unique ID of current classification
+        id: 'post',
+        // Target directory
+        dirname: 'posts',
+        // Path of the `entry page` (or `list page`)
+        path: '/post/',
+        itemPermalink: '/post/:year/:month/:day/:slug',
       },
-      seo: {
-        tags: ($page) =>
-          $page.frontmatter.ingredients || [$page.frontmatter.ingredient],
-        type: ($page) =>
-          ['articles', 'posts', 'blog'].some((folder) =>
-            $page.path.startsWith('/' + folder)
-          )
-            ? 'article'
-            : 'website',
-        url: ($page, $site) => ($site.themeConfig.domain || '') + $page.path,
+    ],
+    frontmatters: [
+      {
+        // Unique ID of current classification
+        id: 'ingredient',
+        // Decide that the frontmatter keys will be grouped under this classification
+        keys: ['ingredient', 'ingredients'],
+        // Path of the `entry page` (or `list page`)
+        path: '/ingredient/',
+        // Layout of the `entry page`
+        layout: 'Ingredients',
+        // Layout of the `scope page`
+        scopeLayout: 'Ingredient',
       },
+    ],
+    frontmatterSearch: {
+      id: 'ingredient',
+      label: 'Recipes with...',
+      multiple: true,
+    },
+    globalPagination: {
+      lengthPerPage: 3,
+    },
+    sitemap: {
+      hostname: 'https://theforgottenpepper.com',
+    },
+    seo: {
+      tags: ($page) =>
+        $page.frontmatter.ingredients || [$page.frontmatter.ingredient],
+      type: ($page) =>
+        ['articles', 'posts', 'blog'].some((folder) =>
+          $page.path.startsWith('/' + folder)
+        )
+          ? 'article'
+          : 'website',
+      url: ($page, $site) => ($site.themeConfig.domain || '') + $page.path,
     },
   },
   configureWebpack: {

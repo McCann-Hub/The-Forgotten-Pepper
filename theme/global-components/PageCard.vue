@@ -68,7 +68,7 @@ export default {
     },
     tags() {
       return (
-        (((this.$themeConfig || {}).plugins || {}).blog || {}).frontmatters ||
+        ((this.$themeConfig || {}).frontmatters ||
         []
       )
         .reduce((acc, el) => {
