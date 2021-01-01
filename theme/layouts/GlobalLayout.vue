@@ -3,8 +3,10 @@
     <header class="fixed top-0 w-full">
       <global-header />
     </header>
-    <main class="flex">
-      <component :is="layout" />
+    <main class="flex justify-center">
+      <component v-if="leftSidebar" :is="leftSidebar" class="left-sidebar" />
+      <component :is="layout" class="main" />
+      <component v-if="rightSidebar" :is="rightSidebar" class="right-sidebar" />
     </main>
     <footer class="fixed bottom-0 w-full"></footer>
   </div>
@@ -29,6 +31,12 @@ export default {
       }
       return "NotFound";
     },
+    leftSidebar() {
+      return this.$frontmatter.leftSidebar || 'div';
+    },
+    rightSidebar() {
+      return this.$frontmatter.rightSidebar || 'div';
+    }
   },
 };
 </script>
@@ -37,17 +45,34 @@ export default {
 header {
   min-height: var(--header-height);
 }
-main {
-  margin: 0 auto;
+main,
+main > .left-sidebar,
+main > .main,
+main > .right-sidebar {
   max-height: var(--main-height);
   min-height: var(--main-height);
   overflow-y: scroll;
-  width: 80%;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
-main::-webkit-scrollbar {
+main::-webkit-scrollbar,
+main > .left-sidebar::-webkit-scrollbar,
+main > .main::-webkit-scrollbar,
+main > .right-sidebar::-webkit-scrollbar {
   display: none;
+}
+main {
+  max-width: 100%;
+  min-width: 100%;
+}
+main > .left-sidebar,
+main > .right-sidebar {
+  max-width: 20rem;
+  min-width: 20rem;
+}
+main > .main {
+  max-width: calc(100% - 40rem);
+  min-width: calc(100% - 40rem);
 }
 footer {
   background-color: black;

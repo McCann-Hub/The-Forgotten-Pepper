@@ -1,1 +1,4 @@
+---
+  rightSidebar: Home
+---
 <home />
