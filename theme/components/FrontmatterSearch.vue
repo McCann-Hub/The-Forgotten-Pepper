@@ -216,9 +216,9 @@ export default {
     overlayout() {
       return `${
         (
-          (
-            ((this.$themeConfig || {}).frontmatters || []
-          ).find((f) => f.id == this.frontmatterId) || {}
+          ((this.$themeConfig || {}).frontmatters || []).find(
+            (f) => f.id == this.frontmatterId
+          ) || {}
         ).scopeLayout || "Tag"
       }Overlayout`;
     },

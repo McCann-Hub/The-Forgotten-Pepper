@@ -22,11 +22,8 @@
         <div class="font-bold text-xl mb-2">
           <a :href="page.path">{{ page.title }}</a>
         </div>
-        <p
-          v-if="page.frontmatter.summary"
-          class="font-medium text-base select-none truncate-overflow"
-        >
-          {{ page.frontmatter.summary }}
+        <p class="font-medium text-base select-none truncate-overflow">
+          {{ page.frontmatter.summary || page.summary }}
         </p>
       </div>
       <div class="px-3 py-2">
@@ -67,10 +64,7 @@ export default {
       return this.orientation.toUpperCase() == "HORIZONTAL";
     },
     tags() {
-      return (
-        ((this.$themeConfig || {}).frontmatters ||
-        []
-      )
+      return ((this.$themeConfig || {}).frontmatters || [])
         .reduce((acc, el) => {
           acc.push(
             ...el.keys.map((k) => ({
@@ -100,9 +94,6 @@ export default {
           return acc;
         }, []);
     },
-  },
-  mounted() {
-    console.log(this.tags);
   },
 };
 </script>
