@@ -1,7 +1,6 @@
 const removeMd = require('remove-markdown');
 // const path = require('path');
 const pick = require('lodash.pick');
-const createdPlugin = require('../plugin-created');
 
 module.exports = (themeConfig) => {
   /*
@@ -69,11 +68,8 @@ module.exports = (themeConfig) => {
   const plugins = [
     ['@vuepress/blog', blogPluginOptions],
     ['seo', (themeConfig || {}).seo],
+    require('../plugin-created'),
   ];
-  /*
-   * Custom plugin(s)
-   */
-  const created = createdPlugin();
   /*
    * 
    */
@@ -83,7 +79,6 @@ module.exports = (themeConfig) => {
      * Generate summary.
      */
     extendPageData(pageCtx) {
-      created.extendPageData(pageCtx);
       const strippedContent = pageCtx._strippedContent
       if (!strippedContent) {
         return
