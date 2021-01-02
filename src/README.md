@@ -1,4 +1,4 @@
 ---
-  rightSidebar: Home
+  rightSidebar: AboutSide
 ---
 <home />
