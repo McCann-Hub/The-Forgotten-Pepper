@@ -23,14 +23,21 @@
       </div>
     </div>
 
-    <div class="content">
+    <div class="relative">
       <!-- Menu -->
-      <ul class="tabs">
-        <li v-if="slotPassed">
-          <a :class="open.post ? 'active' : ''" @click="switchTab('post')"
-            >Post</a
+      <ul v-if="slotPassed" class="tabs">
+        <li>
+          <a :class="open.blog ? 'active' : ''" @click="switchTab('blog')"
+            >Blog</a
           >
         </li>
+        <li>
+          <a :class="open.recipe ? 'active' : ''" @click="switchTab('recipe')"
+            >Recipe</a
+          >
+        </li>
+      </ul>
+      <ul v-else class="tabs">
         <li>
           <a
             :class="open.ingredients ? 'active' : ''"
@@ -45,15 +52,32 @@
         </li>
       </ul>
 
-      <transition-group name="fade">
+      <transition-group v-if="slotPassed" name="fade">
         <div
-          v-if="slotPassed"
-          v-show="open.post"
-          key="post"
+          v-show="open.blog"
+          key="blog"
           class="bg-gray-50 bg-opacity-25 text-gray-900 px-8"
         >
           <slot></slot>
         </div>
+        <div v-show="open.recipe" key="recipe" class="tab-content">
+          <h2>Recipe</h2>
+          <h3>Ingredients</h3>
+          <ul>
+            <li v-for="(ingredient, i) in ingredients" :key="i">
+              {{ ingredient }}
+            </li>
+          </ul>
+          <br />
+          <h3>Method</h3>
+          <ol>
+            <li v-for="(step, i) in method" :key="i">
+              {{ step }}
+            </li>
+          </ol>
+        </div>
+      </transition-group>
+      <transition-group v-else name="fade">
         <div v-show="open.ingredients" key="ingredients" class="tab-content">
           <h2>Ingredients</h2>
           <hr />
@@ -63,7 +87,6 @@
             </li>
           </ul>
         </div>
-
         <div v-show="open.method" key="method" class="tab-content">
           <h2>Method</h2>
           <hr />
@@ -83,8 +106,9 @@ export default {
   name: "RecipeCard",
   data: () => ({
     open: {
-      post: false,
-      ingredients: true,
+      blog: false,
+      recipe: false,
+      ingredients: false,
       method: false,
     },
   }),
@@ -121,7 +145,9 @@ export default {
   },
   mounted() {
     if (this.slotPassed) {
-      this.switchTab("post");
+      this.switchTab("blog");
+    } else {
+        this.switchTab('ingredients');
     }
   },
   methods: {
@@ -142,8 +168,6 @@ export default {
 .fade-enter-active,
 .fade-leave-active {
   position: absolute;
-  max-width: calc(100% - 40rem);
-  min-width: calc(100% - 40rem);
   transition-property: opacity;
   transition-duration: 0.5s;
 }
@@ -179,7 +203,7 @@ export default {
 }
 
 .tabs {
-  @apply: text-center;
+  @apply: bg-gray-50 bg-opacity-75 sticky text-center top-0;
 }
 
 .tabs > li {
@@ -187,7 +211,7 @@ export default {
 }
 
 .tabs > li > a {
-  @apply: cursor-pointer no-underline select-none text-gray-100 text-opacity-50;
+  @apply: cursor-pointer no-underline select-none text-gray-500 text-opacity-50;
   transition: 0.5s;
 }
 
@@ -211,6 +235,10 @@ export default {
 
 .tab-content > h2 {
   @apply: font-medium text-xl;
+}
+
+.tab-content > h3 {
+  @apply: font-semibold;
 }
 
 .tab-content > hr {
