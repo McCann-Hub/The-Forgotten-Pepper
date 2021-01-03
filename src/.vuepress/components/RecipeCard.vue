@@ -120,7 +120,7 @@ export default {
 .fade-enter-active,
 .fade-leave-active {
   position: absolute;
-  max-width: 18rem;
+  max-width: 20rem;
   transition-property: opacity;
   transition-duration: 0.5s;
 }
@@ -177,7 +177,13 @@ export default {
 }
 
 .tab-content {
-  @apply: mx-4;
+  @apply: px-4;
+  background: repeating-linear-gradient(rgba(200, 200, 200, 0.5), rgba(200, 200, 200, 0.75) 1.45rem, rgba(0, 0, 0, 0.75) 1.47rem, rgba(0, 0, 0, 1) 1.5rem);
+  background: -moz-repeating-linear-gradient(rgba(200, 200, 200, 0.5), rgba(200, 200, 200, 0.75) 1.45rem, rgba(0, 0, 0, 0.75) 1.47rem, rgba(0, 0, 0, 1) 1.5rem);
+  background: -ms-repeating-linear-gradient(rgba(200, 200, 200, 0.5), rgba(200, 200, 200, 0.75) 1.45rem, rgba(0, 0, 0, 0.75) 1.47rem, rgba(0, 0, 0, 1) 1.5rem);
+  background: -o-repeating-linear-gradient(rgba(200, 200, 200, 0.5), rgba(200, 200, 200, 0.75) 1.45rem, rgba(0, 0, 0, 0.75) 1.47rem, rgba(0, 0, 0, 1) 1.5rem); 
+  background: -webkit-repeating-linear-gradient(rgba(200, 200, 200, 0.5), rgba(200, 200, 200, 0.75) 1.45rem, rgba(0, 0, 0, 0.75) 1.47rem, rgba(0, 0, 0, 1) 1.5rem); 
+  background-position-y: 0.25rem;
 }
 
 .tab-content > h2 {
@@ -185,7 +191,7 @@ export default {
 }
 
 .tab-content > hr {
-  @apply: border-gray-900 border-opacity-50 w-72;
+  @apply: border-red-900 border-opacity-50 w-72;
 }
 
 .tab-content > ul {
