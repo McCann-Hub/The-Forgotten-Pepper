@@ -1,13 +1,7 @@
 <template>
-  <div id="post" class="bg-gray-50 bg-opacity-75 text-gray-900">
-    <div
-      v-if="$frontmatter.image"
-      id="hero"
-      class="min-w-full bg-no-repeat bg-center bg-cover"
-      :style="`background-image: url('${$frontmatter.image}')`"
-    ></div>
-    <Content />
-  </div>
+  <recipe-card>
+    <Content id="post" />
+  </recipe-card>
 </template>
 
 <script>
@@ -15,25 +9,6 @@ export default {
   name: "Post",
 };
 </script>
-
-<style scoped>
-#post {
-  min-height: var(--main-height);
-  overflow-y: scroll;
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-}
-#post::-webkit-scrollbar {
-  display: none;
-}
-#post > #hero {
-  min-height: 33%;
-}
-#post > .content__default {
-  margin: 0 auto;
-  max-width: 80%;
-}
-</style>
 
 <style lang="stylus">
 #post h1 {

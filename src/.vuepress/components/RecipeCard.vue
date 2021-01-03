@@ -26,6 +26,11 @@
     <div class="content">
       <!-- Menu -->
       <ul class="tabs">
+        <li v-if="slotPassed">
+          <a :class="open.post ? 'active' : ''" @click="switchTab('post')"
+            >Post</a
+          >
+        </li>
         <li>
           <a
             :class="open.ingredients ? 'active' : ''"
@@ -41,6 +46,14 @@
       </ul>
 
       <transition-group name="fade">
+        <div
+          v-if="slotPassed"
+          v-show="open.post"
+          key="post"
+          class="bg-gray-50 bg-opacity-25 text-gray-900 px-8"
+        >
+          <slot></slot>
+        </div>
         <div v-show="open.ingredients" key="ingredients" class="tab-content">
           <h2>Ingredients</h2>
           <hr />
@@ -70,6 +83,7 @@ export default {
   name: "RecipeCard",
   data: () => ({
     open: {
+      post: false,
       ingredients: true,
       method: false,
     },
@@ -101,6 +115,14 @@ export default {
     method() {
       return ((this.$frontmatter || {}).recipe || {}).method || [];
     },
+    slotPassed() {
+      return !!(this.$slots.default || [])[0];
+    },
+  },
+  mounted() {
+    if (this.slotPassed) {
+      this.switchTab("post");
+    }
   },
   methods: {
     switchTab(to) {
@@ -120,7 +142,8 @@ export default {
 .fade-enter-active,
 .fade-leave-active {
   position: absolute;
-  max-width: 20rem;
+  max-width: calc(100% - 40rem);
+  min-width: calc(100% - 40rem);
   transition-property: opacity;
   transition-duration: 0.5s;
 }
@@ -181,8 +204,8 @@ export default {
   background: repeating-linear-gradient(rgba(200, 200, 200, 0.5), rgba(200, 200, 200, 0.75) 1.45rem, rgba(0, 0, 0, 0.75) 1.47rem, rgba(0, 0, 0, 1) 1.5rem);
   background: -moz-repeating-linear-gradient(rgba(200, 200, 200, 0.5), rgba(200, 200, 200, 0.75) 1.45rem, rgba(0, 0, 0, 0.75) 1.47rem, rgba(0, 0, 0, 1) 1.5rem);
   background: -ms-repeating-linear-gradient(rgba(200, 200, 200, 0.5), rgba(200, 200, 200, 0.75) 1.45rem, rgba(0, 0, 0, 0.75) 1.47rem, rgba(0, 0, 0, 1) 1.5rem);
-  background: -o-repeating-linear-gradient(rgba(200, 200, 200, 0.5), rgba(200, 200, 200, 0.75) 1.45rem, rgba(0, 0, 0, 0.75) 1.47rem, rgba(0, 0, 0, 1) 1.5rem); 
-  background: -webkit-repeating-linear-gradient(rgba(200, 200, 200, 0.5), rgba(200, 200, 200, 0.75) 1.45rem, rgba(0, 0, 0, 0.75) 1.47rem, rgba(0, 0, 0, 1) 1.5rem); 
+  background: -o-repeating-linear-gradient(rgba(200, 200, 200, 0.5), rgba(200, 200, 200, 0.75) 1.45rem, rgba(0, 0, 0, 0.75) 1.47rem, rgba(0, 0, 0, 1) 1.5rem);
+  background: -webkit-repeating-linear-gradient(rgba(200, 200, 200, 0.5), rgba(200, 200, 200, 0.75) 1.45rem, rgba(0, 0, 0, 0.75) 1.47rem, rgba(0, 0, 0, 1) 1.5rem);
   background-position-y: 0.25rem;
 }
 
