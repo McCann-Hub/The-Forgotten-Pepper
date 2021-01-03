@@ -9,10 +9,21 @@
   --footer-height: 1.5rem;
 }
 
+html,
+body {
+  overflow-y: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+
 body {
   @apply: antialiased;       
   padding-top: var(--header-height);
-  padding-bottom: var(--footer-height);
+  padding-bottom: var(--footer-height); 
 }
 
 @media (min-width: 640px) {

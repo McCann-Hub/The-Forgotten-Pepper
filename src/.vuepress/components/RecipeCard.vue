@@ -1,24 +1,23 @@
 <template>
-  <div class="bg-gray-50 bg-opacity-60">
+  <div id="recipe-card" class="bg-gray-50 bg-opacity-50">
     <div
       class="min-w-full bg-no-repeat bg-center bg-cover"
-      :style="`background-image: url('${$frontmatter.image}')`"
+      :style="`background-image: url('${$frontmatter.image}');`"
     >
       <br />
       <div class="circle__recipe">
-        <h2>1h</h2>
+        <h2>{{ cookTime }}</h2>
         <p>Cooking Time</p>
       </div>
       <div class="circle__recipe">
-        <h2>12</h2>
+        <h2>{{ serves }}</h2>
         <p>Serves</p>
       </div>
       <br />
       <div class="description">
-        <h1>Portuguese custard tarts</h1>
+        <h1>{{ title }}</h1>
         <p>
-          These little beauties are easier and quicker than a trip to the
-          bakery. They're almost too easy.
+          {{ description }}
         </p>
         <br />
       </div>
@@ -29,42 +28,39 @@
       <ul class="tabs">
         <li>
           <a
-            href="javascript:void(0)"
-            class="tablinks"
+            :class="open.ingredients ? 'active' : ''"
             @click="switchTab('ingredients')"
-            id="defaultOpen"
             >Ingredients</a
           >
         </li>
         <li>
-          <a
-            href="javascript:void(0)"
-            class="tablinks"
-            @click="switchTab('method')"
+          <a :class="open.method ? 'active' : ''" @click="switchTab('method')"
             >Method</a
           >
         </li>
       </ul>
 
-      <div v-show="open.ingredients" class="tabcontent">
-        <h2>Ingredients</h2>
-        <hr />
-        <ul>
-          <li v-for="(ingredient, i) in ingredients" :key="i">
-            {{ ingredient }}
-          </li>
-        </ul>
-      </div>
+      <transition-group name="fade">
+        <div v-show="open.ingredients" key="ingredients" class="tab-content">
+          <h2>Ingredients</h2>
+          <hr />
+          <ul>
+            <li v-for="(ingredient, i) in ingredients" :key="i">
+              {{ ingredient }}
+            </li>
+          </ul>
+        </div>
 
-      <div v-show="open.method" class="tabcontent">
-        <h2>Method</h2>
-        <hr />
-        <ol>
-          <li v-for="(step, i) in method" :key="i">
-            {{ step }}
-          </li>
-        </ol>
-      </div>
+        <div v-show="open.method" key="method" class="tab-content">
+          <h2>Method</h2>
+          <hr />
+          <ol>
+            <li v-for="(step, i) in method" :key="i">
+              {{ step }}
+            </li>
+          </ol>
+        </div>
+      </transition-group>
     </div>
   </div>
 </template>
@@ -79,6 +75,26 @@ export default {
     },
   }),
   computed: {
+    cookTime() {
+      return ((this.$frontmatter || {}).recipe || {}).cookTime || "";
+    },
+    serves() {
+      return ((this.$frontmatter || {}).recipe || {}).serves || "";
+    },
+    title() {
+      return (
+        ((this.$frontmatter || {}).recipe || {}).title ||
+        (this.$page || {}).title ||
+        ""
+      );
+    },
+    description() {
+      return (
+        ((this.$frontmatter || {}).recipe || {}).description ||
+        (this.$frontmatter || {}).description ||
+        ""
+      );
+    },
     ingredients() {
       return ((this.$frontmatter || {}).recipe || {}).ingredients || [];
     },
@@ -100,23 +116,87 @@ export default {
 };
 </script>
 
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  position: absolute;
+  max-width: 18rem;
+  transition-property: opacity;
+  transition-duration: 0.5s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+</style>
+
 <style lang="stylus" scoped>
 .circle__recipe {
-    @apply: bg-yellow-400 bg-opacity-80 m-1 w-20 h-20 rounded-full flex flex-col justify-center items-center text-center;
+  @apply: bg-yellow-400 bg-opacity-80 m-1 w-20 h-20 rounded-full flex flex-col justify-center items-center text-center;
 }
+
 .circle__recipe > h2 {
-    @apply: font-medium text-lg;
+  @apply: font-medium text-lg;
 }
+
 .circle__recipe > p {
-    @apply: font-light text-sm;
+  @apply: font-light text-sm;
 }
+
 .description {
-    @apply: bg-gray-900 bg-opacity-20 text-gray-100;
+  @apply: bg-gray-900 bg-opacity-20 text-gray-100;
 }
+
 .description > h1 {
-    @apply: p-2 font-medium text-xl;
+  @apply: p-2 font-medium text-xl;
 }
+
 .description > p {
-    @apply: p-2 font-light text-sm
+  @apply: p-2 font-light text-sm;
+}
+
+.tabs {
+  @apply: text-center;
+}
+
+.tabs > li {
+  @apply: inline list-none mr-4;
+}
+
+.tabs > li > a {
+  @apply: cursor-pointer no-underline select-none text-gray-100 text-opacity-50;
+  transition: 0.5s;
+}
+
+.tabs > li > a:hover {
+  @apply: text-gray-500 text-opacity-75;
+}
+
+.tabs > li > a.active {
+  @apply: text-gray-900 text-opacity-100;
+}
+
+.tab-content {
+  @apply: mx-4;
+}
+
+.tab-content > h2 {
+  @apply: font-medium text-xl;
+}
+
+.tab-content > hr {
+  @apply: border-gray-900 border-opacity-50 w-72;
+}
+
+.tab-content > ul {
+  @apply: list-disc;
+}
+
+.tab-content > ol {
+  @apply: list-decimal;
+}
+
+.tab-content li {
+  @apply: ml-4;
 }
 </style>
