@@ -1,19 +1,34 @@
 <template>
   <div
-    class="fb-share-button"
+    class="fb-like"
+    :data-action="action"
+    :data-colorscheme="colorscheme"
     :data-href="`${$themeConfig.domain || ''}${$page.path}`"
     :data-layout="layout"
     :data-size="size"
+    :data-share="share"
   ></div>
 </template>
 
 <script>
 export default {
-  name: "FacebookShare",
+  name: "FacebookLike",
   props: {
+    action: {
+      type: String, // like or recommend
+      default: "like",
+    },
+    colorscheme: {
+      type: String, // light or dark
+      default: "light",
+    },
     layout: {
-      type: String, // button_count, button or box_count
-      default: "button",
+      type: String, // standard, button_count, button or box_count
+      default: "standard",
+    },
+    share: {
+        type: Boolean,
+        default: true
     },
     size: {
       type: String, // small or large

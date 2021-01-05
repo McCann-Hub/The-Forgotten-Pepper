@@ -1,6 +1,8 @@
 <template>
   <recipe-card>
-    <facebook-save /><facebook-share /><pinterest-save />
+    <div class="pt-4 flex align-middle">
+      <pinterest-save /><facebook-like />
+    </div>
     <Content id="post" />
   </recipe-card>
 </template>
