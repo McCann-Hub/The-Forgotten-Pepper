@@ -8,8 +8,9 @@
   >
     <span :class="['logo', ($themeConfig || {}).logo]"></span>
     <div class="flex flex-col w-full">
-      <div class="flex">
+      <div class="flex justify-between">
         <a class="text-xl font-bold" href="/">{{ $site.title }}</a>
+        <dark-mode-switch class="mr-4" />
       </div>
       <div class="flex items-center">
         <frontmatter-search class="w-1/6" />
@@ -21,6 +22,7 @@
 </template>
 
 <script>
+import DarkModeSwitch from "@theme/components/DarkModeSwitch.vue";
 import FrontmatterSearch from "@theme/components/FrontmatterSearch.vue";
 import NavBar from "@theme/components/NavBar.vue";
 import SocialBar from "@theme/components/SocialBar.vue";
@@ -28,6 +30,7 @@ import SocialBar from "@theme/components/SocialBar.vue";
 export default {
   name: "GlobalHeader",
   components: {
+    DarkModeSwitch,
     FrontmatterSearch,
     NavBar,
     SocialBar,
