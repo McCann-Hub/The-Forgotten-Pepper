@@ -203,7 +203,7 @@ export default {
 }
 
 .tabs {
-  @apply: bg-gray-50 bg-opacity-75 sticky text-center top-0;
+  @apply: bg-gray-400 bg-opacity-90 sticky text-center top-0;
 }
 
 .tabs > li {
