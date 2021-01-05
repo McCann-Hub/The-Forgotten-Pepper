@@ -6,7 +6,7 @@ module.exports = {
   description: 'A Vuepress powered blog',
   themeConfig: {
     domain: 'https://theforgottenpepper.com',
-    author: '',
+    author: 'Melanie Houghton',
     logo: 'forgotten-pepper',
     dark: true,
     nav: [
@@ -86,6 +86,11 @@ module.exports = {
       hostname: 'https://theforgottenpepper.com',
     },
     seo: {
+      author: ($page, $site) =>
+        $page.frontmatter.author || $site.themeConfig.author,
+      publishedAt: ($page) =>
+        ($page.frontmatter.date || $page.created) &&
+        new Date($page.frontmatter.date || $page.created).toISOString(),
       tags: ($page) =>
         $page.frontmatter.ingredients || [$page.frontmatter.ingredient],
       type: ($page) =>
@@ -95,6 +100,25 @@ module.exports = {
           ? 'article'
           : 'website',
       url: ($page, $site) => ($site.themeConfig.domain || '') + $page.path,
+      customMeta: (add, context) => {
+        const {
+          $site, // Site configs provided by Vuepress
+          $page, // Page configs provided by Vuepress
+          // All the computed options from above:
+          siteTitle,
+          title,
+          description,
+          author,
+          tags,
+          twitterCard,
+          type,
+          url,
+          image,
+          publishedAt,
+          modifiedAt,
+        } = context;
+        add('article:author', author);
+      },
     },
   },
   configureWebpack: {

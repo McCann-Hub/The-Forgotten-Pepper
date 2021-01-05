@@ -1,5 +1,6 @@
 <template>
   <recipe-card>
+    <facebook-save /><facebook-share /><pinterest-save />
     <Content id="post" />
   </recipe-card>
 </template>

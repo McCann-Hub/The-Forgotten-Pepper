@@ -67,8 +67,8 @@ module.exports = (themeConfig) => {
    */
   const plugins = [
     ['@vuepress/blog', blogPluginOptions],
-    ['seo', (themeConfig || {}).seo],
     require('../plugin-created'),
+    ['seo', (themeConfig || {}).seo],  // set SEO last so all the page data is extended
   ];
   /*
    * 

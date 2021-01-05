@@ -1,21 +1,34 @@
 <template>
-  <div id="recipe-card" class="bg-gray-50 bg-opacity-50">
+  <div
+    id="recipe-card"
+    class="bg-gray-50 bg-opacity-50"
+    itemscope
+    itemtype="http://schema.org/Recipe"
+  >
+    <meta
+      itemprop="url"
+      :content="`${$themeConfig.domain || ''}${$page.path}`"
+    />
+    <meta itemprop="recipeCategory" content="" />
+    <meta itemprop="recipeCuisine" content="" />
+    <meta itemprop="suitableForDiet" content="" />
     <div
       class="min-w-full bg-no-repeat bg-center bg-cover"
       :style="`background-image: url('${$frontmatter.image}');`"
     >
       <br />
       <div class="circle__recipe">
-        <h2>{{ cookTime }}</h2>
+        <h2 itemprop="totalTime">{{ cookTime }}</h2>
         <p>Cooking Time</p>
+        <meta itemprop="cookingMethod" content="" />
       </div>
       <div class="circle__recipe">
-        <h2>{{ serves }}</h2>
+        <h2 itemprop="recipeYield">{{ serves }}</h2>
         <p>Serves</p>
       </div>
       <br />
       <div class="description">
-        <h1>{{ title }}</h1>
+        <h1 itemprop="name">{{ title }}</h1>
         <p>
           {{ description }}
         </p>
@@ -64,14 +77,22 @@
           <h2>Recipe</h2>
           <h3>Ingredients</h3>
           <ul>
-            <li v-for="(ingredient, i) in ingredients" :key="i">
+            <li
+              v-for="(ingredient, i) in ingredients"
+              :key="i"
+              itemprop="ingredients"
+            >
               {{ ingredient }}
             </li>
           </ul>
           <br />
           <h3>Method</h3>
           <ol>
-            <li v-for="(step, i) in method" :key="i">
+            <li
+              v-for="(step, i) in method"
+              :key="i"
+              itemprop="recipeInstructions"
+            >
               {{ step }}
             </li>
           </ol>
@@ -82,7 +103,11 @@
           <h2>Ingredients</h2>
           <hr />
           <ul>
-            <li v-for="(ingredient, i) in ingredients" :key="i">
+            <li
+              v-for="(ingredient, i) in ingredients"
+              :key="i"
+              itemprop="ingredients"
+            >
               {{ ingredient }}
             </li>
           </ul>
@@ -91,7 +116,11 @@
           <h2>Method</h2>
           <hr />
           <ol>
-            <li v-for="(step, i) in method" :key="i">
+            <li
+              v-for="(step, i) in method"
+              :key="i"
+              itemprop="recipeInstructions"
+            >
               {{ step }}
             </li>
           </ol>
@@ -147,7 +176,7 @@ export default {
     if (this.slotPassed) {
       this.switchTab("blog");
     } else {
-        this.switchTab('ingredients');
+      this.switchTab("ingredients");
     }
   },
   methods: {
