@@ -57,9 +57,7 @@
           ref="selectOptions"
           v-show="open"
           @focusout="open = false"
-          :class="`absolute w-full rounded-md focus:outline-none shadow-lg z-10 ${
-            $themeConfig.dark ? 'bg-gray-900' : 'bg-gray-50'
-          }`"
+          class="absolute w-full rounded-md focus:outline-none shadow-lg z-10 bg-gray-50 dark:bg-gray-900"
         >
           <ul class="rounded-md text-sm overflow-auto focus:outline-none">
             <!--
@@ -70,9 +68,7 @@
             <li
               v-for="option in selectOptions"
               :key="option.key"
-              :class="`rounded-md select-none relative pl-3 pr-9 ${
-                $themeConfig.dark ? 'hover:bg-gray-500' : 'hover:bg-gray-400'
-              }`"
+              class="rounded-md select-none relative pl-3 pr-9 hover:bg-gray-400 dark:hover:bg-gray-500"
             >
               <div @click="onOptionClick(option.key)" class="flex items-center">
                 <!-- Selected: "font-semibold", Not Selected: "font-normal" -->

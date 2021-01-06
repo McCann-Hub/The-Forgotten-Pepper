@@ -12,11 +12,7 @@
       :style="`background-image: url('${page.frontmatter.image}')`"
     ></div>
     <div
-      :class="`w-full flex flex-col justify-between ${
-        $themeConfig.dark
-          ? 'bg-gray-900 text-gray-50'
-          : 'bg-gray-50 text-gray-900'
-      }`"
+      class="w-full flex flex-col justify-between bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-50"
     >
       <div class="px-3 py-2">
         <div class="font-bold text-xl mb-2">
@@ -30,11 +26,7 @@
         <a
           v-for="tag in this.tags"
           :key="tag.tag"
-          :class="`inline-block rounded-full px-3 py-1 text-sm font-semibold mr-2 ${
-            $themeConfig.dark
-              ? 'bg-gray-200 text-gray-700'
-              : 'bg-gray-700 text-gray-200'
-          }`"
+          class="inline-block rounded-full px-3 py-1 text-sm font-semibold mr-2 bg-gray-700 text-gray-200 dark:bg-gray-200 dark:text-gray-700"
           :href="tag.path"
           >{{ `#${tag.tag}` }}</a
         >

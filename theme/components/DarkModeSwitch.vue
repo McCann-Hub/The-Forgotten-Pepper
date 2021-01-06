@@ -1,5 +1,5 @@
 <template>
-  <button class="focus:outline-none" @click="dark = !dark">
+  <button class="focus:outline-none" @click="onModeSwitch">
     <div class="h-4 w-4 relative">
       <transition-group name="zoom">
         <div v-if="dark" key="dark">
@@ -45,6 +45,38 @@ export default {
   data: () => ({
     dark: false,
   }),
+  created() {
+    const localPrefersColorScheme = localStorage.getItem(
+      "prefers-color-scheme"
+    );
+    let osPrefersColorScheme = this.$themeConfig.dark ? "dark" : "light";
+    if (window.matchMedia) {
+      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        osPrefersColorScheme = "dark";
+      } else {
+        osPrefersColorScheme = "light";
+      }
+    }
+    const dark = (localPrefersColorScheme || osPrefersColorScheme) == "dark";
+    this.dark = dark;
+    this.setDarkClass(dark);
+  },
+  methods: {
+    setDarkClass(isDark) {
+      if (isDark) {
+        document.querySelector("html").classList.add("dark");
+      } else {
+        document.querySelector("html").classList.remove("dark");
+      }
+    },
+    onModeSwitch() {
+      const dark = !this.dark;
+      this.dark = dark;
+      const prefersColorScheme = dark ? "dark" : "light";
+      localStorage.setItem("prefers-color-scheme", prefersColorScheme);
+      this.setDarkClass(dark);
+    },
+  },
 };
 </script>
 

@@ -36,7 +36,7 @@
       </div>
     </div>
 
-    <div class="relative">
+    <div class="body">
       <!-- Menu -->
       <ul v-if="slotPassed" class="tabs">
         <li>
@@ -229,6 +229,10 @@ export default {
 
 .description > p {
   @apply: p-2 font-light text-sm;
+}
+
+.body {
+  @apply: relative;
 }
 
 .tabs {

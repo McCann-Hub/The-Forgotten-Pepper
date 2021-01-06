@@ -22,16 +22,12 @@
       </button>
       <ul
         v-if="item.items"
-        :class="`dropdown-menu rounded absolute hidden z-10 ${
-          $themeConfig.dark ? 'bg-gray-800' : 'bg-gray-200'
-        }`"
+        class="dropdown-menu rounded absolute hidden z-10 bg-gray-200 dark:bg-gray-800"
       >
         <li v-for="mitem in item.items" :key="mitem.text">
           <a
             :href="mitem.link || '#'"
-            :class="`block rounded py-2 px-4 ${
-              $themeConfig.dark ? 'hover:bg-gray-500' : 'hover:bg-gray-400'
-            }`"
+            class="block rounded py-2 px-4 hover:bg-gray-400 dark:hover:bg-gray-500"
             >{{ mitem.text }}</a
           >
         </li>

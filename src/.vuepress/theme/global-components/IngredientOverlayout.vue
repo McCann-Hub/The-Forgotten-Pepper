@@ -1,15 +1,12 @@
 <template>
   <div
     id="overlay"
-    :class="`${$themeConfig.dark ? 'bg-gray-50' : 'bg-gray-900'} bg-opacity-75`"
+    class="bg-gray-900 dark:bg-gray-50 bg-opacity-75"
   >
-    <a @click="$emit('close')" class="absolute right-1 top-0 cursor-pointer">
+    <div class="h-full relative">
+      <a @click="$emit('close')" class="absolute right-1 top-0 cursor-pointer">
       <svg
-        :class="`fill-current w-7 h-7 ${
-          $themeConfig.dark
-            ? 'text-gray-400 hover:text-gray-900'
-            : 'text-gray-500 hover:text-gray-50'
-        }`"
+        class="fill-current w-7 h-7 text-gray-500 hover:text-gray-50 dark:text-gray-400 dark:hover:text-gray-900"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 18 18"
       >
@@ -18,7 +15,8 @@
         />
       </svg>
     </a>
-    <ingredient :pages="pages" />
+    <ingredient class="" :pages="pages" />
+    </div>
   </div>
 </template>
 
@@ -39,7 +37,7 @@ export default {
 
 <style scoped>
 #overlay {
-  position: fixed; /* Sit on top of the page content */
+  position: absolute; /* Sit on top of the page content */
   width: 100%; /* Full width (cover the whole page) */
   max-height: var(--main-height);
   min-height: var(--main-height);

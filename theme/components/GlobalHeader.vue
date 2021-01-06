@@ -1,10 +1,6 @@
 <template>
   <div
-    :class="`flex ${
-      $themeConfig.dark
-        ? 'bg-gray-900 text-gray-50'
-        : 'bg-gray-50 text-gray-900'
-    } bg-opacity-75`"
+    class="flex bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-50 bg-opacity-75"
   >
     <span :class="['logo', ($themeConfig || {}).logo]"></span>
     <div class="flex flex-col w-full">
