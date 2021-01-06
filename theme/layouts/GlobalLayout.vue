@@ -1,6 +1,6 @@
 <template>
   <div>
-    <header class="fixed top-0 w-full">
+    <header class="fixed top-0 w-full z-10">
       <global-header />
     </header>
     <main class="flex justify-center">
@@ -32,11 +32,11 @@ export default {
       return "NotFound";
     },
     leftSidebar() {
-      return this.$frontmatter.leftSidebar || 'div';
+      return this.$frontmatter.leftSidebar || "div";
     },
     rightSidebar() {
-      return this.$frontmatter.rightSidebar || 'div';
-    }
+      return this.$frontmatter.rightSidebar || "div";
+    },
   },
 };
 </script>

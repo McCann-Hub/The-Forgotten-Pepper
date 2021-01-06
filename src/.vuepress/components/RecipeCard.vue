@@ -198,7 +198,7 @@ export default {
 .fade-leave-active {
   position: absolute;
   transition-property: opacity;
-  transition-duration: 0.5s;
+  transition-duration: var(--transition-duration);
 }
 .fade-enter,
 .fade-leave-to {
@@ -245,7 +245,7 @@ export default {
 
 .tabs > li > a {
   @apply: cursor-pointer no-underline select-none text-gray-500 text-opacity-50;
-  transition: 0.5s;
+  transition: var(--transition-duration);
 }
 
 .tabs > li > a:hover {

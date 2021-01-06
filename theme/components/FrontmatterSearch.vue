@@ -251,7 +251,7 @@ export default {
 .fade-enter-active,
 .fade-leave-active {
   transition-property: opacity;
-  transition-duration: 0.5s;
+  transition-duration: var(--transition-duration);
 }
 .fade-enter,
 .fade-leave-to {

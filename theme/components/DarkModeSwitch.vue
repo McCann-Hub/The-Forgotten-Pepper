@@ -95,10 +95,10 @@ export default {
 
 .zoom-enter-active,
 .zoom-leave-active {
-  animation: zoom 0.5s ease-out forwards;
+  animation: zoom var(--transition-duration) ease-out forwards;
   position: absolute;
   transition-property: opacity;
-  transition-duration: 0.5s;
+  transition-duration: var(--transition-duration);
 }
 .zoom-enter,
 .zoom-leave-to {
