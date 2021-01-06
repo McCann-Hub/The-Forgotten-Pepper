@@ -3,19 +3,24 @@
 @import url('https://fonts.googleapis.com/css?family=Inter:400,500,600,700,900&display=swap');
 
 body::before {       
-  background: url('~@assets/background_vanilla.svg');
+  background-image: url('~@assets/background_vanilla.svg');
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   content: "";
-  filter: brightness(1.50) contrast(50%);
+  filter: brightness(1.25);
+  transition: filter var(--transition-duration);
   height: 100%;
   left: 0;
   position: absolute;
   top: 0;
   width: 100%;
   z-index: -1;
+}
+
+.dark body::before {
+  filter: brightness(0.75);
 }
 
 #app {
