@@ -1,7 +1,7 @@
 <template>
   <div
     id="recipe-card"
-    class="bg-gray-50 bg-opacity-50"
+    class="bg-gray-50 bg-opacity-50 dark:bg-gray-900 dark:bg-opacity-50"
     itemscope
     itemtype="http://schema.org/Recipe"
   >
@@ -69,7 +69,7 @@
         <div
           v-show="open.blog"
           key="blog"
-          class="bg-gray-50 bg-opacity-25 text-gray-900 px-8"
+          class="px-8 bg-gray-300 bg-opacity-25 text-gray-700 dark:bg-gray-700 dark:bg-opacity-25 dark:text-gray-300"
         >
           <slot></slot>
         </div>
@@ -220,7 +220,7 @@ export default {
 }
 
 .description {
-  @apply: bg-gray-900 bg-opacity-20 text-gray-100;
+  @apply: bg-gray-900 bg-opacity-30 text-gray-100;
 }
 
 .description > h1 {
@@ -257,13 +257,25 @@ export default {
 }
 
 .tab-content {
-  @apply: px-4;
-  background: repeating-linear-gradient(rgba(200, 200, 200, 0.5), rgba(200, 200, 200, 0.75) 1.45rem, rgba(0, 0, 0, 0.75) 1.47rem, rgba(0, 0, 0, 1) 1.5rem);
-  background: -moz-repeating-linear-gradient(rgba(200, 200, 200, 0.5), rgba(200, 200, 200, 0.75) 1.45rem, rgba(0, 0, 0, 0.75) 1.47rem, rgba(0, 0, 0, 1) 1.5rem);
-  background: -ms-repeating-linear-gradient(rgba(200, 200, 200, 0.5), rgba(200, 200, 200, 0.75) 1.45rem, rgba(0, 0, 0, 0.75) 1.47rem, rgba(0, 0, 0, 1) 1.5rem);
-  background: -o-repeating-linear-gradient(rgba(200, 200, 200, 0.5), rgba(200, 200, 200, 0.75) 1.45rem, rgba(0, 0, 0, 0.75) 1.47rem, rgba(0, 0, 0, 1) 1.5rem);
-  background: -webkit-repeating-linear-gradient(rgba(200, 200, 200, 0.5), rgba(200, 200, 200, 0.75) 1.45rem, rgba(0, 0, 0, 0.75) 1.47rem, rgba(0, 0, 0, 1) 1.5rem);
+  @apply: px-4 text-gray-700;
+  --step-1: rgba(200, 200, 200, 0.25);
+  --step-2: rgba(200, 200, 200, 0.50);
+  --step-3: rgba(0, 0, 0, 0.75);
+  --step-4: rgba(0, 0, 0, 1);
+  background-image: repeating-linear-gradient(var(--step-1), var(--step-2) 1.45rem, var(--step-3) 1.47rem, var(--step-4) 1.5rem);
+  background-image: -moz-repeating-linear-gradient(var(--step-1), var(--step-2) 1.45rem, var(--step-3) 1.47rem, var(--step-4) 1.5rem);
+  background-image: -ms-repeating-linear-gradient(var(--step-1), var(--step-2) 1.45rem, var(--step-3) 1.47rem, var(--step-4) 1.5rem);
+  background-image: -o-repeating-linear-gradient(var(--step-1), var(--step-2) 1.45rem, var(--step-3) 1.47rem, var(--step-4) 1.5rem);
+  background-image: -webkit-repeating-linear-gradient(var(--step-1), var(--step-2) 1.45rem, var(--step-3) 1.47rem, var(--step-4) 1.5rem);
   background-position-y: 0.25rem;
+}
+
+.dark .tab-content {
+  @apply: text-gray-300;
+  --step-1: rgba(0, 0, 0, 0.25);
+  --step-2: rgba(0, 0, 0, 0.50);
+  --step-3: rgba(200, 200, 200, 0.75);
+  --step-4: rgba(200, 200, 200, 1);
 }
 
 .tab-content > h2 {
