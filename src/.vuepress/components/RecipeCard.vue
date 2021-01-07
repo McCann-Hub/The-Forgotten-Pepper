@@ -1,7 +1,7 @@
 <template>
   <div
     id="recipe-card"
-    class="bg-gray-50 bg-opacity-50 dark:bg-gray-900 dark:bg-opacity-50"
+    class="bg-gray-50 bg-opacity-75 dark:bg-gray-900 dark:bg-opacity-75"
     itemscope
     itemtype="http://schema.org/Recipe"
   >
@@ -259,7 +259,7 @@ export default {
 .tab-content {
   @apply: px-4 text-gray-700;
   --step-1: rgba(200, 200, 200, 0.25);
-  --step-2: rgba(200, 200, 200, 0.50);
+  --step-2: rgba(200, 200, 200, 0.5);
   --step-3: rgba(0, 0, 0, 0.75);
   --step-4: rgba(0, 0, 0, 1);
   background-image: repeating-linear-gradient(var(--step-1), var(--step-2) 1.45rem, var(--step-3) 1.47rem, var(--step-4) 1.5rem);
@@ -273,7 +273,7 @@ export default {
 .dark .tab-content {
   @apply: text-gray-300;
   --step-1: rgba(0, 0, 0, 0.25);
-  --step-2: rgba(0, 0, 0, 0.50);
+  --step-2: rgba(0, 0, 0, 0.5);
   --step-3: rgba(200, 200, 200, 0.75);
   --step-4: rgba(200, 200, 200, 1);
 }
