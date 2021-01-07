@@ -15,8 +15,15 @@
       class="w-full flex flex-col justify-between bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-50"
     >
       <div class="px-3 py-2">
-        <div class="font-bold text-xl mb-2">
-          <a :href="page.path">{{ page.title }}</a>
+        <div class="mb-2">
+          <div class="font-bold text-xl">
+            <a :href="page.path">{{ page.title }}</a>
+          </div>
+          <div class="font-thin text-xs">
+            <span>{{ `published: ${page.created}` }}</span>
+            <br />
+            <span>{{ `updated: ${page.lastUpdated}` }}</span>
+          </div>
         </div>
         <p class="font-medium text-base select-none truncate-overflow">
           {{ page.frontmatter.summary || page.summary }}

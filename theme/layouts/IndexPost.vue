@@ -1,6 +1,11 @@
  <template>
-  <div class="min-h-full min-w-full flex flex-wrap justify-evenly items-center">
-    <page-card v-for="page in pages" :key="page.key" :page="page" />
+  <div class="min-h-full min-w-full flex flex-col justify-evenly items-center">
+    <page-card
+      v-for="page in pages"
+      :key="page.key"
+      :page="page"
+      orientation="horizontal"
+    />
   </div>
 </template>
 
@@ -19,7 +24,7 @@ export default {
         return bCreated - aCreated;
       });
       return pages;
-    }
-  }
+    },
+  },
 };
 </script>

@@ -1,8 +1,5 @@
 <template>
-  <div
-    id="ingredient"
-    class="min-h-full min-w-full flex flex-wrap justify-evenly items-center"
-  >
+  <div class="min-h-full min-w-full flex flex-wrap justify-evenly items-center">
     <page-card v-for="page in _pages" :key="page.key" :page="page" />
   </div>
 </template>
@@ -18,22 +15,22 @@ export default {
   },
   computed: {
     _pages() {
+      let pages;
       if (this.pages.length > 0) {
-        return this.pages;
+        pages = [...this.pages];
+      } else {
+        pages = [...((this.$pagination || {}).pages || [])];
       }
-      return (this.$pagination || {}).pages || [];
+      pages.sort((a, b) => {
+        const aCreated = new Date(a.created);
+        const bCreated = new Date(b.created);
+        if (bCreated - aCreated === 0) {
+          return new Date(b.lastUpdated) - new Date(a.lastUpdated);
+        }
+        return bCreated - aCreated;
+      });
+      return pages;
     },
   },
 };
 </script>
-
-<style scoped>
-#ingredient {
-  overflow-y: scroll;
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-}
-#ingredient::-webkit-scrollbar {
-  display: none;
-}
-</style>
