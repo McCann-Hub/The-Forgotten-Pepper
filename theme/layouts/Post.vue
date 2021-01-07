@@ -53,11 +53,19 @@ export default {
 }
 
 #post :is(h1, h2, h3, h4, h5, h6) a {
-  @apply: font-normal text-white text-opacity-0;
+  @apply: font-light text-white text-opacity-0;
 }
 
 #post :is(h1, h2, h3, h4, h5, h6) a:hover {
   @apply: text-black text-opacity-100;
+}
+
+.dark #post :is(h1, h2, h3, h4, h5, h6) a {
+  @apply: text-black text-opacity-0;
+}
+
+.dark #post :is(h1, h2, h3, h4, h5, h6) a:hover {
+  @apply: text-white text-opacity-100;
 }
 
 #post p {
