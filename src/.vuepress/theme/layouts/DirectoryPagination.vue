@@ -1,12 +1,7 @@
  <template>
   <div class="relative">
-    <div class="min-h-full flex flex-col justify-evenly items-center">
-      <page-card
-        v-for="page in pages"
-        :key="page.key"
-        :page="page"
-        orientation="horizontal"
-      />
+    <div class="min-h-full flex justify-evenly items-center">
+      <page-card v-for="page in pages" :key="page.key" :page="page" />
     </div>
     <div class="absolute bottom-0 w-full">
       <div class="flex justify-center items-center">
@@ -20,7 +15,7 @@
 import { Pagination } from "@vuepress/plugin-blog/lib/client/components";
 
 export default {
-  name: "IndexPost",
+  name: "DirectoryPagination",
   components: {
     Pagination,
   },

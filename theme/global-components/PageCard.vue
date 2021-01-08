@@ -17,12 +17,20 @@
       <div class="px-3 py-2">
         <div class="mb-2">
           <div class="font-bold text-xl">
-            <a :href="page.path">{{ page.title }}</a>
+            <a class="cursor-pointer" @click="$router.push(page.path)">{{
+              page.title
+            }}</a>
           </div>
           <div class="font-thin text-xs">
-            <span>{{ `published: ${page.created}` }}</span>
+            <span>{{
+              `published: ${new Date(
+                page.frontmatter.date || page.created
+              ).toLocaleDateString()}`
+            }}</span>
             <br />
-            <span>{{ `updated: ${page.lastUpdated}` }}</span>
+            <span v-if="page.lastUpdated">{{
+              `updated: ${page.lastUpdated}`
+            }}</span>
           </div>
         </div>
         <p class="font-medium text-base select-none truncate-overflow">
@@ -31,10 +39,10 @@
       </div>
       <div class="px-3 py-2">
         <a
-          v-for="tag in this.tags"
+          v-for="tag in tags"
           :key="tag.tag"
-          class="inline-block rounded-full px-3 py-1 text-sm font-semibold mr-2 bg-gray-700 text-gray-200 dark:bg-gray-200 dark:text-gray-700"
-          :href="tag.path"
+          class="inline-block rounded-full px-3 py-1 text-sm font-semibold mr-2 bg-gray-700 text-gray-200 dark:bg-gray-200 dark:text-gray-700 cursor-pointer"
+          @click="$router.push(tag.path)"
           >{{ `#${tag.tag}` }}</a
         >
       </div>
@@ -80,13 +88,13 @@ export default {
               acc.push(
                 ...tag.map((t) => ({
                   tag: t,
-                  path: `${el.path}${t}`,
+                  path: `${el.path}${t}/`,
                 }))
               );
             } else {
               acc.push({
                 tag,
-                path: `${el.path}${tag}`,
+                path: `${el.path}${tag}/`,
               });
             }
           }

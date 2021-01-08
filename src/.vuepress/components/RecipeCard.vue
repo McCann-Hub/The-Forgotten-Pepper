@@ -13,16 +13,18 @@
     <meta itemprop="recipeCuisine" content="" />
     <meta itemprop="suitableForDiet" content="" />
     <div
+      v-if="$frontmatter.image"
+      id="hero"
       class="min-w-full bg-no-repeat bg-center bg-cover"
       :style="`background-image: url('${$frontmatter.image}');`"
     >
       <br />
-      <div class="circle__recipe">
+      <div v-if="cookTime" class="circle__recipe">
         <h2 itemprop="totalTime">{{ cookTime }}</h2>
         <p>Cooking Time</p>
         <meta itemprop="cookingMethod" content="" />
       </div>
-      <div class="circle__recipe">
+      <div v-if="serves" class="circle__recipe">
         <h2 itemprop="recipeYield">{{ serves }}</h2>
         <p>Serves</p>
       </div>
@@ -38,32 +40,34 @@
 
     <div class="body">
       <!-- Menu -->
-      <ul v-if="slotPassed" class="tabs">
-        <li>
-          <a :class="open.blog ? 'active' : ''" @click="switchTab('blog')"
-            >Blog</a
-          >
-        </li>
-        <li>
-          <a :class="open.recipe ? 'active' : ''" @click="switchTab('recipe')"
-            >Recipe</a
-          >
-        </li>
-      </ul>
-      <ul v-else class="tabs">
-        <li>
-          <a
-            :class="open.ingredients ? 'active' : ''"
-            @click="switchTab('ingredients')"
-            >Ingredients</a
-          >
-        </li>
-        <li>
-          <a :class="open.method ? 'active' : ''" @click="switchTab('method')"
-            >Method</a
-          >
-        </li>
-      </ul>
+      <span v-if="ingredients.length > 0 && method.length > 0">
+        <ul v-if="slotPassed" class="tabs">
+          <li>
+            <a :class="open.blog ? 'active' : ''" @click="switchTab('blog')"
+              >Blog</a
+            >
+          </li>
+          <li>
+            <a :class="open.recipe ? 'active' : ''" @click="switchTab('recipe')"
+              >Recipe</a
+            >
+          </li>
+        </ul>
+        <ul v-else class="tabs">
+          <li>
+            <a
+              :class="open.ingredients ? 'active' : ''"
+              @click="switchTab('ingredients')"
+              >Ingredients</a
+            >
+          </li>
+          <li>
+            <a :class="open.method ? 'active' : ''" @click="switchTab('method')"
+              >Method</a
+            >
+          </li>
+        </ul>
+      </span>
 
       <transition-group v-if="slotPassed" name="fade">
         <div

@@ -20,7 +20,7 @@
 import { Pagination } from "@vuepress/plugin-blog/lib/client/components";
 
 export default {
-  name: "IndexPost",
+  name: "DirectoryPagination",
   components: {
     Pagination,
   },

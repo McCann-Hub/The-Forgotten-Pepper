@@ -13,6 +13,8 @@
 </template>
 
 <script>
+import Vue from "vue";
+import { setGlobalInfo } from "@app/util";
 import GlobalHeader from "@theme/components/GlobalHeader.vue";
 
 export default {
@@ -22,20 +24,31 @@ export default {
   },
   computed: {
     layout() {
-      if (this.$page.path) {
-        if (this.$frontmatter.layout) {
-          // You can also check whether layout exists first as the default global layout does.
-          return this.$frontmatter.layout;
-        }
-        return "Layout";
-      }
-      return "NotFound";
+      const layout = this.getLayout();
+      setGlobalInfo("layout", layout);
+      return Vue.component(layout);
     },
     leftSidebar() {
       return this.$frontmatter.leftSidebar || "div";
     },
     rightSidebar() {
       return this.$frontmatter.rightSidebar || "div";
+    },
+  },
+  methods: {
+    getLayout() {
+      if (this.$page.path) {
+        const layout = this.$page.frontmatter.layout;
+        if (
+          layout &&
+          (this.$vuepress.getLayoutAsyncComponent(layout) ||
+            this.$vuepress.getVueComponent(layout))
+        ) {
+          return layout;
+        }
+        return "Layout";
+      }
+      return "NotFound";
     },
   },
 };

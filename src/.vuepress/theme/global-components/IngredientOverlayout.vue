@@ -32,6 +32,13 @@ export default {
   components: {
     Ingredient,
   },
+  watch: {
+    $route(to, from) {
+      if (to.path !== from.path) {
+        this.$emit("close");
+      }
+    },
+  },
 };
 </script>
 
