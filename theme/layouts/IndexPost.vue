@@ -2,7 +2,7 @@
   <div class="relative">
     <div class="min-h-full flex flex-col justify-evenly items-center">
       <page-card
-        v-for="page in pages"
+        v-for="page in $pagination.pages"
         :key="page.key"
         :page="page"
         orientation="horizontal"
@@ -23,20 +23,6 @@ export default {
   name: "IndexPost",
   components: {
     Pagination,
-  },
-  computed: {
-    pages() {
-      const pages = [...this.$pagination.pages];
-      pages.sort((a, b) => {
-        const aPublished = new Date(a.frontmatter.date || a.created);
-        const bPublished = new Date(b.frontmatter.date || b.created);
-        if (bPublished - aPublished === 0) {
-          return new Date(b.lastUpdated) - new Date(a.lastUpdated);
-        }
-        return bPublished - aPublished;
-      });
-      return pages;
-    },
   },
 };
 </script>

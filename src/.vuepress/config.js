@@ -79,9 +79,6 @@ module.exports = {
       label: 'Recipes with...',
       multiple: true,
     },
-    globalPagination: {
-      lengthPerPage: 3,
-    },
     sitemap: {
       hostname: 'https://theforgottenpepper.com',
     },

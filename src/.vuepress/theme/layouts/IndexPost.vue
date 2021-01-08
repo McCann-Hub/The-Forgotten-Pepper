@@ -1,7 +1,11 @@
  <template>
   <div class="relative">
     <div class="min-h-full flex justify-evenly items-center">
-      <page-card v-for="page in pages" :key="page.key" :page="page" />
+      <page-card
+        v-for="page in $pagination.pages"
+        :key="page.key"
+        :page="page"
+      />
     </div>
     <div class="absolute bottom-0 w-full">
       <div class="flex justify-center items-center">
@@ -18,20 +22,6 @@ export default {
   name: "IndexPost",
   components: {
     Pagination,
-  },
-  computed: {
-    pages() {
-      const pages = [...this.$pagination.pages];
-      pages.sort((a, b) => {
-        const aPublished = new Date(a.frontmatter.date || a.created);
-        const bPublished = new Date(b.frontmatter.date || b.created);
-        if (bPublished - aPublished === 0) {
-          return new Date(b.lastUpdated) - new Date(a.lastUpdated);
-        }
-        return bPublished - aPublished;
-      });
-      return pages;
-    },
   },
 };
 </script>

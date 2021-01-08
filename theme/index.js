@@ -23,7 +23,7 @@ module.exports = (themeConfig) => {
         ? themeConfig.summaryLength
         : 200,
     pwa: !!themeConfig.pwa,
-  })
+  });
   /*
    * Configure blog plugin
    */
@@ -43,7 +43,16 @@ module.exports = (themeConfig) => {
       },
     ],
     globalPagination: {
-      lengthPerPage: 5,
+      lengthPerPage: 3,
+      sorter: (a, b) => {
+        const dayjs = require('dayjs');
+        const aPublished = dayjs(a.frontmatter.date || a.created);
+        const bPublished = dayjs(b.frontmatter.date || b.created);
+        if (bPublished - aPublished === 0) {
+          return dayjs(b.lastUpdated) - dayjs(a.lastUpdated);
+        }
+        return bPublished - aPublished;
+      },
     },
   };
   const blogPluginProperties = [
@@ -53,10 +62,10 @@ module.exports = (themeConfig) => {
     'sitemap',
     'comment',
     'newsletter',
-  ]
+  ];
   const themeConfigBlogPluginOptions = {
     ...pick(themeConfig, blogPluginProperties),
-  }
+  };
   const blogPluginOptions = Object.assign(
     {},
     defaultBlogPluginOptions,
@@ -68,10 +77,10 @@ module.exports = (themeConfig) => {
   const plugins = [
     ['@vuepress/blog', blogPluginOptions],
     require('../plugin-created'),
-    ['seo', (themeConfig || {}).seo],  // set SEO last so all the page data is extended
+    ['seo', (themeConfig || {}).seo], // set SEO last so all the page data is extended
   ];
   /*
-   * 
+   *
    */
   return {
     plugins,
@@ -79,9 +88,9 @@ module.exports = (themeConfig) => {
      * Generate summary.
      */
     extendPageData(pageCtx) {
-      const strippedContent = pageCtx._strippedContent
+      const strippedContent = pageCtx._strippedContent;
       if (!strippedContent) {
-        return
+        return;
       }
       if (themeConfig.summary) {
         pageCtx.summary =
@@ -90,11 +99,11 @@ module.exports = (themeConfig) => {
               .trim()
               .replace(/^#+\s+(.*)/, '')
               .slice(0, themeConfig.summaryLength)
-          ) + ' ...'
-        pageCtx.frontmatter.description = pageCtx.summary
+          ) + ' ...';
+        pageCtx.frontmatter.description = pageCtx.summary;
       }
       if (pageCtx.frontmatter.summary) {
-        pageCtx.frontmatter.description = pageCtx.frontmatter.summary
+        pageCtx.frontmatter.description = pageCtx.frontmatter.summary;
       }
     },
   };
