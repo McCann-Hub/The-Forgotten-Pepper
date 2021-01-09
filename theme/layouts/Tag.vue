@@ -9,7 +9,7 @@
     </div>
     <div v-if="pages.length < 1" class="absolute bottom-0 w-full">
       <div class="flex justify-center items-center">
-        <Pagination />
+        <Pagination id="pagination" />
       </div>
     </div>
   </div>
