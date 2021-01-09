@@ -19,7 +19,7 @@
 import { Pagination } from "@vuepress/plugin-blog/lib/client/components";
 
 export default {
-  name: "Ingredient",
+  name: "Tag",
   props: {
     pages: {
       type: Array,

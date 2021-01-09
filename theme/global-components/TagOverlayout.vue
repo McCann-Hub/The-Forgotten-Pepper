@@ -18,22 +18,22 @@
           />
         </svg>
       </a>
-      <ingredient :pages="_pages" />
+      <Tag :pages="_pages" />
     </div>
   </div>
 </template>
 
 <script>
-import Ingredient from "@theme/layouts/Ingredient.vue";
+import Tag from "@theme/layouts/Tag.vue";
 
 export default {
-  name: "IngredientOverlayout",
+  name: "TagOverlayout",
   props: {
     pages: Array,
     default: () => [],
   },
   components: {
-    Ingredient,
+    Tag,
   },
   watch: {
     $route(to, from) {

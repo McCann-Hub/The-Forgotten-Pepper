@@ -198,19 +198,16 @@ export default {
       return (this.selectOptions[this.selectedOption] || {}).pages;
     },
     matches() {
-      let pages;
       if (this.allowMultiple) {
-        pages = pluck(
+        return pluck(
           filterObject(
             groupBy(this.pages, "key"),
             (g) => g.length == this.selectedOptions.length
           ),
           (g) => g[0]
         );
-      } else {
-        pages = [...this.pages];
       }
-      return pages;
+      return this.pages;
     },
     overlayout() {
       return `${
