@@ -1,16 +1,14 @@
- <template>
-  <div class="relative">
-    <div class="min-h-full flex justify-evenly items-center">
+<template>
+  <div class="flex flex-col">
+    <div class="flex-grow flex justify-evenly items-center">
       <page-card
         v-for="page in $pagination.pages"
         :key="page.key"
         :page="page"
       />
     </div>
-    <div class="absolute bottom-0 w-full">
-      <div class="flex justify-center items-center">
-        <Pagination id="pagination" />
-      </div>
+    <div class="flex justify-center items-center">
+      <Pagination id="pagination" />
     </div>
   </div>
 </template>
