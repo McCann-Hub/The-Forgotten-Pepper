@@ -72,13 +72,12 @@ module.exports = {
         layout: 'Ingredients',
         // Layout of the `scope page`
         scopeLayout: 'Ingredient',
+        select: {
+          label: 'Recipes with...',
+          multiple: true,
+        }
       },
     ],
-    frontmatterSearch: {
-      id: 'ingredient',
-      label: 'Recipes with...',
-      multiple: true,
-    },
     sitemap: {
       hostname: 'https://theforgottenpepper.com',
     },

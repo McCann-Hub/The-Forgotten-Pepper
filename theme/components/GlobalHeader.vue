@@ -9,7 +9,12 @@
         <dark-mode-switch class="mr-4" />
       </div>
       <div class="flex items-center">
-        <frontmatter-search class="w-1/6" />
+        <frontmatter-select
+          v-for="frontmatter in ($themeConfig || {}).frontmatters || []"
+          :key="frontmatter.id"
+          :frontmatter="frontmatter"
+          class="w-1/6"
+        />
         <nav-bar class="flex-grow" />
         <social-bar />
       </div>
@@ -19,7 +24,7 @@
 
 <script>
 import DarkModeSwitch from "@theme/components/DarkModeSwitch.vue";
-import FrontmatterSearch from "@theme/components/FrontmatterSearch.vue";
+import FrontmatterSelect from "@theme/components/FrontmatterSelect.vue";
 import NavBar from "@theme/components/NavBar.vue";
 import SocialBar from "@theme/components/SocialBar.vue";
 
@@ -27,7 +32,7 @@ export default {
   name: "GlobalHeader",
   components: {
     DarkModeSwitch,
-    FrontmatterSearch,
+    FrontmatterSelect,
     NavBar,
     SocialBar,
   },

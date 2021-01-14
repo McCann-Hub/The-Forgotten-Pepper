@@ -14,11 +14,7 @@
             v-if="selectedDisplay.length < 1"
             class="block text-sm font-medium text-black truncate"
           >
-            {{
-              `${
-                (($themeConfig || {}).frontmatterSearch || {}).label || "Search"
-              }`
-            }}
+            {{ selectLabel }}
           </span>
           <span class="ml-3 block text-sm text-black truncate">
             {{ selectedDisplay }}
@@ -107,16 +103,18 @@
     </div>
     <transition name="fade">
       <component
-        :is="overlayout"
         v-if="overlay"
-        @close="overlay = false"
+        :is="overlayout"
         :pages="matches"
+        @close="overlay = false"
       />
     </transition>
   </div>
 </template>
 
 <script>
+import FrontmatterSelect from "../mixins/FrontmatterSelect.js";
+
 function groupBy(xs, key) {
   return xs.reduce(function (rv, x) {
     (rv[x[key]] = rv[x[key]] || []).push(x);
@@ -135,10 +133,10 @@ function pluck(obj, mapper) {
 }
 
 export default {
-  name: "FrontmatterSearch",
+  name: "FrontmatterMultiSelect",
+  mixins: [FrontmatterSelect],
   data: () => ({
     open: false,
-    selectedOption: "",
     selectedOptions: [],
     overlay: false,
   }),
@@ -158,65 +156,32 @@ export default {
     },
     overlay(newVal) {
       if (!newVal) {
-        this.selectedOption = "";
         this.selectedOptions.splice(0, this.selectedOptions.length);
       }
     },
   },
   computed: {
-    frontmatterId() {
-      return ((this.$themeConfig || {}).frontmatterSearch || {}).id || "tag";
-    },
-    selectOptions() {
-      return (this[`$${this.frontmatterId}`] || {})._metaMap;
-    },
-    allowMultiple() {
-      return (
-        ((this.$themeConfig || {}).frontmatterSearch || {}).multiple || false
-      );
-    },
-    selected() {
-      if (this.allowMultiple) {
-        return this.selectedOptions;
-      }
-      return this.selectedOption;
-    },
     selectedDisplay() {
-      if (this.allowMultiple) {
-        return this.selectedOptions
-          .map((value) => this.cleanKey(value))
-          .join(", ");
-      }
-      return this.cleanKey(this.selectedOption);
+      return this.selectedOptions
+        .map((value) => this.cleanKey(value))
+        .join(", ");
     },
     pages() {
-      if (this.allowMultiple) {
-        return this.selectedOptions
-          .map((value) => (this.selectOptions[value] || {}).pages)
-          .flat();
-      }
-      return (this.selectOptions[this.selectedOption] || {}).pages;
+      return this.selectedOptions
+        .map((value) => (this.selectOptions[value] || {}).pages)
+        .flat();
     },
     matches() {
-      if (this.allowMultiple) {
-        return pluck(
-          filterObject(
-            groupBy(this.pages, "key"),
-            (g) => g.length == this.selectedOptions.length
-          ),
-          (g) => g[0]
-        );
-      }
-      return this.pages;
+      return pluck(
+        filterObject(
+          groupBy(this.pages, "key"),
+          (g) => g.length == this.selectedOptions.length
+        ),
+        (g) => g[0]
+      );
     },
     overlayout() {
-      return `${
-        (
-          ((this.$themeConfig || {}).frontmatters || []).find(
-            (f) => f.id == this.frontmatterId
-          ) || {}
-        ).scopeLayout || "Tag"
-      }Overlayout`;
+      return `${this.frontmatter.scopeLayout || "Tag"}Overlayout`;
     },
   },
   methods: {
@@ -224,23 +189,14 @@ export default {
       return name.replace(/[^\w]/g, " ");
     },
     isSelected(checkOption) {
-      return this.selected.includes(checkOption);
+      return this.selectedOptions.includes(checkOption);
     },
     onOptionClick(clickedOption) {
-      if (this.allowMultiple) {
-        if (this.isSelected(clickedOption)) {
-          const curIndex = this.selectedOptions.indexOf(clickedOption);
-          this.selectedOptions.splice(curIndex, 1);
-        } else {
-          this.selectedOptions.push(clickedOption);
-        }
+      if (this.isSelected(clickedOption)) {
+        const curIndex = this.selectedOptions.indexOf(clickedOption);
+        this.selectedOptions.splice(curIndex, 1);
       } else {
-        if (this.isSelected(clickedOption)) {
-          this.selectedOption = "";
-        } else {
-          this.selectedOption = clickedOption;
-        }
-        this.open = false;
+        this.selectedOptions.push(clickedOption);
       }
     },
   },
