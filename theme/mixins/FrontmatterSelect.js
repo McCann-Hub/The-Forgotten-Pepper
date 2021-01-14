@@ -7,7 +7,10 @@ export default {
   },
   computed: {
     selectLabel() {
-      return (this.frontmatter.select || {}).label || "Select";
+      return (
+        (this.frontmatter.select || {}).label ||
+        (this.allowMultiple ? 'Select' : this.cleanKey(this.frontmatterId))
+      );
     },
     frontmatterId() {
       return this.frontmatter.id;
@@ -21,7 +24,7 @@ export default {
   },
   methods: {
     cleanKey(name) {
-      return name.replace(/[^\w]/g, " ");
+      return name.replace(/[^\w]/g, ' ');
     },
   },
 };

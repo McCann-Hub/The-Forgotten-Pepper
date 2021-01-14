@@ -11,19 +11,16 @@ module.exports = {
     dark: true,
     nav: [
       {
-        text: 'Recipes',
+        text: 'Hello',
         items: [
           {
-            text: 'Breakfast',
+            text: 'World',
           },
           {
-            text: 'Lunch',
+            text: 'Foo',
           },
           {
-            text: 'Dinner',
-          },
-          {
-            text: 'Dessert',
+            text: 'Bar',
           },
         ],
       },
@@ -76,6 +73,18 @@ module.exports = {
           label: 'Recipes with...',
           multiple: true,
         }
+      },
+      {
+        // Unique ID of current classification
+        id: 'menu',
+        // Decide that the frontmatter keys will be grouped under this classification
+        keys: ['menu'],
+        // Path of the `entry page` (or `list page`)
+        path: '/menu/',
+        // Layout of the `entry page`
+        // layout: 'MenuSections',
+        // Layout of the `scope page`
+        // scopeLayout: 'Menu'
       },
     ],
     sitemap: {

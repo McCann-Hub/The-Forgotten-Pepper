@@ -12,11 +12,11 @@
         <span class="flex items-center">
           <span
             v-if="selectedDisplay.length < 1"
-            class="block text-sm font-medium text-black truncate"
+            class="block text-sm font-medium capitalize text-black truncate"
           >
             {{ selectLabel }}
           </span>
-          <span class="ml-3 block text-sm text-black truncate">
+          <span class="ml-3 block text-sm capitalize text-black truncate">
             {{ selectedDisplay }}
           </span>
         </span>
@@ -68,7 +68,11 @@
             >
               <div @click="onOptionClick(option.key)" class="flex items-center">
                 <!-- Selected: "font-semibold", Not Selected: "font-normal" -->
-                <span class="ml-3 block font-normal truncate">
+                <span
+                  :class="`ml-3 block capitalize truncate ${
+                    isSelected(option.key) ? 'font-semibold' : 'font-normal'
+                  }`"
+                >
                   {{ cleanKey(option.key) }}
                 </span>
               </div>
