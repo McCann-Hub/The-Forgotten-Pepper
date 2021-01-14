@@ -9,7 +9,7 @@
       />
     </div>
     <div class="flex justify-center items-center">
-      <Pagination id="pagination" />
+      <Pagination />
     </div>
   </div>
 </template>
