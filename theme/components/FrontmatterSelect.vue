@@ -24,7 +24,7 @@
         >
           <div @click="$router.push(option.path)" class="flex items-center">
             <!-- Selected: "font-semibold", Not Selected: "font-normal" -->
-            <span class="ml-3 block font-normal capitalize truncate">
+            <span class="block font-normal capitalize truncate">
               {{ cleanKey(option.key) }}
             </span>
           </div>
