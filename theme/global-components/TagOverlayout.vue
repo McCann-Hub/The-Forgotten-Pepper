@@ -18,7 +18,7 @@
           />
         </svg>
       </a>
-      <Tag :pages="_pages" />
+      <Tag class="min-h-full" :pages="_pages" />
     </div>
   </div>
 </template>

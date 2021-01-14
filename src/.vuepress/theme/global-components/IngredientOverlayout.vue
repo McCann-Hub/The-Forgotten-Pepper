@@ -18,7 +18,7 @@
           />
         </svg>
       </a>
-      <ingredient :pages="_pages" />
+      <Ingredient class="min-h-full" :pages="_pages" />
     </div>
   </div>
 </template>

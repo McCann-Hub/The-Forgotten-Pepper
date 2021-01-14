@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-full flex flex-col">
+  <div class="flex flex-col">
     <div class="flex-grow flex justify-evenly items-center">
       <page-card
         v-for="page in _pages"
