@@ -5,13 +5,16 @@
     infinite-scroll-disabled="disabled"
   >
     <not-found v-if="posts.length < 1" class="flex-grow" />
-    <page-card
-      v-for="page in display"
-      :key="page.key"
-      :page="page"
-      orientation="horizontal"
-      class="my-4"
-    />
+    <transition-group name="list" tag="div" class="flex flex-col items-center">
+      <page-card
+        v-for="page in display"
+        :key="page.key"
+        :page="page"
+        orientation="horizontal"
+        class="my-4"
+      />
+      <loading-icon v-if="busy" key="loading" class="h-36 w-36" />
+    </transition-group>
   </div>
 </template>
 
@@ -67,3 +70,20 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.list-enter-active,
+.list-leave-active {
+  transition: all 1s;
+}
+.list-enter, 
+.list-leave-to {
+  opacity: 0;
+}
+.list-enter {
+  transform: translateY(25%);
+}
+.list-leave-to {
+  height: 0px;
+}
+</style>
