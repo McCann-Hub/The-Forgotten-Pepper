@@ -37,7 +37,7 @@
           {{ page.frontmatter.summary || page.summary }}
         </p>
       </div>
-      <div class="px-3 py-2">
+      <div v-if="!hideTags" class="px-3 py-2">
         <tag-pill
           v-for="tag in tags"
           :key="tag.tag"
@@ -61,6 +61,10 @@ export default {
       type: Object,
       default: () => {},
     },
+    hideTags: {
+      type: Boolean,
+      default: false
+    }
   },
   computed: {
     vertical() {

@@ -11,6 +11,7 @@
         :key="page.key"
         :page="page"
         orientation="horizontal"
+        hide-tags
         class="my-4"
       />
       <loading-icon v-if="busy" key="loading" class="h-36 w-36" />
