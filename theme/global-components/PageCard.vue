@@ -42,7 +42,7 @@
           v-for="tag in tags"
           :key="tag.tag"
           :tag="tag"
-          class="inline-block mr-2"
+          class="inline-block mt-2 mr-2"
         />
       </div>
     </div>
