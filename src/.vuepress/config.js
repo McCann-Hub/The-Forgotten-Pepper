@@ -59,15 +59,15 @@ module.exports = {
     ],
     frontmatters: [
       {
-        // Unique ID of current classification
+        /* Unique ID of current classification */
         id: 'ingredient',
-        // Decide that the frontmatter keys will be grouped under this classification
+        /* Decide that the frontmatter keys will be grouped under this classification */
         keys: ['ingredient', 'ingredients'],
-        // Path of the `entry page` (or `list page`)
+        /* Path of the `entry page` (or `list page`) */
         path: '/ingredient/',
-        // Layout of the `entry page`
-        layout: 'Ingredients',
-        // Layout of the `scope page`
+        /* Layout of the `entry page` */
+        //layout: 'Ingredients',
+        /* Layout of the `scope page` */
         scopeLayout: 'Ingredient',
         select: {
           label: 'Recipes with...',
@@ -75,16 +75,16 @@ module.exports = {
         }
       },
       {
-        // Unique ID of current classification
+        /* Unique ID of current classification */
         id: 'menu',
-        // Decide that the frontmatter keys will be grouped under this classification
+        /* Dcide that the frontmatter keys will be grouped under this classification */
         keys: ['menu'],
-        // Path of the `entry page` (or `list page`)
+        /* Path of the `entry page` (or `list page`) */
         path: '/menu/',
-        // Layout of the `entry page`
-        // layout: 'MenuSections',
-        // Layout of the `scope page`
-        // scopeLayout: 'Menu'
+        /* Layout of the `entry page` */
+        //layout: 'MenuSections',
+        /* Layout of the `scope page` */
+        //scopeLayout: 'Menu'
       },
     ],
     sitemap: {
