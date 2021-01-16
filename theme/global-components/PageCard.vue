@@ -38,13 +38,12 @@
         </p>
       </div>
       <div class="px-3 py-2">
-        <a
+        <tag-pill
           v-for="tag in tags"
           :key="tag.tag"
-          class="inline-block rounded-full px-3 py-1 text-sm font-semibold mr-2 bg-gray-700 text-gray-200 dark:bg-gray-200 dark:text-gray-700 cursor-pointer"
-          @click="$router.push(tag.path)"
-          >{{ `#${tag.tag}` }}</a
-        >
+          :tag="tag"
+          class="inline-block mr-2"
+        />
       </div>
     </div>
   </div>
