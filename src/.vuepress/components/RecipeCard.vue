@@ -32,13 +32,13 @@
             <h2 itemprop="recipeYield">{{ serves }}</h2>
           </div>
         </div>
-        <meta temprop="name" :content="title" />
-        <!--div class="rounded-full bg-yellow-400 bg-opacity-50 text-gray-900">
-          <h1 itemprop="name" class="p-2 font-medium text-xl">{{ title }}</h1>
+        <meta itemprop="name" :content="title" />
+        <div v-if="!slotPassed" class="rounded-full bg-yellow-400 bg-opacity-50 text-gray-900">
+          <h1 class="p-2 font-medium text-xl">{{ title }}</h1>
           <p class="p-2 font-light text-sm">
             {{ description }}
           </p>
-        </div-->
+        </div>
       </div>
       <div
         v-if="$frontmatter.image"
@@ -87,7 +87,7 @@
           <slot></slot>
         </div>
         <div v-show="open.recipe" key="recipe" class="tab-content">
-          <h2>Recipe</h2>
+          <h2 class="capitalize">{{ title }}</h2>
           <h3>Ingredients</h3>
           <ul>
             <li
