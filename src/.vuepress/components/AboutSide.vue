@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-gray-50 bg-opacity-60">
-    <div class="profile-image"></div>
+  <div class="flex flex-col items-center bg-gray-50 bg-opacity-60">
+    <div class="profile-image rounded-full"></div>
     <div class="p-4">
       <h1 class="my-4 text-lg font-semibold">About me</h1>
       <p class="font-medium">
@@ -26,7 +26,9 @@ export default {
   background-position: center -3rem;
   background-repeat: no-repeat;
   background-size: cover;
+  max-height: 15rem;
   min-height: 15rem;
-  min-width: 20rem;
+  max-width: 15rem;
+  min-width: 15rem;
 }
 </style>

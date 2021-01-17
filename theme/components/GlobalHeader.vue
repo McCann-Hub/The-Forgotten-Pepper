@@ -3,9 +3,9 @@
     class="flex bg-gray-50 bg-opacity-75 text-gray-900 dark:bg-gray-900 dark:bg-opacity-75 dark:text-gray-50"
   >
     <span :class="['logo', ($themeConfig || {}).logo]"></span>
-    <div class="flex flex-col w-full">
+    <div class="flex flex-col justify-around w-full">
       <div class="flex justify-between">
-        <a class="text-xl font-bold" href="/">{{ $site.title }}</a>
+        <a class="text-3xl font-bold" href="/">{{ $site.title }}</a>
         <dark-mode-switch class="mr-4" />
       </div>
       <div class="flex items-center">

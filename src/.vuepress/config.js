@@ -26,6 +26,17 @@ module.exports = {
       },
       {
         text: 'About',
+        items: [
+          {
+            text: 'Our team',
+          },
+          {
+            text: 'Work With Us',
+          },
+          {
+            text: 'Legal',
+          },
+        ],
       },
     ],
     social: [
@@ -72,19 +83,19 @@ module.exports = {
         select: {
           label: 'Recipes with...',
           multiple: true,
-        }
+        },
       },
       {
         /* Unique ID of current classification */
-        id: 'menu',
+        id: 'recipe',
         /* Dcide that the frontmatter keys will be grouped under this classification */
         keys: ['menu'],
         /* Path of the `entry page` (or `list page`) */
-        path: '/menu/',
+        path: '/recipe/',
         /* Layout of the `entry page` */
-        //layout: 'MenuSections',
+        //layout: 'Recipes',
         /* Layout of the `scope page` */
-        //scopeLayout: 'Menu'
+        //scopeLayout: 'Recipe'
       },
     ],
     sitemap: {

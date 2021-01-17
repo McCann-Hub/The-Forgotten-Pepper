@@ -7,7 +7,7 @@
     >
       <button
         v-if="item.items"
-        class="inline-flex items-center font-semibold focus:outline-none"
+        class="inline-flex items-center font-semibold capitalize focus:outline-none"
       >
         {{ item.text }}
         <svg
@@ -27,13 +27,13 @@
         <li v-for="mitem in item.items" :key="mitem.text">
           <a
             :href="mitem.link || '#'"
-            class="block rounded py-2 px-4 hover:bg-gray-400 dark:hover:bg-gray-500"
+            class="block rounded py-2 px-4 capitalize hover:bg-gray-400 dark:hover:bg-gray-500"
             >{{ mitem.text }}</a
           >
         </li>
       </ul>
       <a v-else :href="item.link || '#'">
-        <button class="font-semibold focus:outline-none">
+        <button class="font-semibold capitalize focus:outline-none">
           {{ item.text }}
         </button>
       </a>

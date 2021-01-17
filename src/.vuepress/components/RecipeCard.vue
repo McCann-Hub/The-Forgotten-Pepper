@@ -12,33 +12,35 @@
     <meta itemprop="recipeCategory" content="" />
     <meta itemprop="recipeCuisine" content="" />
     <meta itemprop="suitableForDiet" content="" />
-    <div
-      v-if="$frontmatter.image"
-      id="hero"
-      class="min-w-full bg-no-repeat bg-center bg-cover"
-      :style="`background-image: url('${$frontmatter.image}');`"
-    >
-      <br />
-      <div v-if="cookTime" class="circle__recipe">
-        <h2 itemprop="totalTime">{{ cookTime }}</h2>
-        <p>Cooking Time</p>
-        <meta itemprop="cookingMethod" content="" />
-      </div>
-      <div v-if="serves" class="circle__recipe">
-        <h2 itemprop="recipeYield">{{ serves }}</h2>
-        <p>Serves</p>
-      </div>
-      <br />
-      <div class="description">
-        <h1 itemprop="name">{{ title }}</h1>
-        <p>
-          {{ description }}
-        </p>
+    <div id="header" class="relative flex items-center overflow-hidden">
+      <div class="absolute min-h-full flex flex-col justify-around">
         <br />
+        <div v-if="cookTime" class="circle__recipe">
+          <h2 itemprop="totalTime">{{ cookTime }}</h2>
+          <p>Cooking Time</p>
+          <meta itemprop="cookingMethod" content="" />
+        </div>
+        <div v-if="serves" class="circle__recipe">
+          <h2 itemprop="recipeYield">{{ serves }}</h2>
+          <p>Serves</p>
+        </div>
+        <br />
+        <div class="flex flex-col justify-center bg-gray-900 bg-opacity-30 text-gray-100 rounded-r-full">
+          <h1 itemprop="name" class="p-2 font-medium text-xl">{{ title }}</h1>
+          <!--p class="p-2 font-light text-sm">
+            {{ description }}
+          </p-->
+          <br />
+        </div>
       </div>
+      <img
+        v-if="$frontmatter.image"
+        :src="`${$frontmatter.image}`"
+        class="rounded-r-full"
+      />
     </div>
 
-    <div class="body">
+    <div id="body" class="relative">
       <!-- Menu -->
       <span v-if="ingredients.length > 0 && method.length > 0">
         <ul v-if="slotPassed" class="tabs">
@@ -198,6 +200,10 @@ export default {
 </script>
 
 <style scoped>
+#header {
+  max-height: calc(var(--main-height) / 2);
+}
+
 .fade-enter-active,
 .fade-leave-active {
   position: absolute;
@@ -221,22 +227,6 @@ export default {
 
 .circle__recipe > p {
   @apply: font-light text-sm;
-}
-
-.description {
-  @apply: bg-gray-900 bg-opacity-30 text-gray-100;
-}
-
-.description > h1 {
-  @apply: p-2 font-medium text-xl;
-}
-
-.description > p {
-  @apply: p-2 font-light text-sm;
-}
-
-.body {
-  @apply: relative;
 }
 
 .tabs {

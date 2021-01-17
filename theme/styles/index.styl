@@ -4,9 +4,9 @@
 @tailwind utilities;
 
 :root {
-  --header-height: 3.25rem;
-  --main-height: calc(100vh - 4.75rem);
+  --header-height: 7rem;
   --footer-height: 1.5rem;
+  --main-height: calc(100vh - (var(--header-height) + var(--footer-height)));
   --transition-duration: 0.5s;
 }
 

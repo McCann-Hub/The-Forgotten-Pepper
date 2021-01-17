@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="`rounded-lg overflow-hidden shadow-lg flex ${
+    :class="`rounded-3xl overflow-hidden shadow-lg flex ${
       vertical ? 'flex-col vertical-card' : 'horizontal-card'
     }`"
     :style="`${vertical ? '' : ''}`"
