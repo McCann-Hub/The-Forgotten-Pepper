@@ -12,32 +12,39 @@
     <meta itemprop="recipeCategory" content="" />
     <meta itemprop="recipeCuisine" content="" />
     <meta itemprop="suitableForDiet" content="" />
-    <div id="header" class="relative flex items-center overflow-hidden">
-      <div class="absolute min-h-full flex flex-col justify-around">
-        <br />
-        <div v-if="cookTime" class="circle__recipe">
-          <h2 itemprop="totalTime">{{ cookTime }}</h2>
-          <p>Cooking Time</p>
-          <meta itemprop="cookingMethod" content="" />
-        </div>
-        <div v-if="serves" class="circle__recipe">
-          <h2 itemprop="recipeYield">{{ serves }}</h2>
-          <p>Serves</p>
-        </div>
-        <br />
-        <div class="flex flex-col justify-center bg-gray-900 bg-opacity-30 text-gray-100 rounded-r-full">
-          <h1 itemprop="name" class="p-2 font-medium text-xl">{{ title }}</h1>
-          <!--p class="p-2 font-light text-sm">
-            {{ description }}
-          </p-->
-          <br />
-        </div>
-      </div>
-      <img
+    <div id="header" class="mb-2 flex justify-evenly items-center">
+      <div
         v-if="$frontmatter.image"
-        :src="`${$frontmatter.image}`"
-        class="rounded-r-full"
-      />
+        class="img"
+        :style="`background-image: url('${$frontmatter.image}');`"
+      ></div>
+      <div class="flex flex-col justify-center items-center">
+        <div
+          class="rounded-full h-36 w-36 p-5 mb-4 flex flex-col justify-center bg-yellow-400 bg-opacity-50 text-gray-900"
+        >
+          <div v-if="cookTime" class="circle__recipe">
+            <p>Cooking Time</p>
+            <h2 itemprop="totalTime">{{ cookTime }}</h2>
+            <meta itemprop="cookingMethod" content="" />
+          </div>
+          <div v-if="serves" class="circle__recipe">
+            <p>Serves</p>
+            <h2 itemprop="recipeYield">{{ serves }}</h2>
+          </div>
+        </div>
+        <meta temprop="name" :content="title" />
+        <!--div class="rounded-full bg-yellow-400 bg-opacity-50 text-gray-900">
+          <h1 itemprop="name" class="p-2 font-medium text-xl">{{ title }}</h1>
+          <p class="p-2 font-light text-sm">
+            {{ description }}
+          </p>
+        </div-->
+      </div>
+      <div
+        v-if="$frontmatter.image"
+        class="img"
+        :style="`background-image: url('${$frontmatter.image}');`"
+      ></div>
     </div>
 
     <div id="body" class="relative">
@@ -200,10 +207,6 @@ export default {
 </script>
 
 <style scoped>
-#header img {
-  max-height: calc(var(--main-height) / 2);
-}
-
 .fade-enter-active,
 .fade-leave-active {
   position: absolute;
@@ -217,8 +220,18 @@ export default {
 </style>
 
 <style lang="stylus" scoped>
+#header {
+  --square-div: calc((100% / 3));
+}
+
+#header div.img {
+  @apply: h-0 rounded-full bg-no-repeat bg-center bg-cover;
+  padding-bottom: var(--square-div);
+  width: var(--square-div);
+}
+
 .circle__recipe {
-  @apply: bg-yellow-400 bg-opacity-80 m-1 w-20 h-20 rounded-full flex flex-col justify-center items-center text-center;
+  @apply: flex flex-col justify-center items-center;
 }
 
 .circle__recipe > h2 {
@@ -230,7 +243,7 @@ export default {
 }
 
 .tabs {
-  @apply: bg-gray-400 bg-opacity-90 sticky text-center top-0;
+  @apply: bg-gray-400 bg-opacity-90 sticky text-center top-0 py-2;
 }
 
 .tabs > li {
@@ -238,7 +251,7 @@ export default {
 }
 
 .tabs > li > a {
-  @apply: cursor-pointer no-underline select-none text-gray-500 text-opacity-50;
+  @apply: cursor-pointer no-underline select-none text-lg text-gray-500 text-opacity-50;
   transition: var(--transition-duration);
 }
 
