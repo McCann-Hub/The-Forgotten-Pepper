@@ -1,0 +1,56 @@
+#post h1 {
+  @apply: font-black text-6xl;
+}
+
+#post h2 {
+  @apply: font-extrabold text-5xl;
+}
+
+#post h3 {
+  @apply: font-extrabold text-4xl;
+}
+
+#post h4 {
+  @apply: font-bold text-3xl;
+}
+
+#post h5 {
+  @apply: font-bold text-2xl;
+}
+
+#post h6 {
+  @apply: font-semibold text-xl;
+}
+
+#post :is(h1, h2, h3, h4, h5, h6) a {
+  @apply: font-light text-white text-opacity-0;
+}
+
+#post :is(h1, h2, h3, h4, h5, h6) a:hover {
+  @apply: text-black text-opacity-100;
+}
+
+.dark #post :is(h1, h2, h3, h4, h5, h6) a {
+  @apply: text-black text-opacity-0;
+}
+
+.dark #post :is(h1, h2, h3, h4, h5, h6) a:hover {
+  @apply: text-white text-opacity-100;
+}
+
+#post p {
+  @apply: my-2 font-medium text-lg;
+  text-indent: 1rem;
+}
+
+#post img[src*="#center"] {
+  margin: 0 auto;
+}
+
+#post img[src*="#float-left"] {
+  @apply: float-left mr-4;
+}
+
+#post img[src*="#float-right"] {
+  @apply: float-right ml-4;
+}
