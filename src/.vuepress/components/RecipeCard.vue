@@ -200,7 +200,7 @@ export default {
 </script>
 
 <style scoped>
-#header {
+#header img {
   max-height: calc(var(--main-height) / 2);
 }
 
