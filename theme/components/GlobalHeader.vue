@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex bg-gray-50 bg-opacity-75 text-gray-900 dark:bg-gray-900 dark:bg-opacity-75 dark:text-gray-50"
+    class="flex bg-primary-50 bg-opacity-75 dark:bg-primary-900 dark:bg-opacity-75"
   >
     <span :class="['logo', ($themeConfig || {}).logo]"></span>
     <div class="flex flex-col justify-around w-full">

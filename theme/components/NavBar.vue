@@ -22,12 +22,12 @@
       </button>
       <ul
         v-if="item.items"
-        class="dropdown-menu rounded absolute hidden z-10 bg-gray-200 dark:bg-gray-800"
+        class="dropdown-menu rounded absolute hidden z-10 bg-primary-200 dark:bg-primary-800"
       >
         <li v-for="mitem in item.items" :key="mitem.text">
           <a
             :href="mitem.link || '#'"
-            class="block rounded py-2 px-4 capitalize hover:bg-gray-400 dark:hover:bg-gray-500"
+            class="block rounded py-2 px-4 capitalize hover:bg-primary-400 dark:hover:bg-primary-500"
             >{{ mitem.text }}</a
           >
         </li>

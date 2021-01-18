@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bg-gray-100 bg-opacity-75 text-gray-900 dark:bg-gray-900 dark:bg-opacity-75 dark:text-gray-100"
+    class="bg-primary-200 bg-opacity-75 text-text-800 dark:bg-primary-800 dark:bg-opacity-75 dark:text-text-200"
   >
     <div
       v-if="$frontmatter.image"

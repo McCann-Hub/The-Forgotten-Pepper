@@ -7,7 +7,7 @@
     <div class="relative">
       <button
         @click="open = !open"
-        class="relative w-full bg-white rounded-md shadow-sm pl-3 pr-10 text-left focus:outline-none"
+        class="relative w-full bg-white rounded pl-3 pr-10 text-left focus:outline-none"
       >
         <span class="flex items-center">
           <span
@@ -23,7 +23,7 @@
         <span class="ml-3 absolute inset-y-0 right-0 pr-2 pointer-events-none">
           <!-- Heroicon name: selector -->
           <svg
-            class="h-5 w-5 text-gray-400"
+            class="h-5 w-5 text-text-400"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
             fill="currentColor"
@@ -37,34 +37,19 @@
           </svg>
         </span>
       </button>
-      <!--
-        Select popover, show/hide based on select state.
-
-        Entering: ""
-          From: ""
-          To: ""
-        Leaving: "transition ease-in duration-100"
-          From: "opacity-100"
-          To: "opacity-0"
-      -->
       <transition name="fade">
         <div
           tabindex="-1"
           ref="selectOptions"
           v-show="open"
           @focusout="open = false"
-          class="absolute w-full rounded-md focus:outline-none shadow-lg z-10 bg-gray-50 dark:bg-gray-900"
+          class="absolute w-full rounded focus:outline-none z-10 bg-primary-50 dark:bg-primary-900"
         >
-          <ul class="rounded-md text-sm overflow-auto focus:outline-none">
-            <!--
-            Select option, manage highlight styles based on mouseenter/mouseleave and keyboard navigation.
-
-            Highlighted: "text-white bg-indigo-600", Not Highlighted: "text-gray-900"
-          -->
+          <ul class="rounded text-sm overflow-auto focus:outline-none">
             <li
               v-for="option in selectOptions"
               :key="option.key"
-              class="rounded-md select-none relative pl-3 pr-9 hover:bg-gray-400 dark:hover:bg-gray-500"
+              class="rounded select-none relative pl-3 pr-9 py-1 hover:bg-primary-400 dark:hover:bg-primary-500"
             >
               <div @click="onOptionClick(option.key)" class="flex items-center">
                 <!-- Selected: "font-semibold", Not Selected: "font-normal" -->
@@ -76,15 +61,9 @@
                   {{ cleanKey(option.key) }}
                 </span>
               </div>
-
-              <!--
-              Checkmark, only display for selected option.
-
-              Highlighted: "text-white", Not Highlighted: "text-indigo-600"
-            -->
               <span
                 v-if="isSelected(option.key)"
-                class="absolute inset-y-0 right-0 pr-4"
+                class="absolute inset-y-1 right-0 pr-4"
               >
                 <!-- Heroicon name: check -->
                 <svg

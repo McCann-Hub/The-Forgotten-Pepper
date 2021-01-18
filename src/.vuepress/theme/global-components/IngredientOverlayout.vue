@@ -1,7 +1,7 @@
 <template>
   <div
     id="overlay"
-    class="bg-gray-900 bg-opacity-75 dark:bg-gray-50 dark:bg-opacity-75"
+    class="bg-gray-900 bg-opacity-90 dark:bg-gray-50 dark:bg-opacity-90"
   >
     <div class="h-full relative">
       <a

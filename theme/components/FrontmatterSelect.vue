@@ -15,12 +15,12 @@
         </svg>
       </button>
       <ul
-        class="dropdown-menu rounded absolute hidden z-10 bg-gray-200 dark:bg-gray-800"
+        class="dropdown-menu rounded absolute hidden z-10 bg-primary-200 dark:bg-primary-800"
       >
         <li
           v-for="option in selectOptions"
           :key="option.key"
-          class="block rounded py-2 px-4 hover:bg-gray-400 dark:hover:bg-gray-500"
+          class="block rounded py-2 px-4 hover:bg-primary-400 dark:hover:bg-primary-500"
         >
           <div @click="$router.push(option.path)" class="flex items-center">
             <!-- Selected: "font-semibold", Not Selected: "font-normal" -->
