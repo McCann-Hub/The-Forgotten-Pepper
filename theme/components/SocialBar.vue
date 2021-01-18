@@ -8,14 +8,11 @@
     ]"
   >
     <div
-      v-for="item in ($themeConfig || {}).social || []"
-      :key="item.text"
+      v-for="(item, i) in ($themeConfig || {}).social || []"
+      :key="item.text || i"
       class="px-1"
     >
-      <!-- https://vuejs.org/v2/guide/components-props.html#Passing-the-Properties-of-an-Object -->
-      <component v-if="item.component" :is="item.component" v-bind="item" />
       <a
-        v-else
         :href="item.link"
         class="flex content-center"
         target="_blank"
@@ -25,7 +22,7 @@
           target="_blank" to open the link in a new tab
           rel="noopener noreferrer" to prevent a type of phishing known as tabnabbing
          -->
-        <i v-if="item.icon" :class="['h-4', 'w-4', item.icon]"></i>
+        <component v-if="item.icon" :is="getComponentName(item.icon)" class="h-4 w-4" />
         <span v-else class="text-xs">{{ item.text }}</span>
       </a>
     </div>
@@ -33,6 +30,9 @@
 </template>
 
 <script>
+// https://stackoverflow.com/questions/54344164/how-to-import-all-vue-components-from-a-folder
+const ComponentContext = require.context("./social", true, /\.vue$/i, "lazy");
+
 export default {
   name: "SocialBar",
   props: {
@@ -45,5 +45,16 @@ export default {
       default: true,
     },
   },
+  components: ComponentContext.keys().reduce((acc, componentFilePath) => {
+    const componentName = componentFilePath.split("/").pop().split(".")[0];
+    acc[componentName] = () => ComponentContext(componentFilePath);
+    return acc;
+  }, {}),
+  methods: {
+    getComponentName(configIcon) {
+      const name = configIcon.replace(/icon/i, '');
+      return `${name.charAt(0).toUpperCase()}${name.slice(1)}Icon`;
+    }
+  }
 };
 </script>

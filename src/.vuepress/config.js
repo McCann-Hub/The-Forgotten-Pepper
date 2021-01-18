@@ -41,18 +41,17 @@ module.exports = {
     ],
     social: [
       {
-        icon: 'facebook-square-color',
+        icon: 'FacebookIcon',
         link: 'https://www.facebook.com/4gottenpepper',
         text: 'Facebook',
       },
       {
-        component: 'SocialIcon',
-        icon: 'instagram-square-color',
+        icon: 'Instagram',
         link: 'https://www.instagram.com/4gottenpepper/',
         text: 'Instagram',
       },
       {
-        icon: 'pinterest-round-color',
+        icon: 'pinterest',
         link: '#',
         text: 'Pintrest',
       },
