@@ -1,6 +1,7 @@
 const removeMd = require('remove-markdown');
 // const path = require('path');
 const pick = require('lodash.pick');
+const colors = require('tailwindcss/colors');
 
 module.exports = (themeConfig) => {
   /*
@@ -72,12 +73,34 @@ module.exports = (themeConfig) => {
     themeConfigBlogPluginOptions
   );
   /*
+   * configure tailwindcss plugin
+   */
+  const defaultTailwindPluginOptions = {
+    theme: {
+      extend: {
+        colors: {
+          primary: colors.coolGray,
+          text: colors.coolGray,
+        },
+      },
+    },
+  };
+  const themeConfigTailwindPluginOptions = {
+    ...pick(themeConfig, ['tailwind']),
+  };
+  const tailwindPluginOptions = Object.assign(
+    {},
+    defaultTailwindPluginOptions,
+    themeConfigTailwindPluginOptions
+  );
+  /*
    * Integrate plugins
    */
   const plugins = [
     ['@vuepress/blog', blogPluginOptions],
     require('../plugin-created'),
     ['seo', (themeConfig || {}).seo], // set SEO last so all the page data is extended
+    [require('../plugin-tailwindcss'), tailwindPluginOptions],
   ];
   /*
    *
