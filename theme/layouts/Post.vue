@@ -22,7 +22,7 @@
         `updated: ${$page.lastUpdated}`
       }}</span>
     </div>
-    <Content id="post" class="px-8" />
+    <Content class="px-8" />
   </div>
 </template>
 

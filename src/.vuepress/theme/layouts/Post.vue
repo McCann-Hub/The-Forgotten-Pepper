@@ -14,7 +14,7 @@
         `updated: ${$page.lastUpdated}`
       }}</span>
     </div>
-    <Content id="post" />
+    <Content />
   </recipe-card>
 </template>
 
