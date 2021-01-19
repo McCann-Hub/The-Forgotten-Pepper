@@ -140,7 +140,6 @@ module.exports = {
     resolve: {
       alias: {
         '@assets': path.resolve(__dirname, 'assets'),
-        '@icons': path.resolve(__dirname, 'assets', 'icons'),
       },
     },
   },

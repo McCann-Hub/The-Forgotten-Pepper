@@ -1,17 +1,19 @@
-/* Inter font from Google Fonts */
-@import url('https://fonts.googleapis.com/css?family=Inter:400,500,600,700,900&display=swap');
+@font-face {
+   font-family: forty-two;
+   src: url('~@fonts/42.ttf');
+}
 
 :root {
   --header-height: 7rem;
 }
 
 #app {
-  font-family: Inter, Helvetica, Arial, sans-serif;
+  font-family: forty-two, Helvetica, Arial, sans-serif;
 }
 
 #app::before {
   content: "";       
-  background-image: url('~@assets/background_vanilla.svg');
+  background-image: url('~@theme/assets/background_vanilla.svg');
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -32,7 +34,7 @@
 }
 
 .forgotten-pepper {
-  background: url('~@assets/logo.png');
+  background: url('~@theme/assets/logo.png');
   background-repeat: no-repeat;
   background-size: contain;
 }
