@@ -22,7 +22,11 @@
           target="_blank" to open the link in a new tab
           rel="noopener noreferrer" to prevent a type of phishing known as tabnabbing
          -->
-        <component v-if="item.icon" :is="getComponentName(item.icon)" class="h-4 w-4" />
+        <component
+          v-if="item.icon"
+          :is="getComponentName(item.icon)"
+          class="h-6 w-6 rounded-full"
+        />
         <span v-else class="text-xs">{{ item.text }}</span>
       </a>
     </div>
@@ -52,9 +56,9 @@ export default {
   }, {}),
   methods: {
     getComponentName(configIcon) {
-      const name = configIcon.replace(/icon/i, '');
+      const name = configIcon.replace(/icon/i, "");
       return `${name.charAt(0).toUpperCase()}${name.slice(1)}Icon`;
-    }
-  }
+    },
+  },
 };
 </script>

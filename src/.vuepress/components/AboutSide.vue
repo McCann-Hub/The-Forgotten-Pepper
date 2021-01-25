@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col items-center bg-gray-50 bg-opacity-60">
+  <div class="flex flex-col items-center bg-gray-100">
     <div class="profile-image rounded-full"></div>
     <div class="p-4">
       <h1 class="my-4 text-lg font-semibold">About me</h1>

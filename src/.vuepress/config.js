@@ -1,4 +1,5 @@
 const path = require('path');
+const colors = require('tailwindcss/colors');
 
 module.exports = {
   dest: './dist',
@@ -133,6 +134,55 @@ module.exports = {
           modifiedAt,
         } = context;
         add('article:author', author);
+      },
+    },
+    tailwind: {
+      theme: {
+        extend: {
+          colors: {
+            // https://javisperez.github.io/tailwindcolorshades/
+            primary: {
+              // sushi
+              '50': '#f9fbf5',
+              '100': '#f4f6ec',
+              '200': '#e3eacf',
+              '300': '#d3ddb2',
+              '400': '#b1c378',
+              '500': '#90A93E',
+              '600': '#829838',
+              '700': '#6c7f2f',
+              '800': '#566525',
+              '900': '#47531e',
+            },
+            accent: {
+              // jelly-bean
+              '50': '#f2f9fa',
+              '100': '#e6f2f6',
+              '200': '#bfdfe7',
+              '300': '#99cbd9',
+              '400': '#4da4bd',
+              '500': '#007da0',
+              '600': '#007190',
+              '700': '#005e78',
+              '800': '#004b60',
+              '900': '#003d4e',
+            },
+            secondary: {
+              // yellow-green
+              '50': '#fdfef9',
+              '100': '#fcfdf3',
+              '200': '#f7f9e1',
+              '300': '#f1f5ce',
+              '400': '#e7eeaa',
+              '500': '#DDE785',
+              '600': '#c7d078',
+              '700': '#a6ad64',
+              '800': '#858b50',
+              '900': '#6c7141',
+            },
+            text: colors.coolGray,
+          },
+        },
       },
     },
   },

@@ -80,6 +80,8 @@ module.exports = (themeConfig) => {
       extend: {
         colors: {
           primary: colors.coolGray,
+          accent: colors.coolGray,
+          secondary: colors.coolGray,
           text: colors.coolGray,
         },
       },
@@ -91,7 +93,7 @@ module.exports = (themeConfig) => {
   const tailwindPluginOptions = Object.assign(
     {},
     defaultTailwindPluginOptions,
-    themeConfigTailwindPluginOptions
+    themeConfigTailwindPluginOptions.tailwind || {}
   );
   /*
    * Integrate plugins

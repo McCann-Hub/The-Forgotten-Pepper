@@ -2,7 +2,9 @@
   <div>
     <frontmatter-multi-select v-if="allowMultiple" :frontmatter="frontmatter" />
     <div v-else class="dropdown">
-      <button class="inline-flex items-center font-semibold capitalize focus:outline-none">
+      <button
+        class="inline-flex items-center font-semibold capitalize focus:outline-none"
+      >
         {{ selectLabel }}
         <svg
           class="fill-current h-4 w-4"
@@ -15,12 +17,12 @@
         </svg>
       </button>
       <ul
-        class="dropdown-menu rounded absolute hidden z-10 bg-primary-200 dark:bg-primary-800"
+        class="dropdown-menu rounded absolute hidden z-10 bg-secondary-400 dark:bg-primary-600"
       >
         <li
           v-for="option in selectOptions"
           :key="option.key"
-          class="block rounded py-2 px-4 hover:bg-primary-400 dark:hover:bg-primary-500"
+          class="block rounded py-2 px-4 hover:bg-primary-500 dark:hover:bg-secondary-500"
         >
           <div @click="$router.push(option.path)" class="flex items-center">
             <!-- Selected: "font-semibold", Not Selected: "font-normal" -->

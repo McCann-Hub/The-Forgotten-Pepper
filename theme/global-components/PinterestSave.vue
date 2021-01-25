@@ -51,7 +51,7 @@ export default {
        * and hover buttons won't appear on the image.
        * This attribute is applied to individual images on your page.
        */
-      type: String, // [any value] or [blank] 
+      type: String, // [any value] or [blank]
     },
     hover: {
       /*
@@ -100,23 +100,23 @@ export default {
     },
     media: {
       /*
-       * Overrides the image and substitutes a different image in the Pin Create form. 
+       * Overrides the image and substitutes a different image in the Pin Create form.
        */
       type: String,
     },
     url: {
       /*
-       * Overrides the image's page URL and substitutes the URL of your choice. 
+       * Overrides the image's page URL and substitutes the URL of your choice.
        */
       type: String,
     },
     noHover: {
       /*
-       * Hover buttons won't appear over this image, 
-       * but the image can still be saved unless the data-pin-nopin attribute is set. 
+       * Hover buttons won't appear over this image,
+       * but the image can still be saved unless the data-pin-nopin attribute is set.
        */
-      type: String, // [any value] or [not set] 
-    }
+      type: String, // [any value] or [not set]
+    },
   },
   computed: {
     _description() {

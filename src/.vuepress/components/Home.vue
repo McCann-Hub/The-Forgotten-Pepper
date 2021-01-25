@@ -189,7 +189,7 @@ export default {
 }
 
 .tabs {
-  @apply: bg-gray-400 bg-opacity-90 sticky text-center top-0;
+  @apply: bg-accent-500 bg-opacity-90 sticky text-center top-0;
 }
 
 .tabs > li {
@@ -197,12 +197,12 @@ export default {
 }
 
 .tabs > li > a {
-  @apply: cursor-pointer no-underline select-none text-gray-500 text-opacity-50;
+  @apply: cursor-pointer no-underline select-none text-text-700 text-opacity-50;
   transition: var(--transition-duration);
 }
 
 .tabs > li > a:hover {
-  @apply: text-gray-500 text-opacity-75;
+  @apply: text-text-800 text-opacity-75;
 }
 
 .tabs > li > a.active {

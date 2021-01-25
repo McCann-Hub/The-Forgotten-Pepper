@@ -1,7 +1,7 @@
 <template>
   <div
     id="recipe-card"
-    class="bg-gray-50 bg-opacity-75 dark:bg-gray-900 dark:bg-opacity-75"
+    class="shadow-2xl bg-gray-100 bg-opacity-75 dark:bg-gray-900 dark:bg-opacity-75"
     itemscope
     itemtype="http://schema.org/Recipe"
   >
@@ -20,7 +20,7 @@
       ></div>
       <div class="flex flex-col justify-center items-center">
         <div
-          class="rounded-full h-36 w-36 p-5 mb-4 flex flex-col justify-center bg-yellow-400 bg-opacity-50 text-gray-900"
+          class="rounded-full h-36 w-36 p-5 mb-4 flex flex-col justify-center bg-primary-500 bg-opacity-75 text-text-900"
         >
           <div v-if="cookTime" class="circle__recipe">
             <p>Cooking Time</p>
@@ -33,7 +33,10 @@
           </div>
         </div>
         <meta itemprop="name" :content="title" />
-        <div v-if="!slotPassed" class="rounded-full bg-yellow-400 bg-opacity-50 text-gray-900">
+        <div
+          v-if="!slotPassed"
+          class="rounded-full bg-primary-500 bg-opacity-75 text-text-900"
+        >
           <h1 class="p-2 font-medium text-xl">{{ title }}</h1>
           <p class="p-2 font-light text-sm">
             {{ description }}
@@ -82,7 +85,7 @@
         <div
           v-show="open.blog"
           key="blog"
-          class="px-8 bg-gray-300 bg-opacity-25 text-gray-700 dark:bg-gray-700 dark:bg-opacity-25 dark:text-gray-300"
+          class="px-8 bg-gray-100 bg-opacity-25 text-gray-900 dark:bg-gray-900 dark:bg-opacity-25 dark:text-gray-100"
         >
           <slot></slot>
         </div>
@@ -243,7 +246,7 @@ export default {
 }
 
 .tabs {
-  @apply: bg-gray-400 bg-opacity-90 sticky text-center top-0 py-2;
+  @apply: bg-accent-500 bg-opacity-90 sticky text-center top-0 py-2;
 }
 
 .tabs > li {
@@ -251,12 +254,12 @@ export default {
 }
 
 .tabs > li > a {
-  @apply: cursor-pointer no-underline select-none text-lg text-gray-500 text-opacity-50;
+  @apply: cursor-pointer no-underline select-none text-lg text-gray-700 text-opacity-50;
   transition: var(--transition-duration);
 }
 
 .tabs > li > a:hover {
-  @apply: text-gray-500 text-opacity-75;
+  @apply: text-gray-800 text-opacity-75;
 }
 
 .tabs > li > a.active {
@@ -264,7 +267,7 @@ export default {
 }
 
 .tab-content {
-  @apply: px-4 text-gray-700;
+  @apply: px-4 text-text-700;
   --step-1: rgba(200, 200, 200, 0.25);
   --step-2: rgba(200, 200, 200, 0.5);
   --step-3: rgba(0, 0, 0, 0.75);
@@ -278,7 +281,7 @@ export default {
 }
 
 .dark .tab-content {
-  @apply: text-gray-300;
+  @apply: text-text-300;
   --step-1: rgba(0, 0, 0, 0.25);
   --step-2: rgba(0, 0, 0, 0.5);
   --step-3: rgba(200, 200, 200, 0.75);

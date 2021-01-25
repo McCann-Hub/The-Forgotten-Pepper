@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="`rounded-3xl overflow-hidden shadow-lg flex ${
+    :class="`rounded-3xl overflow-hidden shadow-md flex ${
       vertical ? 'flex-col vertical-card' : 'horizontal-card'
     }`"
     :style="`${vertical ? '' : ''}`"
@@ -12,7 +12,7 @@
       :style="`background-image: url('${page.frontmatter.image}')`"
     ></div>
     <div
-      class="w-full flex flex-col justify-between bg-primary-300 bg-opacity-75 text-text-700 dark:bg-primary-700 dark:bg-opacity-75 dark:text-text-300"
+      class="w-full flex flex-col justify-between bg-primary-300 bg-opacity-90 text-text-700 dark:bg-primary-700 dark:bg-opacity-90 dark:text-text-300"
     >
       <div class="px-3 py-2">
         <div class="mb-2">
@@ -63,8 +63,8 @@ export default {
     },
     hideTags: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   computed: {
     vertical() {
@@ -125,7 +125,7 @@ export default {
 }
 .truncate-overflow {
   --max-lines: 3;
-  --lh: 24px; /* html line height */
+  --lh: 1.75rem; /* html line height */
   max-height: calc(var(--lh) * var(--max-lines));
   overflow: hidden;
   text-overflow: ellipsis;

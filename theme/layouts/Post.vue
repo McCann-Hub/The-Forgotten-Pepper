@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bg-primary-200 bg-opacity-75 text-text-800 dark:bg-primary-800 dark:bg-opacity-75 dark:text-text-200"
+    class="shadow-2xl bg-gray-100 bg-opacity-75 dark:bg-gray-900 dark:bg-opacity-75"
   >
     <div
       v-if="$frontmatter.image"
@@ -8,8 +8,9 @@
       class="min-w-full bg-no-repeat bg-center bg-cover"
       :style="`background-image: url('${$frontmatter.image}');`"
     ></div>
-    <div class="pt-4 flex align-middle">
-      <pinterest-save /><facebook-like />
+    <div class="pt-4">
+      <pinterest-save />
+      <facebook-share />
     </div>
     <div class="font-thin text-xs">
       <span>{{
