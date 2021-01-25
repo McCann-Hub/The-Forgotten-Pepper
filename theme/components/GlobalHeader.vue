@@ -1,6 +1,7 @@
 <template>
   <div
-    class="flex bg-gray-100 bg-opacity-90 dark:bg-gray-900 dark:bg-opacity-90"
+    id="global-header"
+    class="flex"
   >
     <span :class="['logo', ($themeConfig || {}).logo]"></span>
     <div class="flex flex-col justify-around w-full">

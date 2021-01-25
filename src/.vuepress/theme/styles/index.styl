@@ -38,3 +38,44 @@
   background-repeat: no-repeat;
   background-size: contain;
 }
+
+.header-dropdown {
+    ul {
+        @apply: bg-secondary-400;
+
+        li:hover {
+            @apply: bg-primary-500;
+        }
+    }
+}
+
+.dark {
+    .header-dropdown {
+        ul {
+            @apply: bg-primary-600;
+
+            li:hover {
+                @apply: bg-secondary-500;
+            }
+        }
+    }
+}
+
+.page-card {
+    @apply: bg-primary-300 bg-opacity-90 text-text-700;
+}
+
+.dark {
+    .page-card {
+        @apply: bg-primary-700 bg-opacity-90 text-text-300
+    }
+}
+
+.tag-pill {
+    @apply: bg-accent-500 text-text-200
+}
+.dark {
+    .tag-pill {
+        @apply: bg-accent-500 text-text-200
+    }
+}

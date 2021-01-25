@@ -25,6 +25,7 @@
 
     :is(h1, h2, h3, h4, h5, h6) a {
         @apply: font-light text-text-50 text-opacity-0;
+
         &:hover {
             @apply: text-text-900 text-opacity-100;
         }
@@ -35,15 +36,15 @@
         text-indent: 1rem;
     }
 
-    img[src*="#center"] {
+    img[src*='#center'] {
         margin: 0 auto;
     }
 
-    img[src*="#float-left"] {
+    img[src*='#float-left'] {
         @apply: float-left mr-4;
     }
 
-    img[src*="#float-right"] {
+    img[src*='#float-right'] {
         @apply: float-right ml-4;
     }
 }
@@ -52,6 +53,7 @@
     .content__default {
         :is(h1, h2, h3, h4, h5, h6) a {
             @apply: text-text-900 text-opacity-0;
+
             &:hover {
                 @apply: text-text-50 text-opacity-100;
             }

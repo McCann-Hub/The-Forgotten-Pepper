@@ -43,13 +43,13 @@
           ref="selectOptions"
           v-show="open"
           @focusout="open = false"
-          class="absolute w-full rounded focus:outline-none z-10 bg-secondary-400 dark:bg-primary-600"
+          class="absolute w-full rounded focus:outline-none z-10 header-dropdown"
         >
-          <ul class="rounded text-sm overflow-auto focus:outline-none">
+          <ul class="shadow-sm rounded text-sm overflow-auto focus:outline-none">
             <li
               v-for="option in selectOptions"
               :key="option.key"
-              class="rounded select-none relative pl-3 pr-9 py-1 hover:bg-primary-500 dark:hover:bg-secondary-500"
+              class="rounded select-none relative pl-3 pr-9 py-1"
             >
               <div @click="onOptionClick(option.key)" class="flex items-center">
                 <!-- Selected: "font-semibold", Not Selected: "font-normal" -->

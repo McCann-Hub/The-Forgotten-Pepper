@@ -1,7 +1,7 @@
 <template>
   <div
     id="overlay"
-    class="bg-primary-900 bg-opacity-90 dark:bg-primary-50 dark:bg-opacity-90"
+    class="bg-gray-900 bg-opacity-90 dark:bg-gray-100 dark:bg-opacity-90"
   >
     <div class="h-full relative">
       <a
@@ -9,7 +9,7 @@
         class="absolute right-1 top-0 z-10 cursor-pointer"
       >
         <svg
-          class="fill-current w-7 h-7 text-text-500 hover:text-text-50 dark:text-text-400 dark:hover:text-text-900"
+          class="fill-current w-7 h-7 text-gray-500 hover:text-gray-50 dark:text-gray-400 dark:hover:text-gray-900"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 18 18"
         >

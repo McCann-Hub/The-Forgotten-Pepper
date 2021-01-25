@@ -12,7 +12,7 @@
       :style="`background-image: url('${page.frontmatter.image}')`"
     ></div>
     <div
-      class="w-full flex flex-col justify-between bg-primary-300 bg-opacity-90 text-text-700 dark:bg-primary-700 dark:bg-opacity-90 dark:text-text-300"
+      class="w-full flex flex-col justify-between page-card"
     >
       <div class="px-3 py-2">
         <div class="mb-2">

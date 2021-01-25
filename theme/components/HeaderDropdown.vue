@@ -1,5 +1,5 @@
 <template>
-  <div class="dropdown">
+  <div class="dropdown header-dropdown">
     <button
       class="inline-flex items-center font-semibold capitalize focus:outline-none"
     >
@@ -15,12 +15,12 @@
       </svg>
     </button>
     <ul
-      class="dropdown-menu rounded absolute hidden z-10 bg-secondary-400 dark:bg-primary-600"
+      class="dropdown-menu shadow-sm rounded absolute hidden z-10"
     >
-      <li v-for="item in items" :key="item.text">
+      <li v-for="item in items" :key="item.text" class="rounded">
         <a
           @click="$router.push(item.link || '#')"
-          class="block rounded py-2 px-4 capitalize hover:bg-primary-500 dark:hover:bg-secondary-500"
+          class="block py-2 px-4 capitalize"
           >{{ item.text }}</a
         >
       </li>

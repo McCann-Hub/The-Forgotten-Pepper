@@ -3,7 +3,12 @@
 @tailwind components;
 @tailwind utilities;
 
-@import './post.styl'
+@import './globalHeader.styl';
+@import './headerDropdown.styl';
+@import './pageCard.styl';
+@import './tagPill.styl';
+@import './pagination.styl';
+@import './post.styl';
 
 :root {
   --header-height: 3.75rem;
@@ -17,53 +22,36 @@
   transition-property: background-color, color;
 }
 
-html,
-body {
+html, body {
   overflow-y: scroll;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
-html::-webkit-scrollbar,
-body::-webkit-scrollbar {
+
+html::-webkit-scrollbar, body::-webkit-scrollbar {
   display: none;
 }
 
 body {
-  @apply: antialiased bg-primary-100 text-text-900;       
+  @apply: antialiased bg-gray-100 text-gray-900;
   padding-top: var(--header-height);
-  padding-bottom: var(--footer-height); 
+  padding-bottom: var(--footer-height);
 }
 
-.dark body {
-  @apply: bg-primary-900 text-text-50;
+.dark {
+  body {
+    @apply: bg-gray-900 text-gray-100;
+  }
 }
 
 @media (min-width: 640px) {
   body {
     @apply: subpixel-antialiased;
-  }  
+  }
 }
 
 @media (min-width: 768px) {
   body {
-    @apply: antialiased; 
-  } 
-}
-
-.dark ul.pagination,
-.dark ul.pagination li,
-.dark ul.pagination li a {
-  @apply: bg-black;
-}
-
-.dark ul.pagination li.active a {
-  @apply: bg-gray-500;
-}
-
-.dark ul.pagination li.disabled a {
-  @apply: text-gray-700;
-}
-
-.dark ul.pagination li.disabled a:hover {
-  @apply: bg-black;
+    @apply: antialiased;
+  }
 }
