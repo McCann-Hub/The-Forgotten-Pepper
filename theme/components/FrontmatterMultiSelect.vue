@@ -150,8 +150,9 @@ export default {
         .join(", ");
     },
     pages() {
-      return this.selectedOptions
-        .map((value) => (this.selectOptions[value] || {}).pages)
+      return this.selectOptions
+        .filter((f) => this.selectedOptions.includes(f.key))
+        .map((m) => m.pages)
         .flat();
     },
     matches() {
