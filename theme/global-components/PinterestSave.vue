@@ -17,6 +17,8 @@
 </template>
 
 <script>
+import { inject, eject } from "../mixins/jsSdkUtil.js";
+
 export default {
   name: "PinterestSave",
   props: {
@@ -132,21 +134,28 @@ export default {
   },
   mounted() {
     const self = this;
-    (function (d, s, id) {
-      var js,
-        fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s);
-      js.id = id;
-      js.src = "https://assets.pinterest.com/js/pinit.js";
-      if (self.hover) {
-        js.setAttribute("data-pin-hover", self.hover);
+    inject(
+      document,
+      "script",
+      "pinterest-jssdk",
+      "https://assets.pinterest.com/js/pinit.js",
+      (js) => {
+        if (self.hover) {
+          js.setAttribute("data-pin-hover", self.hover);
+        }
+        if (self.sticky) {
+          js.setAttribute("data-pin-sticky", self.sticky);
+        }
       }
-      if (self.sticky) {
-        js.setAttribute("data-pin-sticky", self.sticky);
+    );
+  },
+  beforeDestroy() {
+    eject(document, "script", "pinterest");
+    Object.keys(window).forEach((k) => {
+      if (k.startsWith("PIN_")) {
+        delete window[k];
       }
-      fjs.parentNode.insertBefore(js, fjs);
-    })(document, "script", "pinterest-jssdk");
+    })
   },
 };
 </script>

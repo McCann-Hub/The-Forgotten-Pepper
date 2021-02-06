@@ -96,7 +96,7 @@
 </template>
 
 <script>
-import FrontmatterSelect from "../mixins/FrontmatterSelect.js";
+import FrontmatterSelect from "../mixins/frontmatterSelect.js";
 
 function groupBy(xs, key) {
   return xs.reduce(function (rv, x) {

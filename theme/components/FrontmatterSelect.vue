@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import FrontmatterSelect from "../mixins/FrontmatterSelect.js";
+import FrontmatterSelect from "../mixins/frontmatterSelect.js";
 import HeaderDropdown from "./HeaderDropdown.vue";
 import FrontmatterMultiSelect from "@theme/components/FrontmatterMultiSelect.vue";
 
