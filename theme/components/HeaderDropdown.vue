@@ -14,15 +14,11 @@
         />
       </svg>
     </button>
-    <ul
-      class="dropdown-menu shadow-sm rounded absolute hidden z-10"
-    >
+    <ul class="dropdown-menu shadow-sm rounded absolute hidden z-10">
       <li v-for="item in items" :key="item.text" class="rounded">
-        <a
-          @click="$router.push(item.link || '#')"
-          class="block py-2 px-4 capitalize"
-          >{{ item.text }}</a
-        >
+        <nav-link :link="item.link" class="block py-2 px-4 capitalize">{{
+          item.text
+        }}</nav-link>
       </li>
     </ul>
   </div>

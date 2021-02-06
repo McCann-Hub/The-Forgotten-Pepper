@@ -1,12 +1,11 @@
 <template>
-  <div
-    id="global-header"
-    class="flex"
-  >
+  <div id="global-header" class="flex">
     <span :class="['logo', ($themeConfig || {}).logo]"></span>
     <div class="flex flex-col justify-around w-full">
       <div class="flex justify-between">
-        <a class="text-3xl font-bold" href="/">{{ $site.title }}</a>
+        <nav-link class="text-3xl font-bold" link="/">{{
+          $site.title
+        }}</nav-link>
         <dark-mode-switch class="mr-4" />
       </div>
       <div class="flex items-center">
@@ -31,6 +30,15 @@ export default {
     FrontmatterSelectBar,
     NavBar,
     SocialBar,
+  },
+  methods: {
+    navigate(path) {
+      if (this.$route.path === path) {
+        this.$router.go();
+      } else {
+        this.$router.push(path);
+      }
+    },
   },
 };
 </script>

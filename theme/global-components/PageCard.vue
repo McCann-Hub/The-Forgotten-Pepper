@@ -11,15 +11,11 @@
       class="bg-no-repeat bg-center bg-cover"
       :style="`background-image: url('${page.frontmatter.image}')`"
     ></div>
-    <div
-      class="w-full flex flex-col justify-between page-card"
-    >
+    <div class="w-full flex flex-col justify-between page-card">
       <div class="px-3 py-2">
         <div class="mb-2">
           <div class="font-bold text-xl">
-            <a class="cursor-pointer" @click="$router.push(page.path)">{{
-              page.title
-            }}</a>
+            <nav-link :link="page.path">{{ page.title }}</nav-link>
           </div>
           <div class="font-thin text-xs">
             <span>{{

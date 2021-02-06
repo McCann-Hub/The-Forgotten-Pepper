@@ -1,10 +1,10 @@
 <template>
-  <div
+  <nav-link
     class="rounded-full px-3 py-1 text-sm font-semibold cursor-pointer tag-pill"
-    @click="$router.push(tag.path)"
+    :link="tag.path"
   >
     {{ `#${tag.tag || tag.name}` }}
-  </div>
+  </nav-link>
 </template>
 
 <script>

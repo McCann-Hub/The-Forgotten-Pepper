@@ -6,11 +6,11 @@
         :label="item.text"
         :items="item.items"
       />
-      <a v-else :href="item.link || '#'">
+      <nav-link v-else :link="item.link">
         <button class="font-semibold capitalize focus:outline-none">
           {{ item.text }}
         </button>
-      </a>
+      </nav-link>
     </div>
   </div>
 </template>

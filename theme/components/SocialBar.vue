@@ -12,23 +12,13 @@
       :key="item.text || i"
       class="px-1"
     >
-      <a
-        :href="item.link"
-        class="flex content-center"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <!--
-          target="_blank" to open the link in a new tab
-          rel="noopener noreferrer" to prevent a type of phishing known as tabnabbing
-         -->
+      <nav-link class="social-bar-item" :link="item.link">
         <component
           v-if="item.icon"
           :is="getComponentName(item.icon)"
-          class="h-6 w-6 rounded-full"
         />
         <span v-else class="text-xs">{{ item.text }}</span>
-      </a>
+      </nav-link>
     </div>
   </div>
 </template>
