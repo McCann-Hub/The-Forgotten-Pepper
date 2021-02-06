@@ -57,17 +57,6 @@ module.exports = {
         text: 'Pintrest',
       },
     ],
-    directories: [
-      {
-        // Unique ID of current classification
-        id: 'post',
-        // Target directory
-        dirname: 'posts',
-        // Path of the `entry page` (or `list page`)
-        path: '/post/',
-        itemPermalink: '/post/:year/:month/:day/:slug',
-      },
-    ],
     frontmatters: [
       {
         /* Unique ID of current classification */
@@ -102,39 +91,8 @@ module.exports = {
       hostname: 'https://theforgottenpepper.com',
     },
     seo: {
-      author: ($page, $site) =>
-        $page.frontmatter.author || $site.themeConfig.author,
-      publishedAt: ($page) =>
-        ($page.frontmatter.date || $page.created) &&
-        new Date($page.frontmatter.date || $page.created).toISOString(),
       tags: ($page) =>
         $page.frontmatter.ingredients || [$page.frontmatter.ingredient],
-      type: ($page) =>
-        ['articles', 'posts', 'blog'].some((folder) =>
-          $page.path.startsWith('/' + folder)
-        )
-          ? 'article'
-          : 'website',
-      url: ($page, $site) => ($site.themeConfig.domain || '') + $page.path,
-      customMeta: (add, context) => {
-        const {
-          $site, // Site configs provided by Vuepress
-          $page, // Page configs provided by Vuepress
-          // All the computed options from above:
-          siteTitle,
-          title,
-          description,
-          author,
-          tags,
-          twitterCard,
-          type,
-          url,
-          image,
-          publishedAt,
-          modifiedAt,
-        } = context;
-        add('article:author', author);
-      },
     },
     tailwind: {
       theme: {

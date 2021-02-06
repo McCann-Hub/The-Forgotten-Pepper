@@ -31,15 +31,28 @@ module.exports = (themeConfig) => {
   const defaultBlogPluginOptions = {
     directories: [
       {
+        id: 'article',
+        dirname: 'articles',
+        path: '/article/',
+        itemPermalink: '/article/:year/:month/:day/:slug',
+      },
+      {
         id: 'post',
-        dirname: '_posts',
-        path: '/',
+        dirname: 'posts',
+        path: '/post/',
+        itemPermalink: '/post/:year/:month/:day/:slug',
+      },
+      {
+        id: 'blog',
+        dirname: 'blog',
+        path: '/blog/',
+        itemPermalink: '/blog/:year/:month/:day/:slug',
       },
     ],
     frontmatters: [
       {
         id: 'tag',
-        keys: ['tags'],
+        keys: ['tag', 'tags'],
         path: '/tag/',
       },
     ],
@@ -73,6 +86,48 @@ module.exports = (themeConfig) => {
     themeConfigBlogPluginOptions
   );
   /*
+   * configure seo plugin
+   */
+  const defaultSeoPluginOptions = {
+    author: ($page, $site) => {
+      const author = $page.frontmatter.author || $site.themeConfig.author;
+      return {
+        name: author.name || author,
+        twitter: author.twitter
+      }
+    },
+    publishedAt: ($page) =>
+      ($page.frontmatter.date || $page.created) &&
+      new Date($page.frontmatter.date || $page.created).toISOString(),
+    customMeta: (add, context) => {
+      const {
+        $site, // Site configs provided by Vuepress
+        $page, // Page configs provided by Vuepress
+        // All the computed options from above:
+        siteTitle,
+        title,
+        description,
+        author,
+        tags,
+        twitterCard,
+        type,
+        url,
+        image,
+        publishedAt,
+        modifiedAt,
+      } = context;
+      add('article:author', author.name);
+    },
+  }
+  const themeConfigSeoPluginOptions = {
+    ...pick(themeConfig, ['seo']),
+  };
+  const seoPluginOptions = Object.assign(
+    {},
+    defaultSeoPluginOptions,
+    themeConfigSeoPluginOptions.seo || {}
+  );
+  /*
    * configure tailwindcss plugin
    */
   const defaultTailwindPluginOptions = {
@@ -101,7 +156,7 @@ module.exports = (themeConfig) => {
   const plugins = [
     ['@vuepress/blog', blogPluginOptions],
     require('../plugin-created'),
-    ['seo', (themeConfig || {}).seo], // set SEO last so all the page data is extended
+    ['seo', seoPluginOptions], // set SEO last so all the page data is extended
     [require('../plugin-tailwindcss'), tailwindPluginOptions],
   ];
   /*

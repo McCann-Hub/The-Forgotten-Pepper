@@ -235,6 +235,7 @@ export default {
 
 .circle__recipe {
   @apply: flex flex-col justify-center items-center;
+  font-family: life-savers-bold, Helvetica, Arial, sans-serif;
 }
 
 .circle__recipe > h2 {
@@ -250,7 +251,8 @@ export default {
 }
 
 .tabs > li {
-  @apply: inline list-none mr-4;
+  @apply: inline list-none mr-4 font-semibold;
+  font-family: life-savers-regular, Helvetica, Arial, sans-serif;
 }
 
 .tabs > li > a {
@@ -268,6 +270,7 @@ export default {
 
 .tab-content {
   @apply: px-4 text-text-700;
+  font-family: life-savers-regular, Helvetica, Arial, sans-serif;
   --step-1: rgba(200, 200, 200, 0.25);
   --step-2: rgba(200, 200, 200, 0.5);
   --step-3: rgba(0, 0, 0, 0.75);
@@ -289,11 +292,11 @@ export default {
 }
 
 .tab-content > h2 {
-  @apply: font-medium text-xl;
+  @apply: font-extrabold text-xl;
 }
 
 .tab-content > h3 {
-  @apply: font-semibold;
+  @apply: font-bold;
 }
 
 .tab-content > hr {
@@ -309,6 +312,6 @@ export default {
 }
 
 .tab-content li {
-  @apply: ml-4;
+  @apply: ml-4 font-semibold;
 }
 </style>

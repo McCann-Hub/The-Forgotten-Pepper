@@ -1,16 +1,36 @@
-@font-face {
-   font-family: forty-two;
-   src: url('~@fonts/42.ttf');
-}
-
 :root {
   --header-height: 7rem;
 }
 
-#app {
-  font-family: Helvetica, Arial, sans-serif;
+@font-face {
+   font-family: forty-two;
+   src: url('~@fonts/42/42.ttf');
 }
 
+@font-face {
+   font-family: pompiere-regular;
+   src: url('~@fonts/pompiere/Pompiere-Regular.ttf');
+}
+
+@font-face {
+   font-family: life-savers-regular;
+   src: url('~@fonts/life-savers/LifeSavers-Regular.ttf');
+}
+
+@font-face {
+   font-family: life-savers-bold;
+   src: url('~@fonts/life-savers/LifeSavers-Bold.ttf');
+}
+
+@font-face {
+   font-family: life-savers-extra-bold;
+   src: url('~@fonts/life-savers/LifeSavers-ExtraBold.ttf');
+}
+
+#app {
+  font-family: forty-two, Helvetica, Arial, sans-serif;
+}
+/* */
 #app::before {
   content: "";       
   /*background-image: url('~@theme/assets/background_vanilla.svg');*/
@@ -28,54 +48,70 @@
   width: 100%;
   z-index: -1;
 }
-
 .dark #app::before {
   filter: brightness(0.75);
 }
-
+/* */
 .forgotten-pepper {
   background: url('~@theme/assets/logo.png');
   background-repeat: no-repeat;
   background-size: contain;
 }
-
+/* */
+#global-header {
+    font-family: pompiere-regular, Helvetica, Arial, sans-serif;
+}
+/* */
 .header-dropdown {
+    button {
+        @apply: text-xl;
+    }
+
     ul {
         @apply: bg-secondary-400;
+        font-family: life-savers-bold, Helvetica, Arial, sans-serif;
 
         li:hover {
             @apply: bg-primary-500;
         }
     }
 }
-
 .dark {
     .header-dropdown {
         ul {
             @apply: bg-primary-600;
 
-            li:hover {
-                @apply: bg-secondary-500;
+            li {
+                &:hover {
+                    @apply: bg-secondary-500 text-gray-500;
+                }
             }
         }
     }
 }
-
+/* */
 .page-card {
     @apply: bg-primary-300 bg-opacity-90 text-text-700;
 }
-
 .dark {
     .page-card {
         @apply: bg-primary-700 bg-opacity-90 text-text-300
     }
 }
-
+/* */
 .tag-pill {
     @apply: bg-accent-500 text-text-200
 }
 .dark {
     .tag-pill {
         @apply: bg-accent-500 text-text-200
+    }
+}
+/* */
+.content__default {
+    font-family: life-savers-bold, Helvetica, Arial, sans-serif;
+
+    :is(h1, h2, h3, h4, h5, h6) {
+        font-family: pompiere-regular, Helvetica, Arial, sans-serif;
     }
 }

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="header-dropdown">
     <!-- 
         https://www.w3.org/TR/wai-aria-practices/#Listbox
         https://www.w3.org/TR/wai-aria-practices/examples/listbox/listbox-collapsible.html
