@@ -1,34 +1,11 @@
+@import './fonts.styl';
+
 :root {
   --header-height: 7rem;
 }
 
-@font-face {
-   font-family: forty-two;
-   src: url('~@fonts/42/42.ttf');
-}
-
-@font-face {
-   font-family: pompiere-regular;
-   src: url('~@fonts/pompiere/Pompiere-Regular.ttf');
-}
-
-@font-face {
-   font-family: life-savers-regular;
-   src: url('~@fonts/life-savers/LifeSavers-Regular.ttf');
-}
-
-@font-face {
-   font-family: life-savers-bold;
-   src: url('~@fonts/life-savers/LifeSavers-Bold.ttf');
-}
-
-@font-face {
-   font-family: life-savers-extra-bold;
-   src: url('~@fonts/life-savers/LifeSavers-ExtraBold.ttf');
-}
-
 #app {
-  font-family: forty-two, Helvetica, Arial, sans-serif;
+  @apply: font-forty-two;
 }
 /* */
 #app::before {
@@ -59,7 +36,7 @@
 }
 /* */
 #global-header {
-    font-family: pompiere-regular, Helvetica, Arial, sans-serif;
+    @apply: font-pompiere-regular;
 }
 /* */
 .header-dropdown {
@@ -68,8 +45,7 @@
     }
 
     ul {
-        @apply: bg-secondary-400;
-        font-family: life-savers-bold, Helvetica, Arial, sans-serif;
+        @apply: bg-secondary-400 font-life-savers-bold;
 
         li:hover {
             @apply: bg-primary-500;
@@ -97,7 +73,7 @@
 }
 /* */
 .page-card {
-    @apply: bg-primary-300 bg-opacity-90 text-text-700;
+    @apply: bg-primary-300 bg-opacity-90 text-text-700 font-life-savers-bold;
 }
 .dark {
     .page-card {
@@ -115,9 +91,9 @@
 }
 /* */
 .content__default {
-    font-family: life-savers-bold, Helvetica, Arial, sans-serif;
+    @apply: font-life-savers-regular;
 
     :is(h1, h2, h3, h4, h5, h6) {
-        font-family: pompiere-regular, Helvetica, Arial, sans-serif;
+        @apply: font-pompiere-regular;
     }
 }

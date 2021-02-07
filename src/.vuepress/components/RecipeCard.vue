@@ -223,6 +223,8 @@ export default {
 </style>
 
 <style lang="stylus" scoped>
+@import '~@theme/styles/fonts.styl'
+
 #header {
   --square-div: calc((100% / 3));
 }
@@ -234,8 +236,7 @@ export default {
 }
 
 .circle__recipe {
-  @apply: flex flex-col justify-center items-center;
-  font-family: life-savers-bold, Helvetica, Arial, sans-serif;
+  @apply: flex flex-col justify-center items-center font-life-savers-bold;
 }
 
 .circle__recipe > h2 {
@@ -251,8 +252,7 @@ export default {
 }
 
 .tabs > li {
-  @apply: inline list-none mr-4 font-semibold;
-  font-family: life-savers-regular, Helvetica, Arial, sans-serif;
+  @apply: inline list-none mr-4 font-semibold font-pompiere-regular;
 }
 
 .tabs > li > a {
@@ -269,8 +269,7 @@ export default {
 }
 
 .tab-content {
-  @apply: px-4 text-text-700;
-  font-family: life-savers-regular, Helvetica, Arial, sans-serif;
+  @apply: px-4 text-text-700 font-life-savers-regular;
   --step-1: rgba(200, 200, 200, 0.25);
   --step-2: rgba(200, 200, 200, 0.5);
   --step-3: rgba(0, 0, 0, 0.75);
