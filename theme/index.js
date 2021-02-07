@@ -131,7 +131,7 @@ module.exports = (themeConfig) => {
    * configure tailwindcss plugin
    */
   const defaultTailwindPluginOptions = {
-    theme: {
+    /*theme: {
       extend: {
         colors: {
           primary: colors.coolGray,
@@ -140,7 +140,7 @@ module.exports = (themeConfig) => {
           text: colors.coolGray,
         },
       },
-    },
+    },*/
   };
   const themeConfigTailwindPluginOptions = {
     ...pick(themeConfig, ['tailwind']),
