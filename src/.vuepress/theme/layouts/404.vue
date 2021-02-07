@@ -6,11 +6,8 @@
       <h1 class="text-center text-5xl font-bold">Oops</h1>
       <img src="@theme/assets/notFound.png" />
       <p class="text-center text-3xl font-semibold">
-        It looks like this site needs a bit more time in the oven
-      </p>
-      <!--p class="text-center text-3xl font-semibold">
         It looks like this page needs a bit more time in the oven
-      </p-->
+      </p>
     </div>
   </div>
 </template>
