@@ -8,31 +8,8 @@
   @apply: font-forty-two;
 }
 /* */
-#app::before {
-  content: "";       
+#app::before {       
   /*background-image: url('~@theme/assets/background_vanilla.svg');*/
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  opacity: 0.75;
-  filter: brightness(1.25);
-  transition: filter var(--transition-duration);
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  z-index: -1;
-}
-.dark #app::before {
-  filter: brightness(0.75);
-}
-/* */
-.forgotten-pepper {
-  background: url('~@theme/assets/logo.png');
-  background-repeat: no-repeat;
-  background-size: contain;
 }
 /* */
 #global-header {
