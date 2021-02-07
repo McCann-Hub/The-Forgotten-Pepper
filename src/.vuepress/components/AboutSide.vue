@@ -1,9 +1,9 @@
 <template>
-  <div class="flex flex-col items-center bg-gray-100">
+  <div class="flex flex-col items-center bg-gray-100 font-pompiere-regular">
     <div class="profile-image rounded-full"></div>
     <div class="p-4">
-      <h1 class="my-4 text-lg font-semibold">About me</h1>
-      <p class="font-medium">
+      <h1 class="my-4 text-2xl font-semibold">About me</h1>
+      <p class="text-xl font-medium">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus
         quia, nulla! Maiores et perferendis eaque, exercitationem praesentium
         nihil. Lorem ipsum dolor sit amet, consectetur adipisicing elit.

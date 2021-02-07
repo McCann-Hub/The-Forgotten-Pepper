@@ -184,6 +184,8 @@ export default {
 </style>
 
 <style lang="stylus" scoped>
+@import '~@theme/styles/fonts.styl'
+
 .posts {
   @apply: relative min-w-full;
 }
@@ -193,11 +195,11 @@ export default {
 }
 
 .tabs > li {
-  @apply: inline list-none mr-4;
+  @apply: inline list-none mr-4 font-semibold font-pompiere-regular;
 }
 
 .tabs > li > a {
-  @apply: cursor-pointer no-underline select-none text-text-700 text-opacity-50;
+  @apply: cursor-pointer no-underline select-none text-lg text-text-700 text-opacity-50;
   transition: var(--transition-duration);
 }
 
