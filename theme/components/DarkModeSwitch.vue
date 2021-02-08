@@ -45,7 +45,7 @@ export default {
   data: () => ({
     dark: false,
   }),
-  created() {
+  mounted() {
     const localPrefersColorScheme = localStorage.getItem(
       "prefers-color-scheme"
     );
