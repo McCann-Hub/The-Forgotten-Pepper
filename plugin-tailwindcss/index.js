@@ -1,5 +1,8 @@
+const path = require('path');
+
 module.exports = (options = {}, ctx) => {
-  const { cwd, siteConfig, sourceDir, vuepressDir } = ctx;
+  const { cwd, siteConfig, sourceDir } = ctx;
+  const root = path.resolve(sourceDir, '..');
 
   const getTailwindConfig = () => {
     try {
@@ -8,13 +11,16 @@ module.exports = (options = {}, ctx) => {
       return Object.assign(
         {
           purge: {
-            content: [sourceDir, vuepressDir].map(
-              (dir) => `${dir}/**/*.@(js|ts|md|vue|html)`
-            ),
+            content: [`${root}/!(dist|node_modules)/**/*.@(js|ts|md|vue|html)`],
+            options: {
+              keyframes: true,
+              fontFace: true,
+            },
           },
           darkMode: 'class', // or 'media' or 'class'
           variants: {
             extend: {
+              backgroundColor: ['active'],
               backgroundOpacity: ['dark'],
               textOpacity: ['dark'],
             },
