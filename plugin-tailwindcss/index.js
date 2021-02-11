@@ -15,10 +15,6 @@ module.exports = (options = {}, ctx) => {
               `${root}/!(dist|node_modules)/**/*.@(js|ts|md|vue|html)`,
               `${vuepressDir}/**/*.@(js|ts|md|vue|html)`
             ],
-            options: {
-              keyframes: true,
-              fontFace: true,
-            },
           },
           darkMode: 'class', // or 'media' or 'class'
           variants: {
