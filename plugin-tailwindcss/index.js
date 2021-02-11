@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = (options = {}, ctx) => {
-  const { cwd, siteConfig, sourceDir } = ctx;
+  const { cwd, siteConfig, sourceDir, vuepressDir } = ctx;
   const root = path.resolve(sourceDir, '..');
 
   const getTailwindConfig = () => {
@@ -11,7 +11,10 @@ module.exports = (options = {}, ctx) => {
       return Object.assign(
         {
           purge: {
-            content: [`${root}/!(dist|node_modules)/**/*.@(js|ts|md|vue|html)`],
+            content: [
+              `${root}/!(dist|node_modules)/**/*.@(js|ts|md|vue|html)`,
+              `${vuepressDir}/**/*.@(js|ts|md|vue|html)`
+            ],
             options: {
               keyframes: true,
               fontFace: true,
