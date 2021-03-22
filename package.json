@@ -10,28 +10,22 @@
     "deploy": "push-dir --dir=dist --branch=main --cleanup"
   },
   "dependencies": {
-    "@tailwindcss/postcss7-compat": "^2.0.2",
-    "autoprefixer": "^9.8.6",
     "core-js": "^3.6.5",
-    "postcss": "^7.0.35",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.1",
-    "vue": "^2.6.11",
-    "vue-infinite-scroll": "^2.0.2"
+    "vue": "^2.6.11"
   },
   "devDependencies": {
+    "@mccann-hub/vuepress-theme-blog": "git+https://github.com/McCann-Hub/vuepress-theme-blog.git#v1.0.0",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
-    "@vuepress/plugin-blog": "^1.9.3",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
-    "lodash.pick": "^4.4.0",
     "push-dir": "^0.4.1",
-    "remove-markdown": "^0.3.0",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.1",
+    "vue-infinite-scroll": "^2.0.2",
     "vue-template-compiler": "^2.6.11",
-    "vuepress": "^1.7.1",
-    "vuepress-plugin-seo": "^0.1.4"
+    "vuepress": "^1.7.1"
   },
   "browserslist": [
     "> 1%",
