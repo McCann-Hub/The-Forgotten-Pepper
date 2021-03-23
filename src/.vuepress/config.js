@@ -30,6 +30,7 @@ module.exports = {
         items: [
           {
             text: 'Our team',
+            link: '/about-us'
           },
           {
             text: 'Work With Us',

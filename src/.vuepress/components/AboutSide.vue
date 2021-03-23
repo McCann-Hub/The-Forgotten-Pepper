@@ -1,8 +1,8 @@
 <template>
-  <div class="flex flex-col items-center bg-gray-100 font-pompiere-regular">
+  <div class="flex flex-col items-center bg-gray-100 font-life-savers-regular">
     <div class="profile-image rounded-full"></div>
     <div class="p-4">
-      <h1 class="my-4 text-2xl font-semibold">About me</h1>
+      <h1 class="my-4 text-2xl font-semibold">About Me</h1>
       <p class="text-xl font-medium">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus
         quia, nulla! Maiores et perferendis eaque, exercitationem praesentium
@@ -22,8 +22,8 @@ export default {
 
 <style scoped>
 .profile-image {
-  background-image: url("~@assets/melanie.jpg");
-  background-position: center -3rem;
+  background-image: url("~@assets/about-me.jpg");
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   max-height: 15rem;
