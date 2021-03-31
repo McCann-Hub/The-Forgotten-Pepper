@@ -1,6 +1,7 @@
 <template>
   <div
-    class="min-h-full min-w-full flex justify-center bg-gray-100 bg-opacity-50 dark:bg-gray-900 dark:bg-opacity-50"
+    id="not-found"
+    class="flex justify-center bg-gray-100 bg-opacity-50 dark:bg-gray-900 dark:bg-opacity-50"
   >
     <div class="flex flex-col justify-center">
       <h1 class="text-center text-5xl font-bold">Oops</h1>
@@ -46,6 +47,10 @@ export default {
 </script>
 
 <style scoped>
+#not-found svg {
+  max-height: calc(0.75 * var(--main-height));
+}
+
 .dial {
   animation: 60s rotate infinite linear;
   transform-origin: 50% 17.667%;

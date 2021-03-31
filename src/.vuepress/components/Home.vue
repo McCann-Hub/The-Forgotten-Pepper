@@ -1,5 +1,6 @@
 <template>
   <div
+    id="home"
     class="min-h-full flex flex-col items-center"
     v-infinite-scroll="loadMore"
     infinite-scroll-disabled="disabled"
@@ -105,6 +106,7 @@ export default {
     },
   },
   created() {
+    /* runs every time the user navigates to home. Could be a performance issue? */
     this.busy = true;
     const self = this;
     const posts = (this.$site.pages || []).filter((p) => p.id === "post");
@@ -122,9 +124,12 @@ export default {
         bodies.forEach((b, i) => {
           const json = JSON.parse(b.slice(2, b.length - 1));
           //self.posts.push({ ...posts[i], ...{ pinterestCount: json.count } });
-          self.posts.push({ ...posts[i], ...{ pinterestCount: Math.floor(Math.random() * Math.floor(100)) } });
+          self.posts.push({
+            ...posts[i],
+            ...{ pinterestCount: Math.floor(Math.random() * Math.floor(100)) },
+          });
         });
-        this.busy = false;
+        this.loadMore();
       });
   },
   mounted() {
@@ -164,6 +169,10 @@ export default {
 </script>
 
 <style scoped>
+#id {
+  /*min-height: var(--main-height);*/
+}
+
 .list-enter-active,
 .list-leave-active {
   transition: all 1s;
@@ -184,7 +193,7 @@ export default {
 </style>
 
 <style lang="stylus" scoped>
-@import '~@theme/styles/fonts.styl'
+@import '~@theme/styles/fonts.styl';
 
 .posts {
   @apply: relative min-w-full;

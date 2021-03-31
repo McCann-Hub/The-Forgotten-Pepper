@@ -1,4 +1,5 @@
 const path = require('path');
+const defaultTheme = require('tailwindcss/defaultTheme');
 const colors = require('tailwindcss/colors');
 
 module.exports = {
@@ -9,22 +10,10 @@ module.exports = {
     domain: 'https://theforgottenpepper.com',
     author: 'Melanie Houghton',
     logo: 'forgotten-pepper',
+    privacyPolicy: "/privacy",
+    cookiePolicy: "/privacy#cookies-and-web-beacons-bacons",
     dark: true,
     nav: [
-      {
-        text: 'Hello',
-        items: [
-          {
-            text: 'World',
-          },
-          {
-            text: 'Foo',
-          },
-          {
-            text: 'Bar',
-          },
-        ],
-      },
       {
         text: 'About',
         items: [
@@ -33,15 +22,28 @@ module.exports = {
             link: '/about-us'
           },
           {
+            text: 'Subscribe',
+            link: '/subscribe'
+          },
+          {
             text: 'Work With Us',
           },
           {
-            text: 'Legal',
+            text: 'T & C',
+            link: '/toc'
           },
+          {
+            text: 'Privacy',
+            link: '/privacy'
+          }
         ],
       },
     ],
     social: [
+      {
+        text: 'Subscribe',
+        link: '/subscribe'
+      },
       {
         icon: 'FacebookIcon',
         link: 'https://www.facebook.com/4gottenpepper',
@@ -49,12 +51,12 @@ module.exports = {
       },
       {
         icon: 'Instagram',
-        link: 'https://www.instagram.com/4gottenpepper/',
+        link: 'https://www.instagram.com/4gottenpepper',
         text: 'Instagram',
       },
       {
         icon: 'pinterest',
-        link: '#',
+        link: 'https://www.pinterest.com/4gottenpepper',
         text: 'Pintrest',
       },
     ],
@@ -97,6 +99,7 @@ module.exports = {
     },
     tailwind: {
       theme: {
+        minWidth: defaultTheme.maxWidth,
         extend: {
           colors: {
             // https://javisperez.github.io/tailwindcolorshades/

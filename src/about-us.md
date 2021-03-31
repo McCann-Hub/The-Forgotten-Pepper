@@ -1,21 +1,40 @@
+<br />
+
 # About Me
-![About Me](~@assets/about-me.jpg#float-left#w-1/3)
+![Mrs. Mhm resting on the counter drinking coffee next to her fruit and veggie holder](~@assets/about-me/image1.jpg#float-left#w-1/3#rounded-full)
 Hello, Love.
 
-My name is Mrs. Mhm. I am a wife, mother, daughter, sister, aunt, etc. I love singing and dancing while I cook. You can mostly find me listening to the oldies. In my down time, I like playing phone games and binging shows like Handmaid’s Tale and Good Trouble.
+My name is Mrs. Mhm. I am a wife, mother, and among other things, Human. I love singing and dancing while I cook. You can mostly find me listening to the oldies. In my down time, I like playing phone games and binging shows like Handmaid’s Tale, Good Trouble, and first responder shows (as well as CSI- Las vegas).
 
-My most favorite moments are those I spent in the kitchen with my Father. He taught me how to cut vegetables, gave me secrets to his recipes, and he showed me what a love for food looks like. Watching him cook and move through the kitchen was/is mesmerizing. My favorite smell in his kitchen todate is the smell of Onions, green peppers, potatoes, and sausage sauteeing in the cast iron skillet.
+From showing me how to cut vegetables, giving me secrets to his recipes, and showing me what a love for food looks like, some of my most favorite cooking moments are those I spent in the kitchen with my Father. My favorite smell in his kitchen todate is the smell of Onions, green peppers, potatoes, and sausage sauteeing in the cast iron skillet.
 
-My Mother cooked as well. She had recipes we rarely strayed from. But, helping her cook Thanksgiving dinners and chopping vegetables for her canned tomato soup was always a fun time. 
+Me. I gain inspiration trying to find different ways to prepare ingredients that I know I need to use soon, and ingredients I haven’t tried before. The challenge, I think, is what gets me excited. I mostly enjoy finding out how flavors blend together. I get really excited when something comes together and I applaud myself with, “Damn! This is so good!
 
-Me. I gain inspiration trying to find different ways to prepare ingredients that I know I need to use soon, and ingredients I haven’t tried before. The challenge, I think, is what gets me excited. We have our go tos like My mother did, but I mostly enjoy finding out how flavors blend together.
+Oh, that reminds me. While I have you, please be warned, I’m going to be myself. Which could mean, nice, sweet, sass, sarcasm, witt, comedic, or weird. Or all of the above, we really just don’t know.
 
-And while I have you, please be warned, I’m going to be myself. Which could mean, nice, sweet, sass, sarcasm, witt, comedic, weird, and a lot of F#$&ing expletives- maybe.
+I hope you come back for more recipes geared towards feeding your family while using ingredients you might have forgotten to use right away, or new ingredients you’ve been figuring out how to prepare.
 <br />
 <br />
-Thanks for stopping by, I hope you find something you enjoy
+Thank you for visiting, Love
+<br />
+<br />
+I hope you find something you enjoy!
 <br />
 <br />
 Love always,
 <br />
 Mrs. Mhm
+
+<br />
+<br />
+<br />
+
+To really get to know me, enjoy these photo bloopers
+
+![blooper](~@assets/about-me/image2.jpg#float-left#w-1/8#rounded-full)
+![blooper](~@assets/about-me/image3.jpg#float-left#w-1/8#rounded-full)
+![blooper](~@assets/about-me/image4.jpg#float-left#w-1/8#rounded-full)
+![blooper](~@assets/about-me/image5.jpg#float-left#w-1/8#rounded-full)
+![blooper](~@assets/about-me/image6.jpg#float-left#w-1/8#rounded-full)
+![blooper](~@assets/about-me/image7.jpg#float-left#w-1/8#rounded-full)
+![blooper](~@assets/about-me/image8.jpg#float-left#w-1/8#rounded-full)
