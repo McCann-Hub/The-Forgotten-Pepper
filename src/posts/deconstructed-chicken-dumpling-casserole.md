@@ -1,9 +1,9 @@
 ---
 date: 2021-03-31
 image: /deconstructed-chicken-dumpling-casserole/image.jpg
-imageAlt:
+imageAlt: Top view Chicken dumpling Casserole on gray plate sitting next to biscuit and fork with blue hand towel
 image2: /deconstructed-chicken-dumpling-casserole/image2.jpg
-image2Alt:
+image2Alt: Side view Chicken Dumpling Casserole on gray plate next to biscuit and fork on top of blue hand towel
 summary: With biscuits, butter, chicken, and vegetables, this Chicken Dumpling casserole is like being in a warm, cozy house surrounded by love and laughter.
 recipe:
     cookTime: 45 - 60 mins
