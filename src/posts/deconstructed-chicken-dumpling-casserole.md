@@ -3,7 +3,9 @@ date: 2021-03-31
 ingredients:
     - chicken
     - biscuits
+    - cheese
 menu: 
+    - lunch
     - dinner
     - supper
 image: /deconstructed-chicken-dumpling-casserole/image.jpg
