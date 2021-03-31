@@ -12,12 +12,14 @@
     <meta itemprop="recipeCategory" content="" />
     <meta itemprop="recipeCuisine" content="" />
     <meta itemprop="suitableForDiet" content="" />
-    <div id="header" class="mb-2 flex justify-evenly items-center">
+    <div class="header mb-2 flex justify-evenly items-center">
       <div
         v-if="$frontmatter.image"
         class="img"
         :style="`background-image: url('${$frontmatter.image}');`"
-      ></div>
+      >
+        <meta itemprop="image" :content="$frontmatter.image" />
+      </div>
       <div class="flex flex-col justify-center items-center">
         <div
           class="rounded-full h-36 w-36 p-5 mb-4 flex flex-col justify-center bg-primary-500 bg-opacity-75 text-text-900"
@@ -44,13 +46,15 @@
         </div>
       </div>
       <div
-        v-if="$frontmatter.image"
+        v-if="$frontmatter.image2"
         class="img"
-        :style="`background-image: url('${$frontmatter.image}');`"
-      ></div>
+        :style="`background-image: url('${$frontmatter.image2}');`"
+      >
+        <meta itemprop="image" :content="$frontmatter.image2" />
+      </div>
     </div>
 
-    <div id="body" class="relative">
+    <div class="body relative">
       <!-- Menu -->
       <span v-if="ingredients.length > 0 && method.length > 0">
         <ul v-if="slotPassed" class="tabs">
@@ -81,7 +85,13 @@
         </ul>
       </span>
 
-      <transition-group v-if="slotPassed" name="fade">
+      <transition-group
+        v-if="slotPassed"
+        tag="div"
+        class="transition-group transition-all duration-1000"
+        name="fade"
+        :style="`${tabHeight > 0 ? `height: ${tabHeight}px;` : ''}`"
+      >
         <div
           v-show="open.blog"
           key="blog"
@@ -156,6 +166,7 @@ export default {
       ingredients: false,
       method: false,
     },
+    tabHeight: 0,
   }),
   computed: {
     cookTime() {
@@ -195,6 +206,9 @@ export default {
       this.switchTab("ingredients");
     }
   },
+  updated() {
+    this.tabHeight = this.$slots.default.reduce((acc, item) => acc + ((item.elm || {}).clientHeight || 0), 0);
+  },
   methods: {
     switchTab(to) {
       Object.keys(this.open).forEach((k) => {
@@ -209,108 +223,119 @@ export default {
 };
 </script>
 
-<style scoped>
-.fade-enter-active,
-.fade-leave-active {
-  position: absolute;
-  transition-property: opacity;
-  transition-duration: var(--transition-duration);
+<style lang="stylus" scoped>
+@import '~@theme/styles/fonts.styl';
+
+#recipe-card {
+  .header {
+    --square-div: calc((100% / 3));
+
+    div {
+      &.img {
+        @apply: h-0 rounded-full bg-no-repeat bg-center bg-cover;
+        padding-bottom: var(--square-div);
+        width: var(--square-div);
+      }
+    }
+
+    img {
+      @apply: h-0 rounded-full;
+      height: var(--square-div);
+      width: var(--square-div);
+    }
+  }
+
+  .circle__recipe {
+    @apply: flex flex-col justify-center items-center font-life-savers-bold;
+
+    h2 {
+      @apply: font-medium text-lg;
+    }
+
+    p {
+      @apply: font-light text-sm;
+    }
+  }
+
+  .tabs {
+    @apply: bg-accent-500 bg-opacity-90 sticky text-center top-0 py-2;
+
+    li {
+      @apply: inline list-none mr-4 font-semibold font-pompiere-regular;
+
+      a {
+        @apply: cursor-pointer no-underline select-none text-lg text-gray-700 text-opacity-50;
+        transition: var(--transition-duration);
+
+        &:hover {
+          @apply: text-gray-800 text-opacity-75;
+        }
+
+        &.active {
+          @apply: text-gray-900 text-opacity-100;
+        }
+      }
+    }
+  }
+
+  .tab-content {
+    @apply: min-w-full min-h-full px-4 text-text-700 font-life-savers-regular;
+    --step-1: rgba(200, 200, 200, 0.25);
+    --step-2: rgba(200, 200, 200, 0.5);
+    --step-3: rgba(0, 0, 0, 0.75);
+    --step-4: rgba(0, 0, 0, 1);
+    background-image: repeating-linear-gradient(var(--step-1), var(--step-2) 1.45rem, var(--step-3) 1.47rem, var(--step-4) 1.5rem);
+    background-image: -moz-repeating-linear-gradient(var(--step-1), var(--step-2) 1.45rem, var(--step-3) 1.47rem, var(--step-4) 1.5rem);
+    background-image: -ms-repeating-linear-gradient(var(--step-1), var(--step-2) 1.45rem, var(--step-3) 1.47rem, var(--step-4) 1.5rem);
+    background-image: -o-repeating-linear-gradient(var(--step-1), var(--step-2) 1.45rem, var(--step-3) 1.47rem, var(--step-4) 1.5rem);
+    background-image: -webkit-repeating-linear-gradient(var(--step-1), var(--step-2) 1.45rem, var(--step-3) 1.47rem, var(--step-4) 1.5rem);
+    background-position-y: 0.25rem;
+
+    h2 {
+      @apply: font-extrabold text-xl;
+    }
+
+    h3 {
+      @apply: font-bold;
+    }
+
+    hr {
+      @apply: border-red-900 border-opacity-50 w-72;
+    }
+
+    ul {
+      @apply: list-disc;
+    }
+
+    ol {
+      @apply: list-decimal;
+    }
+
+    li {
+      @apply: ml-4 font-semibold;
+    }
+  }
 }
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
+
+.dark {
+  #recipe-card {
+    .tab-content {
+      @apply: text-text-300;
+      --step-1: rgba(0, 0, 0, 0.25);
+      --step-2: rgba(0, 0, 0, 0.5);
+      --step-3: rgba(200, 200, 200, 0.75);
+      --step-4: rgba(200, 200, 200, 1);
+    }
+  }
 }
 </style>
 
-<style lang="stylus" scoped>
-@import '~@theme/styles/fonts.styl'
-
-#header {
-  --square-div: calc((100% / 3));
-}
-
-#header div.img {
-  @apply: h-0 rounded-full bg-no-repeat bg-center bg-cover;
-  padding-bottom: var(--square-div);
-  width: var(--square-div);
-}
-
-.circle__recipe {
-  @apply: flex flex-col justify-center items-center font-life-savers-bold;
-}
-
-.circle__recipe > h2 {
-  @apply: font-medium text-lg;
-}
-
-.circle__recipe > p {
-  @apply: font-light text-sm;
-}
-
-.tabs {
-  @apply: bg-accent-500 bg-opacity-90 sticky text-center top-0 py-2;
-}
-
-.tabs > li {
-  @apply: inline list-none mr-4 font-semibold font-pompiere-regular;
-}
-
-.tabs > li > a {
-  @apply: cursor-pointer no-underline select-none text-lg text-gray-700 text-opacity-50;
-  transition: var(--transition-duration);
-}
-
-.tabs > li > a:hover {
-  @apply: text-gray-800 text-opacity-75;
-}
-
-.tabs > li > a.active {
-  @apply: text-gray-900 text-opacity-100;
-}
-
-.tab-content {
-  @apply: px-4 text-text-700 font-life-savers-regular;
-  --step-1: rgba(200, 200, 200, 0.25);
-  --step-2: rgba(200, 200, 200, 0.5);
-  --step-3: rgba(0, 0, 0, 0.75);
-  --step-4: rgba(0, 0, 0, 1);
-  background-image: repeating-linear-gradient(var(--step-1), var(--step-2) 1.45rem, var(--step-3) 1.47rem, var(--step-4) 1.5rem);
-  background-image: -moz-repeating-linear-gradient(var(--step-1), var(--step-2) 1.45rem, var(--step-3) 1.47rem, var(--step-4) 1.5rem);
-  background-image: -ms-repeating-linear-gradient(var(--step-1), var(--step-2) 1.45rem, var(--step-3) 1.47rem, var(--step-4) 1.5rem);
-  background-image: -o-repeating-linear-gradient(var(--step-1), var(--step-2) 1.45rem, var(--step-3) 1.47rem, var(--step-4) 1.5rem);
-  background-image: -webkit-repeating-linear-gradient(var(--step-1), var(--step-2) 1.45rem, var(--step-3) 1.47rem, var(--step-4) 1.5rem);
-  background-position-y: 0.25rem;
-}
-
-.dark .tab-content {
-  @apply: text-text-300;
-  --step-1: rgba(0, 0, 0, 0.25);
-  --step-2: rgba(0, 0, 0, 0.5);
-  --step-3: rgba(200, 200, 200, 0.75);
-  --step-4: rgba(200, 200, 200, 1);
-}
-
-.tab-content > h2 {
-  @apply: font-extrabold text-xl;
-}
-
-.tab-content > h3 {
-  @apply: font-bold;
-}
-
-.tab-content > hr {
-  @apply: border-red-900 border-opacity-50 w-72;
-}
-
-.tab-content > ul {
-  @apply: list-disc;
-}
-
-.tab-content > ol {
-  @apply: list-decimal;
-}
-
-.tab-content li {
-  @apply: ml-4 font-semibold;
+<style lang="stylus">
+#recipe-card {
+  .content__default {
+    h1 {
+      @apply: text-center;
+    }
+  }
 }
 </style>

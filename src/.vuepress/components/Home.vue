@@ -26,7 +26,7 @@
       <transition-group
         name="list"
         tag="div"
-        class="flex flex-col items-center"
+        class="post-cards flex flex-col items-center"
       >
         <page-card
           v-for="page in display"
@@ -169,10 +169,6 @@ export default {
 </script>
 
 <style scoped>
-#id {
-  /*min-height: var(--main-height);*/
-}
-
 .list-enter-active,
 .list-leave-active {
   transition: all 1s;
@@ -195,28 +191,34 @@ export default {
 <style lang="stylus" scoped>
 @import '~@theme/styles/fonts.styl';
 
-.posts {
-  @apply: relative min-w-full;
-}
+#home {
+  .posts {
+    @apply: relative min-w-full;
 
-.tabs {
-  @apply: bg-accent-500 bg-opacity-90 sticky text-center top-0;
-}
+    .tabs {
+      @apply: bg-accent-500 bg-opacity-90 sticky text-center top-0;
 
-.tabs > li {
-  @apply: inline list-none mr-4 font-semibold font-pompiere-regular;
-}
+      li {
+        @apply: inline list-none mr-4 font-semibold font-pompiere-regular;
 
-.tabs > li > a {
-  @apply: cursor-pointer no-underline select-none text-lg text-text-700 text-opacity-50;
-  transition: var(--transition-duration);
-}
+        a {
+          @apply: cursor-pointer no-underline select-none text-lg text-text-700 text-opacity-50;
+          transition: var(--transition-duration);
 
-.tabs > li > a:hover {
-  @apply: text-text-800 text-opacity-75;
-}
+          &:hover {
+            @apply: text-text-800 text-opacity-75;
+          }
 
-.tabs > li > a.active {
-  @apply: text-gray-900 text-opacity-100;
+          &.active {
+            @apply: text-gray-900 text-opacity-100;
+          }
+        }
+      }
+    }
+
+    .post-cards {
+      @apply: px-20;
+    }
+  }
 }
 </style>

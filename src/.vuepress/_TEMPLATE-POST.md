@@ -1,0 +1,16 @@
+---
+date:
+ingredients:
+menu:
+image:
+imageAlt:
+image2:
+image2Alt:
+summary:
+recipe:
+    cookTime:
+    serves:
+    title:
+    ingredients:
+    method:
+---

@@ -8,7 +8,7 @@ module.exports = {
   description: 'A Vuepress powered blog',
   themeConfig: {
     domain: 'https://theforgottenpepper.com',
-    author: 'Melanie Houghton',
+    author: 'Melanie Houghton-McCann',
     logo: 'forgotten-pepper',
     privacyPolicy: "/privacy",
     cookiePolicy: "/privacy#cookies-and-web-beacons-bacons",
