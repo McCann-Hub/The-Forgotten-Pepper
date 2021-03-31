@@ -1,5 +1,11 @@
 ---
 date: 2021-03-31
+ingredients:
+    - chicken
+    - biscuits
+menu: 
+    - dinner
+    - supper
 image: /deconstructed-chicken-dumpling-casserole/image.jpg
 imageAlt: Top view Chicken dumpling Casserole on gray plate sitting next to biscuit and fork with blue hand towel
 image2: /deconstructed-chicken-dumpling-casserole/image2.jpg
