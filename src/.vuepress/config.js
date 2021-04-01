@@ -106,9 +106,9 @@ module.exports = {
         $page.frontmatter.ingredients || [$page.frontmatter.ingredient],
     },
     tailwind: {
-      /*purge: {
+      purge: {
         enabled: false,
-      },*/
+      },
       theme: {
         extend: {
           colors: {
