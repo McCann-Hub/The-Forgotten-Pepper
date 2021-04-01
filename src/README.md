@@ -1,4 +1,6 @@
 ---
   rightSidebar: AboutSide
 ---
-<home />
+<client-only>
+  <home />
+</client-only>

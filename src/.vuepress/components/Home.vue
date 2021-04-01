@@ -171,23 +171,6 @@ export default {
 <style lang="stylus" scoped>
 @import '~@theme/styles/fonts.styl';
 
-.list-enter-active,
-.list-leave-active {
-  @apply: transition duration-1000;
-}
-.list-leave-active {
-  @apply: absolute;
-}
-/* */
-.list-enter,
-.list-leave-to {
-  @apply: opacity-0 transform translate-y-full;
-}
-/* */
-.list-move {
-  @apply: transition-transform duration-1000;
-}
-
 #home {
   .posts {
     @apply: relative min-w-full;

@@ -158,6 +158,7 @@ module.exports = {
       },
     },
     pwa: false,
+    imagemin: false,
   },
   configureWebpack: {
     resolve: {
