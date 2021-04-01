@@ -1,10 +1,10 @@
 <template>
-  <recipe-card>
+  <recipe-card class="pb-7">
     <div class="pt-4">
       <pinterest-save />
       <facebook-share />
     </div>
-    <div class="font-thin text-xs">
+    <div class="py-2 font-pompiere-regular font-thin text-sm">
       <span>{{
         `published: ${new Date(
           $frontmatter.date || $page.created

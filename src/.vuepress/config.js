@@ -24,9 +24,9 @@ module.exports = {
             text: 'Subscribe',
             link: '/subscribe'
           },
-          {
+          /*{
             text: 'Work With Us',
-          },
+          },*/
           {
             text: 'T & C',
             link: '/toc'
