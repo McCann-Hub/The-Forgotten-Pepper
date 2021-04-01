@@ -80,21 +80,23 @@
     }
 }
 
-/* */
+/*  */
 #recipe-card {
-  .content__default {
-    h1 {
-      @apply: text-center;
+    .content__default {
+        h1 {
+            @apply: text-center;
+        }
     }
-  }
 }
 
 /*  */
 .content__default {
     @apply: font-life-savers-regular;
 
-    :is(h1, h2, h3, h4, h5, h6) {
-        @apply: font-pompiere-regular;
+    for i in 1 .. 6 {
+        h{i} {
+            @apply: font-pompiere-regular;
+        }
     }
 }
 
