@@ -1,5 +1,4 @@
 const path = require('path');
-const defaultTheme = require('tailwindcss/defaultTheme');
 const colors = require('tailwindcss/colors');
 
 module.exports = {
@@ -60,6 +59,15 @@ module.exports = {
         text: 'Pintrest',
       },
     ],
+    directories: [
+      {
+        id: 'post',
+        dirname: 'posts',
+        path: '/post/',
+        itemPermalink: '/post/:year/:month/:day/:slug',
+      },
+    ],
+    indexPostCardOrientation: 'vertical',
     frontmatters: [
       {
         /* Unique ID of current classification */
@@ -98,8 +106,10 @@ module.exports = {
         $page.frontmatter.ingredients || [$page.frontmatter.ingredient],
     },
     tailwind: {
+      /*purge: {
+        enabled: false,
+      },*/
       theme: {
-        minWidth: defaultTheme.maxWidth,
         extend: {
           colors: {
             // https://javisperez.github.io/tailwindcolorshades/
@@ -147,6 +157,7 @@ module.exports = {
         },
       },
     },
+    pwa: false,
   },
   configureWebpack: {
     resolve: {

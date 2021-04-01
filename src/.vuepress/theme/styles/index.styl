@@ -1,25 +1,28 @@
 @import './fonts.styl';
 
 :root {
-  --header-height: 7rem;
+    --header-height: 7rem;
 }
 
 #app {
-  @apply: font-forty-two;
+    @apply: font-forty-two;
 }
-/* */
-#app::before {       
-  /*background-image: url('~@theme/assets/background_vanilla.svg');*/
+
+/*  */
+#app::before {
+    /* background-image: url('~@theme/assets/background_vanilla.svg'); */
 }
-/* */
+
+/*  */
 #global-header {
     @apply: font-pompiere-regular;
-    
+
     #site-title {
         visibility: hidden;
     }
 }
-/* */
+
+/*  */
 .header-dropdown {
     button {
         @apply: text-xl;
@@ -33,6 +36,7 @@
         }
     }
 }
+
 .dark {
     .header-dropdown {
         ul {
@@ -46,35 +50,58 @@
         }
     }
 }
-/* */
+
+/*  */
 .social-bar-item {
     svg {
         @apply: h-6 w-6 rounded-full;
     }
 }
-/* */
+
+/*  */
 .page-card {
     @apply: bg-primary-300 bg-opacity-90 text-text-700 font-life-savers-bold;
 }
+
 .dark {
     .page-card {
-        @apply: bg-primary-700 bg-opacity-90 text-text-300
+        @apply: bg-primary-700 bg-opacity-90 text-text-300;
     }
 }
-/* */
+
+/*  */
 .tag-pill {
-    @apply: bg-accent-500 text-text-200
+    @apply: bg-accent-500 text-text-200;
 }
+
 .dark {
     .tag-pill {
-        @apply: bg-accent-500 text-text-200
+        @apply: bg-accent-500 text-text-200;
     }
 }
-/* */
+
+/*  */
 .content__default {
     @apply: font-life-savers-regular;
 
     :is(h1, h2, h3, h4, h5, h6) {
         @apply: font-pompiere-regular;
+    }
+}
+
+/*  */
+#cookie-banner {
+    @apply: font-pompiere-regular text-xl font-semibold;
+
+    a {
+        @apply: underline text-primary-900;
+    }
+
+    #cookie-action-bar {
+        button {
+            &::after {
+                content: ' Coookies';
+            }
+        }
     }
 }
