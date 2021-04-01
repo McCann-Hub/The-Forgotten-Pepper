@@ -329,13 +329,3 @@ export default {
   }
 }
 </style>
-
-<style lang="stylus">
-#recipe-card {
-  .content__default {
-    h1 {
-      @apply: text-center;
-    }
-  }
-}
-</style>
