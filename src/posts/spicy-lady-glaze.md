@@ -48,7 +48,8 @@ If you are ready to brave the heat...Grab a medium saucepan. Wash all your straw
 When it’s safe, go ahead and add it to your food processor, blender, or use an immersion blender with the mixture in a mixing bowl. Blend the mixture until mostly smooth (or completely, it’s your preference. I like a little pulp in mine). When you are done blending it to the desired consistency, place it back in the pan and bring to a boil. At boiling, add your pectin and remaining ¼ cup of sugar. Bring it to a boil again. After allowing to boil for 1 minute, remove the mixture from the heat and place in jars. The jam will begin to set. Refrigerate. I’ve kept mine in the freezer for about 6 months now, and it is still as delicious as ever.
 
 This is your warning. The spice does not dull down. However, the strawberry is a great companion for the peppers. I love it and It is good with peanut butter. However, I prefer it by itself.
-Tips: You can take the seeds out of the peppers to make the jam a little milder. You can also strain the fruit after blending to make it more smooth.
+<br />
+**Tips:** You can take the seeds out of the peppers to make the jam a little milder. You can also strain the fruit after blending to make it more smooth.
 Let me know if you try this and how it goes for you!
 
 Thanks for stopping by, Love.
