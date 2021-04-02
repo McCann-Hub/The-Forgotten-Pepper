@@ -5,12 +5,16 @@ module.exports = {
   dest: './dist',
   title: 'The Forgotten Pepper',
   description: 'A Vuepress powered blog',
+  head: [
+    ['link', { rel: 'icon', href: '/' }],
+    ['link', { rel: 'apple-touch-icon', href: '/' }],
+  ],
   themeConfig: {
     domain: 'https://theforgottenpepper.com',
-    author: 'Melanie Houghton-McCann',
+    author: 'Mrs. Mhm',
     logo: 'forgotten-pepper',
-    privacyPolicy: "/privacy",
-    cookiePolicy: "/privacy#cookies-and-web-beacons-bacons",
+    privacyPolicy: '/privacy',
+    cookiePolicy: '/privacy#cookies-and-web-beacons-bacons',
     dark: true,
     nav: [
       {
@@ -18,30 +22,30 @@ module.exports = {
         items: [
           {
             text: 'Our team',
-            link: '/about-us'
+            link: '/about-us',
           },
           {
             text: 'Subscribe',
-            link: '/subscribe'
+            link: '/subscribe',
           },
           /*{
             text: 'Work With Us',
           },*/
           {
             text: 'T & C',
-            link: '/toc'
+            link: '/toc',
           },
           {
             text: 'Privacy',
-            link: '/privacy'
-          }
+            link: '/privacy',
+          },
         ],
       },
     ],
     social: [
       {
         text: 'Subscribe',
-        link: '/subscribe'
+        link: '/subscribe',
       },
       {
         icon: 'FacebookIcon',
