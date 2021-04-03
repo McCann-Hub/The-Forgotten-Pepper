@@ -6,8 +6,75 @@ module.exports = {
   title: 'The Forgotten Pepper',
   description: 'A Vuepress powered blog',
   head: [
-    ['link', { rel: 'icon', href: '/' }],
-    ['link', { rel: 'apple-touch-icon', href: '/' }],
+    // https://www.pwabuilder.com/imageGenerator + https://github.com/gokulkrishh/awesome-meta-and-manifest
+    /* Main Link Tags  */
+    [
+      'link',
+      {
+        href: 'icons/favicon-16.png',
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '16x16',
+      },
+    ],
+    [
+      'link',
+      {
+        href: 'icons/favicon-32.png',
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '32x32',
+      },
+    ],
+    [
+      'link',
+      {
+        href: 'icons/favicon-48.png',
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '48x48',
+      },
+    ],
+    /* iOS */
+    [
+      'link',
+      {
+        href: 'icons/touch-icon-iphone-retina.png',
+        rel: 'apple-touch-icon',
+        sizes: '120x120',
+      },
+    ],
+    /* Android */
+    [
+      'link',
+      {
+        href: 'icons/icon-192x192.png',
+        rel: 'icon',
+        sizes: '192x192',
+      },
+    ],
+    [
+      'link',
+      {
+        href: 'icons/icon-128x128.png',
+        rel: 'icon',
+        sizes: '128x128',
+      },
+    ],
+    /* Others */
+    [
+      'link',
+      { href: 'favicon.ico', rel: 'shortcut icon', type: 'image/x-icon' },
+    ],
+    /* UC Browser */
+    [
+      'link',
+      {
+        href: 'icons/icon-72x72.png',
+        rel: 'apple-touch-icon',
+        sizes: '72x72',
+      },
+    ],
   ],
   themeConfig: {
     domain: 'https://theforgottenpepper.com',
