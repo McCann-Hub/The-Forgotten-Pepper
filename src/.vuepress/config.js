@@ -157,9 +157,9 @@ module.exports = {
         },
       },
     },
-    ga: '',
+    ga: 'G-KWJZ6BY65J',
     remarkbox: {
-      ownerKey: '',
+      ownerKey: 'fa12be11-9a74-11eb-9926-040140774501',
     },
     pwa: true,
     favicons: {
