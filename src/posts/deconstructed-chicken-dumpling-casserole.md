@@ -8,9 +8,9 @@ menu:
     - lunch
     - dinner
     - supper
-image: /deconstructed-chicken-dumpling-casserole/image.jpg
+image: /assets/img/deconstructed-chicken-dumpling-casserole/image.jpg
 imageAlt: Top view Chicken dumpling Casserole on gray plate sitting next to biscuit and fork with blue hand towel
-image2: /deconstructed-chicken-dumpling-casserole/image2.jpg
+image2: /assets/img/deconstructed-chicken-dumpling-casserole/image2.jpg
 image2Alt: Side view Chicken Dumpling Casserole on gray plate next to biscuit and fork on top of blue hand towel
 summary: With biscuits, butter, chicken, and vegetables, this Chicken Dumpling casserole is like being in a warm, cozy house surrounded by love and laughter.
 recipe:

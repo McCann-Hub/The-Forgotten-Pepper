@@ -7,9 +7,9 @@ menu:
     - lunch
     - dinner
     - supper
-image: /one-pot-tuna-casserole/image.jpg
+image: /assets/img/one-pot-tuna-casserole/image.jpg
 imageAlt: Tuna casserole in a gray bowl sitting next to cheese, dill crisps, a blue hand towel and fork
-image2: /one-pot-tuna-casserole/image2.jpg
+image2: /assets/img/one-pot-tuna-casserole/image2.jpg
 image2Alt: Tuna casserole sitting on blue hand towel next to fork and Dill crisps
 summary: This simple Tuna Casserole is Filling, Cheesy, and has a bright satisfying flavor and works well for a quick dinner, dish to pass, or leftovers!
 recipe:

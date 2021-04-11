@@ -1,5 +1,9 @@
 <template>
-  <div id="mc_embed_signup" ref="mc_embed_signup" class="mt-3 flex justify-center">
+  <div
+    id="mc_embed_signup"
+    ref="mc_embed_signup"
+    class="flex justify-center items-center"
+  >
     <form
       action="https://theforgottenpepper.us1.list-manage.com/subscribe/post?u=561ad117df42c59cc7a0eb213&amp;id=77a07bddcb"
       method="post"
@@ -105,41 +109,47 @@ export default {
   mounted() {
     const aws = document.createElement("script");
     aws.src = "//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js";
+    const self = this;
+    aws.onload = () => {
+      const fn = document.createElement("script");
+      fn.innerText = `(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[4]='PHONE';ftypes[4]='phone';}(jQuery));var $mcj = jQuery.noConflict(true);`;
+      self.$refs.mc_embed_signup.appendChild(fn);
+    };
     this.$refs.mc_embed_signup.appendChild(aws);
-
-    const fn = document.createElement("script");
-    fn.innerText = `(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[4]='PHONE';ftypes[4]='phone';}(jQuery));var $mcj = jQuery.noConflict(true);`;
-    this.$refs.mc_embed_signup.appendChild(fn);
   },
 };
 </script>
 
 <style lang="stylus" scoped>
-.mc-field-group {
+#mc_embed_signup {
+  height: var(--main-height);
+  
+  .mc-field-group {
     @apply: my-3;
 
     input {
-        @apply: rounded border-accent-500 border-2 shadow-inner;
+      @apply: rounded border-accent-500 border-2 shadow-inner;
     }
 
-    input[type="radio"] {
-        @apply: ml-24 mr-3;
+    input[type='radio'] {
+      @apply: ml-24 mr-3;
     }
-}
+  }
 
-input.button {
+  input.button {
     @apply: px-3 py-2 rounded border-2;
-    
+
     &:hover {
-        @apply: shadow;
+      @apply: shadow;
     }
 
     &:focus {
-        @apply: shadow-inner;
+      @apply: shadow-inner;
     }
-}
+  }
 
-input {
+  input {
     @apply: outline-none;
+  }
 }
 </style>

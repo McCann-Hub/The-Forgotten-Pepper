@@ -6,9 +6,9 @@ ingredients:
     - serrano-peppers
 menu:
     - jam
-image: /spicy-lady-glaze/image.jpg
+image: /assets/img/spicy-lady-glaze/image.jpg
 imageAlt: Strawberry-Jalapeno jam on toast on napkin with Jalapenos surrounding
-image2: /spicy-lady-glaze/image2.jpg
+image2: /assets/img/spicy-lady-glaze/image2.jpg
 image2Alt: Strawberry-Jalapeno Jam on toast and bowl with Jalapenos surrounding on napkins
 summary: If you have an abundance of Strawberries you need to use, add some sweet spice to your life with this spicy strawberry jam. Strawberry is a great companion for hot peppers. It’s good on peanut butter, but oh so delicious by itself, too!
 recipe:

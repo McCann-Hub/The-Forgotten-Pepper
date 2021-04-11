@@ -7,9 +7,9 @@ menu:
     - lunch
     - dinner
     - supper
-image: /gyro-lasagna/image.jpg
+image: /assets/img/gyro-lasagna/image.jpg
 imageAlt: Gyro Lasagna plated with Green onion sprigs on gray plate
-image2: /gyro-lasagna/image2.jpg
+image2: /assets/img/gyro-lasagna/image2.jpg
 image2Alt: Top view of gyro Lasagna plated with green onion sprigs on gray plate
 summary: Gyro Lasagna is full of perfectly seasoned meat, cheese, and more cheese. STACKED!! When you take a bite, it is the perfect mouthful in perfect proportions. It’s ooey gooey goodness.
 recipe:
