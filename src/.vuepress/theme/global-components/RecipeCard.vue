@@ -1,7 +1,7 @@
 <template>
   <div
     id="recipe-card"
-    class="shadow-2xl bg-gray-100 bg-opacity-75 dark:bg-gray-900 dark:bg-opacity-75"
+    class="bg-gray-100 bg-opacity-75 dark:bg-gray-900 dark:bg-opacity-75"
     itemscope
     itemtype="http://schema.org/Recipe"
   >

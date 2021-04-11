@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col">
-    <div class="flex-grow flex justify-evenly items-center">
+    <div class="ingredient flex-grow flex flex-wrap justify-evenly items-center">
       <page-card
         v-for="page in _pages"
         :key="page.key"
@@ -38,3 +38,12 @@ export default {
   },
 };
 </script>
+
+<style lang="stylus" scoped>
+.ingredient {
+  > * {
+    @apply: m-2;
+    max-width: 20rem;
+  }
+}
+</style>

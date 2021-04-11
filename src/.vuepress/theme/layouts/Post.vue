@@ -16,6 +16,8 @@
       }}</span>
     </div>
     <Content />
+    <br />
+    <br />
     <comments-remarkbox />
   </recipe-card>
 </template>
