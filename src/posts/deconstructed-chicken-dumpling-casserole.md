@@ -14,7 +14,7 @@ image2: /assets/img/deconstructed-chicken-dumpling-casserole/image2.jpg
 image2Alt: Side view Chicken Dumpling Casserole on gray plate next to biscuit and fork on top of blue hand towel
 summary: With biscuits, butter, chicken, and vegetables, this Chicken Dumpling casserole is like being in a warm, cozy house surrounded by love and laughter.
 recipe:
-    cookTime: 45 - 60 mins
+    cookTime: 60 minutes
     serves: 4 - 6
     title: Deconstructed Chicken Dumpling Casserole
     ingredients:
@@ -41,7 +41,7 @@ recipe:
         - With the butter remaining from the rice sides, melt in a microwave safe container in the microwave.
         - With a whisk, mix in the milk, chicken bouillon, and ranch packet into the melted butter. It should thicken to a gravy consistency.
         - Once your biscuits are out of the oven, cut them in half.
-        - Place them face open into a 9 x13 baking dish.
+        - Place them face open into a 9 x 13 baking dish.
         - Cover with rice sides, chicken, and ¾ cheese and sauce.
         - Add the rest of the cheese.
         - Place in the oven at 350 degrees for 15 minutes.

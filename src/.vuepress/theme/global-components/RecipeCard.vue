@@ -9,7 +9,12 @@
       itemprop="url"
       :content="`${$themeConfig.domain || ''}${$page.path}`"
     />
-    <meta itemprop="recipeCategory" content="" />
+    <meta
+      v-for="category in categories"
+      :key="category"
+      itemprop="recipeCategory"
+      :content="category"
+    />
     <meta itemprop="recipeCuisine" content="" />
     <meta itemprop="suitableForDiet" content="" />
     <div class="header mb-2 flex justify-evenly items-center">
@@ -25,9 +30,11 @@
           class="rounded-full h-36 w-36 p-5 mb-4 flex flex-col justify-center bg-primary-500 bg-opacity-75 text-text-900"
         >
           <div v-if="cookTime" class="circle__recipe">
-            <p>Cooking Time</p>
-            <h2 itemprop="totalTime">{{ cookTime }}</h2>
+            <p>Cook Time</p>
+            <h2>{{ humanizeDuration(cookTime) }}</h2>
+            <meta itemprop="cookTime" :content="cookTime" />
             <meta itemprop="cookingMethod" content="" />
+            <meta itemprop="totalTime" :content="totalTime" />
           </div>
           <div v-if="serves" class="circle__recipe">
             <p>Serves</p>
@@ -35,6 +42,10 @@
           </div>
         </div>
         <meta itemprop="name" :content="title" />
+        <div class="hidden" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <meta itemprop="name" :content="author" />
+        </div>
+        <meta itemprop="description" :content="description" />
         <div
           v-if="!slotPassed"
           class="rounded-full bg-primary-500 bg-opacity-75 text-text-900"
@@ -55,21 +66,17 @@
     </div>
 
     <div class="body relative">
-      <!-- Menu -->
+      <!-- menu -->
       <span v-if="ingredients.length > 0 && method.length > 0">
-        <ul v-if="slotPassed" class="tabs">
+        <ul class="tabs">
           <li>
-            <a :class="open.blog ? 'active' : ''" @click="switchTab('blog')"
+            <a
+              v-if="slotPassed"
+              :class="open.blog ? 'active' : ''"
+              @click="switchTab('blog')"
               >Blog</a
             >
           </li>
-          <li>
-            <a :class="open.recipe ? 'active' : ''" @click="switchTab('recipe')"
-              >Recipe</a
-            >
-          </li>
-        </ul>
-        <ul v-else class="tabs">
           <li>
             <a
               :class="open.ingredients ? 'active' : ''"
@@ -84,11 +91,9 @@
           </li>
         </ul>
       </span>
-
+      <!-- body -->
       <transition-group
-        v-if="slotPassed"
         tag="div"
-        class="transition-group transition-all duration-1000"
         name="fade"
         :style="`${tabHeight > 0 ? `height: ${tabHeight}px;` : ''}`"
       >
@@ -99,32 +104,6 @@
         >
           <slot></slot>
         </div>
-        <div v-show="open.recipe" key="recipe" class="tab-content">
-          <h2 class="capitalize">{{ title }}</h2>
-          <h3>Ingredients</h3>
-          <ul>
-            <li
-              v-for="(ingredient, i) in ingredients"
-              :key="i"
-              itemprop="ingredients"
-            >
-              {{ ingredient }}
-            </li>
-          </ul>
-          <br />
-          <h3>Method</h3>
-          <ol>
-            <li
-              v-for="(step, i) in method"
-              :key="i"
-              itemprop="recipeInstructions"
-            >
-              {{ step }}
-            </li>
-          </ol>
-        </div>
-      </transition-group>
-      <transition-group v-else name="fade">
         <div v-show="open.ingredients" key="ingredients" class="tab-content">
           <h2>Ingredients</h2>
           <hr />
@@ -134,6 +113,7 @@
               :key="i"
               itemprop="ingredients"
             >
+              <meta itemprop="recipeIngredient" :content="ingredient" />
               {{ ingredient }}
             </li>
           </ul>
@@ -157,12 +137,25 @@
 </template>
 
 <script>
+import { duration } from "moment";
+
+function parseTime(readable) {
+  const parts = readable.split(" ");
+  console.log(parts);
+  if (parts.length === 1) {
+    return readable;
+  }
+  if (parts.length === 2) {
+    return duration(...parts).toISOString();
+  }
+  return "";
+}
+
 export default {
   name: "RecipeCard",
   data: () => ({
     open: {
       blog: false,
-      recipe: false,
       ingredients: false,
       method: false,
     },
@@ -170,7 +163,12 @@ export default {
   }),
   computed: {
     cookTime() {
-      return ((this.$frontmatter || {}).recipe || {}).cookTime || "";
+      return parseTime(((this.$frontmatter || {}).recipe || {}).cookTime || "");
+    },
+    totalTime() {
+      return parseTime(
+        ((this.$frontmatter || {}).recipe || {}).totalTime || this.cookTime
+      );
     },
     serves() {
       return ((this.$frontmatter || {}).recipe || {}).serves || "";
@@ -182,11 +180,25 @@ export default {
         ""
       );
     },
+    author() {
+      return (
+        ((this.$frontmatter || {}).recipe || {}).author ||
+        (this.$themeConfig || {}).author ||
+        ""
+      );
+    },
     description() {
       return (
         ((this.$frontmatter || {}).recipe || {}).description ||
         (this.$frontmatter || {}).description ||
         ""
+      );
+    },
+    categories() {
+      return (
+        ((this.$frontmatter || {}).recipe || {}).categories ||
+        (this.$frontmatter || {}).menu ||
+        []
       );
     },
     ingredients() {
@@ -207,7 +219,11 @@ export default {
     }
   },
   updated() {
-    this.tabHeight = this.$slots.default.reduce((acc, item) => acc + ((item.elm || {}).clientHeight || 0), 0);
+    const newTabHeight = this.$slots.default.reduce(
+      (acc, item) => acc + ((item.elm || {}).clientHeight || 0),
+      0
+    );
+    this.tabHeight = Math.max(this.tabHeight, newTabHeight);
   },
   methods: {
     switchTab(to) {
@@ -218,6 +234,9 @@ export default {
           this.open[k] = false;
         }
       });
+    },
+    humanizeDuration(iso) {
+      return duration(iso).humanize({ m: 60 });
     },
   },
 };
@@ -259,6 +278,7 @@ export default {
 
   .tabs {
     @apply: bg-accent-500 bg-opacity-90 sticky text-center top-0 py-2;
+    z-index: 1;
 
     li {
       @apply: inline list-none mr-4 font-semibold font-pompiere-regular;

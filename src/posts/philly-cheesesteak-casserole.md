@@ -13,7 +13,7 @@ image2: /assets/img/philly-cheesesteak-casserole/image2.jpg
 image2Alt: Philly Cheesesteak Casserole sitting on marble countertop with green hand towel and green pepper sitting next to a fork.
 summary: Philly Cheesesteak flavors in a delicious family friendly casserole. Cheese, beef, peppers, and cheese. Yes, there is a lot of cheese. Try it out.
 recipe:
-    cookTime: 40 mins
+    cookTime: 40 minutes
     serves: 6 - 8
     title: Philly Cheesesteak Casserole
     ingredients:

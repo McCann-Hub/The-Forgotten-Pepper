@@ -13,7 +13,7 @@ image2: /assets/img/one-pot-tuna-casserole/image2.jpg
 image2Alt: Tuna casserole sitting on blue hand towel next to fork and Dill crisps
 summary: This simple Tuna Casserole is Filling, Cheesy, and has a bright satisfying flavor and works well for a quick dinner, dish to pass, or leftovers!
 recipe:
-    cookTime: 20 mins
+    cookTime: 20 minutes
     serves: 6 - 8
     title: One Pot Tuna Casserole
     ingredients:

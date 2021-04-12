@@ -13,7 +13,7 @@ image2: /assets/img/gyro-lasagna/image2.jpg
 image2Alt: Top view of gyro Lasagna plated with green onion sprigs on gray plate
 summary: Gyro Lasagna is full of perfectly seasoned meat, cheese, and more cheese. STACKED!! When you take a bite, it is the perfect mouthful in perfect proportions. It’s ooey gooey goodness.
 recipe:
-    cookTime: 45 mins
+    cookTime: PT45M
     serves: 6 - 8
     title: Gyro Lasagna
     ingredients:
