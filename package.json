@@ -15,7 +15,7 @@
     "vue": "^2.6.11"
   },
   "devDependencies": {
-    "@mccann-hub/vuepress-theme-blog": "git+https://github.com/McCann-Hub/vuepress-theme-blog.git#v1.3.4",
+    "@mccann-hub/vuepress-theme-blog": "git+https://github.com/McCann-Hub/vuepress-theme-blog.git#v1.4.0",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
