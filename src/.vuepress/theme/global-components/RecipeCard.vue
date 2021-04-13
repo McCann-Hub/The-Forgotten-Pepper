@@ -141,7 +141,6 @@ import { duration } from "moment";
 
 function parseTime(readable) {
   const parts = readable.split(" ");
-  console.log(parts);
   if (parts.length === 1) {
     return readable;
   }
