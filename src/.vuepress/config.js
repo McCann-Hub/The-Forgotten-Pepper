@@ -4,7 +4,8 @@ const colors = require('tailwindcss/colors');
 module.exports = {
   dest: './dist',
   title: 'The Forgotten Pepper',
-  description: 'A Vuepress powered blog',
+  description:
+    'Recipes geared towards feeding your family while using ingredients you might have forgotten to use right away, or new ingredients you’ve been figuring out how to prepare.',
   themeConfig: {
     domain: 'https://theforgottenpepper.com',
     author: 'Mrs. Mhm',
