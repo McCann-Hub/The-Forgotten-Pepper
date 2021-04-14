@@ -168,7 +168,7 @@ module.exports = {
       themeColor: '#90A93E',
     },
     bugUrl: 'https://github.com/McCann-Hub/The-Forgotten-Pepper/issues',
-    imagemin: false,
+    //imagemin: false,
   },
   configureWebpack: {
     resolve: {
