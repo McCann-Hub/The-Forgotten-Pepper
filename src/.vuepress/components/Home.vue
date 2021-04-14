@@ -115,22 +115,23 @@ export default {
         fetch(
           `https://widgets.pinterest.com/v1/urls/count.json?callback=_&url=${this.$themeConfig.domain}${p.path}`
         )
+          .then((r) => {
+            return r.text();
+          })
+          .then((b) => {
+            const json = JSON.parse(b.slice(2, b.length - 1));
+            self.posts.push({
+              ...p,
+              ...{
+                pinterestCount:
+                  json.count || Math.floor(Math.random() * Math.floor(100)),
+              },
+            });
+          })
       )
-    )
-      .then((results) => {
-        return Promise.all(results.map((r) => r.text()));
-      })
-      .then((bodies) => {
-        bodies.forEach((b, i) => {
-          const json = JSON.parse(b.slice(2, b.length - 1));
-          //self.posts.push({ ...posts[i], ...{ pinterestCount: json.count } });
-          self.posts.push({
-            ...posts[i],
-            ...{ pinterestCount: Math.floor(Math.random() * Math.floor(100)) },
-          });
-        });
-        this.loadMore();
-      });
+    ).then(() => {
+      self.loadMore();
+    });
   },
   mounted() {
     this.switchTab(localStorage.getItem("defaultPostList") || "newPosts");
@@ -162,7 +163,7 @@ export default {
         );
         self.displayByPopular.push(...nextPageOfPopular);
         self.busy = false;
-      }, 1000);
+      }, 500);
     },
   },
 };
