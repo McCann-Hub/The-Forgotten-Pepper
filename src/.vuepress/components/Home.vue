@@ -177,6 +177,7 @@ export default {
 
     .tabs {
       @apply: bg-accent-500 bg-opacity-90 sticky text-center top-0;
+      z-index: 1;
 
       li {
         @apply: inline list-none mr-4 font-semibold font-pompiere-regular;
