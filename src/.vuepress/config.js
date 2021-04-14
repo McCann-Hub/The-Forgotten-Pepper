@@ -6,6 +6,16 @@ module.exports = {
   title: 'The Forgotten Pepper',
   description:
     'Recipes geared towards feeding your family while using ingredients you might have forgotten to use right away, or new ingredients you’ve been figuring out how to prepare.',
+  head: [
+    [
+      'script',
+      {
+        'data-ad-client': 'ca-pub-3040760297930263',
+        async: true,
+        src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js',
+      },
+    ],
+  ],
   themeConfig: {
     domain: 'https://theforgottenpepper.com',
     author: 'Mrs. Mhm',

@@ -5,12 +5,5 @@ export default ({
   siteData, // site metadata
   isServer, // is this enhancement applied in server-rendering or client
 }) => {
-  if (process.env.NODE_ENV === 'production' && typeof window !== 'undefined') {
-    const adsense = document.createElement('script');
-    adsense.setAttribute('data-ad-client', 'ca-pub-3040760297930263');
-    adsense.async = true;
-    adsense.src =
-      'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
-    document.head.appendChild(adsense);
-  }
+  // ...apply enhancements to the app
 };
