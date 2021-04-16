@@ -70,54 +70,55 @@ module.exports = {
         text: 'Pintrest',
       },
     ],
-    directories: [
-      {
-        id: 'post',
-        dirname: 'posts',
-        path: '/post/',
-        itemPermalink: '/post/:year/:month/:day/:slug',
-      },
-    ],
-    indexPostCardOrientation: 'vertical',
-    frontmatters: [
-      {
-        /* Unique ID of current classification */
-        id: 'ingredient',
-        /* Decide that the frontmatter keys will be grouped under this classification */
-        keys: ['ingredient', 'ingredients'],
-        /* Path of the `entry page` (or `list page`) */
-        path: '/ingredient/',
-        /* Layout of the `entry page` */
-        //layout: 'Ingredients',
-        /* Layout of the `scope page` */
-        scopeLayout: 'Ingredient',
-        select: {
-          label: 'Recipes with...',
-          multiple: true,
+    blog: {
+      directories: [
+        {
+          id: 'post',
+          dirname: 'posts',
+          path: '/post/',
+          itemPermalink: '/post/:year/:month/:day/:slug',
         },
+      ],
+      frontmatters: [
+        {
+          /* Unique ID of current classification */
+          id: 'ingredient',
+          /* Decide that the frontmatter keys will be grouped under this classification */
+          keys: ['ingredient', 'ingredients'],
+          /* Path of the `entry page` (or `list page`) */
+          path: '/ingredient/',
+          /* Layout of the `entry page` */
+          //layout: 'Ingredients',
+          /* Layout of the `scope page` */
+          scopeLayout: 'Ingredient',
+          select: {
+            label: 'Recipes with...',
+            multiple: true,
+          },
+        },
+        {
+          /* Unique ID of current classification */
+          id: 'recipe',
+          /* Dcide that the frontmatter keys will be grouped under this classification */
+          keys: ['menu'],
+          /* Path of the `entry page` (or `list page`) */
+          path: '/recipe/',
+          /* Layout of the `entry page` */
+          //layout: 'Recipes',
+          /* Layout of the `scope page` */
+          //scopeLayout: 'Recipe'
+        },
+      ],
+      sitemap: {
+        hostname: 'https://theforgottenpepper.com',
       },
-      {
-        /* Unique ID of current classification */
-        id: 'recipe',
-        /* Dcide that the frontmatter keys will be grouped under this classification */
-        keys: ['menu'],
-        /* Path of the `entry page` (or `list page`) */
-        path: '/recipe/',
-        /* Layout of the `entry page` */
-        //layout: 'Recipes',
-        /* Layout of the `scope page` */
-        //scopeLayout: 'Recipe'
+      feed: {
+        canonical_base: 'https://theforgottenpepper.com',
       },
-    ],
+    },
     seo: {
       tags: ($page) =>
         $page.frontmatter.ingredients || [$page.frontmatter.ingredient],
-    },
-    sitemap: {
-      hostname: 'https://theforgottenpepper.com',
-    },
-    feed: {
-      canonical_base: 'https://theforgottenpepper.com',
     },
     tailwind: {
       theme: {
@@ -168,7 +169,9 @@ module.exports = {
         },
       },
     },
-    ga: 'G-KWJZ6BY65J',
+    gtag:{
+      ga: 'G-KWJZ6BY65J',
+    },
     remarkbox: {
       ownerKey: 'fa12be11-9a74-11eb-9926-040140774501',
     },
