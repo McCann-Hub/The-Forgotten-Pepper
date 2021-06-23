@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+Sitemap: https:/theforgottenpepper.com/sitemap.xml
+Host: https://theforgottenpepper.com
