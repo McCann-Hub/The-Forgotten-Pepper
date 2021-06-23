@@ -19,7 +19,7 @@ module.exports = {
   themeConfig: {
     domain: 'https://theforgottenpepper.com',
     author: 'Mrs. Mhm',
-    image: '/logo.webp',
+    image: '/logo.png',
     logo: 'forgotten-pepper',
     privacyPolicy: '/privacy',
     cookiePolicy: '/privacy#cookies-and-web-beacons-bacons',
